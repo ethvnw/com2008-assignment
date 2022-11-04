@@ -13,12 +13,15 @@ public class DBDriver {
     public static void main(String[] args) {
         System.out.println("Connecting...");
 
-        try {
-            Connection con = DriverManager.getConnection(URL+DBNAME, USER, PASSWORD);
-            con.close();
+        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+
+            CreateTables.createTables(con);
+
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
-
 }
+
+
+
