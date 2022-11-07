@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="assignment.BuildABike">
+  <grid id="27dc6" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="812" height="697"/>
+    </constraints>
+    <properties>
+      <background color="-5985349"/>
+      <enabled value="true"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="f5ae2" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="East"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="ec4d" class="javax.swing.JLabel">
+            <constraints border-constraint="North"/>
+            <properties>
+              <background color="-5985349"/>
+              <font name="Dubai" size="28" style="1"/>
+              <foreground color="-10777357"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <text value="             Order            "/>
+            </properties>
+          </component>
+          <component id="a46d7" class="javax.swing.JButton" binding="submitOrderButton" default-binding="true">
+            <constraints border-constraint="South"/>
+            <properties>
+              <font name="Bahnschrift" size="16" style="1"/>
+              <text value="Submit Order"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="3945c" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a82dd" class="javax.swing.JLabel">
+            <constraints border-constraint="North"/>
+            <properties>
+              <background color="-5985349"/>
+              <font name="Dubai" size="28" style="1"/>
+              <foreground color="-10777357"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Step 1"/>
+            </properties>
+          </component>
+          <component id="6f5ed" class="javax.swing.JButton" binding="nextStepButton" default-binding="true">
+            <constraints border-constraint="South"/>
+            <properties>
+              <font name="Bahnschrift" size="16" style="1"/>
+              <text value="Next Step"/>
+            </properties>
+          </component>
+          <grid id="90b19" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <scrollpane id="f5ee5">
+                <constraints border-constraint="West"/>
+                <properties>
+                  <horizontalScrollBarPolicy value="31"/>
+                </properties>
+                <border type="none"/>
+                <children>
+                  <component id="bae25" class="javax.swing.JList" binding="list1" default-binding="true">
+                    <constraints/>
+                    <properties>
+                      <font size="20"/>
+                      <model>
+                        <item value="frameset 1"/>
+                        <item value="frameset 2"/>
+                        <item value="frameset 3"/>
+                        <item value="frameset 4"/>
+                        <item value="frameset 5"/>
+                        <item value="frameset 6"/>
+                        <item value="frameset 7"/>
+                        <item value="frameset 8"/>
+                        <item value="frameset 9"/>
+                        <item value="frameset 10"/>
+                        <item value="frameset 11"/>
+                        <item value="frameset 12"/>
+                        <item value="frameset 13"/>
+                        <item value="frameset 14"/>
+                        <item value="frameset 15"/>
+                        <item value="frameset 16"/>
+                      </model>
+                      <selectionMode value="0"/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+              <scrollpane id="16233">
+                <constraints border-constraint="Center"/>
+                <properties/>
+                <border type="none"/>
+                <children>
+                  <component id="ff017" class="javax.swing.JTextPane" binding="displayPartInfo">
+                    <constraints/>
+                    <properties>
+                      <editable value="false"/>
+                      <text value=""/>
+                    </properties>
+                  </component>
+                </children>
+              </scrollpane>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="17b7c" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="6a410" class="javax.swing.JLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="-5985349"/>
+              <font name="Dubai" size="30" style="1"/>
+              <foreground color="-10777357"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Build-a-Bike"/>
+            </properties>
+          </component>
+          <grid id="a2df3" layout-manager="GridLayoutManager" row-count="2" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+            <margin top="0" left="0" bottom="0" right="0"/>
+            <constraints border-constraint="East"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="48917" class="javax.swing.JButton" binding="logInButton" default-binding="true">
+                <constraints>
+                  <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="Log In"/>
+                </properties>
+              </component>
+              <component id="b32f4" class="javax.swing.JButton" binding="viewOrdersButton">
+                <constraints>
+                  <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+                </constraints>
+                <properties>
+                  <text value="View Orders"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
