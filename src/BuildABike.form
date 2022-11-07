@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="BuildABike">
+  <grid id="27dc6" layout-manager="BorderLayout" hgap="0" vgap="0">
+    <constraints>
+      <xy x="20" y="20" width="874" height="636"/>
+    </constraints>
+    <properties>
+      <background color="-5985349"/>
+      <enabled value="true"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="f5ae2" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="East"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <grid id="2e517" layout-manager="BorderLayout" hgap="0" vgap="0">
+            <constraints border-constraint="Center"/>
+            <properties/>
+            <border type="none"/>
+            <children>
+              <component id="ec4d" class="javax.swing.JLabel">
+                <constraints border-constraint="First"/>
+                <properties>
+                  <background color="-5985349"/>
+                  <font name="Dubai" size="28" style="1"/>
+                  <foreground color="-10777357"/>
+                  <horizontalAlignment value="0"/>
+                  <horizontalTextPosition value="0"/>
+                  <text value="             Order            "/>
+                </properties>
+              </component>
+              <component id="a46d7" class="javax.swing.JButton" binding="submitOrderButton" default-binding="true">
+                <constraints border-constraint="Last"/>
+                <properties>
+                  <font name="Bahnschrift" size="16" style="1"/>
+                  <text value="Submit Order"/>
+                </properties>
+              </component>
+              <component id="b271" class="javax.swing.JTextPane" binding="orderItemsList">
+                <constraints border-constraint="Center"/>
+                <properties>
+                  <font size="16"/>
+                  <text value="item 1: wheels £20&#10;item 2: handlebar £10.74&#10;"/>
+                </properties>
+              </component>
+            </children>
+          </grid>
+        </children>
+      </grid>
+      <grid id="3945c" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="Center"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="a82dd" class="javax.swing.JLabel">
+            <constraints border-constraint="First"/>
+            <properties>
+              <background color="-5985349"/>
+              <font name="Dubai" size="28" style="1"/>
+              <foreground color="-10777357"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Step 1"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="17b7c" layout-manager="BorderLayout" hgap="0" vgap="0">
+        <constraints border-constraint="North"/>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="6a410" class="javax.swing.JLabel">
+            <constraints border-constraint="Center"/>
+            <properties>
+              <background color="-5985349"/>
+              <font name="Dubai" size="30" style="1"/>
+              <foreground color="-10777357"/>
+              <horizontalAlignment value="0"/>
+              <horizontalTextPosition value="0"/>
+              <text value="Build-a-Bike"/>
+            </properties>
+          </component>
+          <component id="48917" class="javax.swing.JButton" binding="logInButton" default-binding="true">
+            <constraints border-constraint="East"/>
+            <properties>
+              <text value="Log In"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+    </children>
+  </grid>
+</form>
