@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Initial setup">
-      <change afterPath="$PROJECT_DIR$/src/assignment/Address.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/BuildABike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/BuildABike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/BuildABike.form" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/BuildABike.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/customerForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +120,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Initial setup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial setup" />
+    <MESSAGE value="Customer Details Page Initial Setup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Customer Details Page Initial Setup" />
   </component>
 </project>
