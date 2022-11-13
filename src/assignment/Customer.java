@@ -1,7 +1,6 @@
 package assignment;
 
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class Customer {
     private int customerID;
@@ -50,11 +49,32 @@ public class Customer {
     }
 
 
-//    public void getAddress() throws SQLException {
-//
-//        this.address = Address.findAddress(this.houseNum, this.postcode);
-//
-//    }
+    public Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
+        Address add = Address.findAddress(houseNum, postcode);
+        String query = "SELECT * FROM customer WHERE forename = \"" + forename +"\", "+
+                        "surname = \"" + surname +"\" ,houseNum = \"" + add.houseNum + "\" ," +
+                        "postcode = \"" + add.postcode + "\";";
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+
+            ResultSet res = stmt.executeQuery(query);
+
+            while (res.next()) {
+                return new Customer(res.getInt("customerID"),
+                                    res.getString("forename"),
+                                    res.getString("surname"),
+                                    add);
+            }
+
+            res.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
 
 
 
