@@ -27,9 +27,9 @@ public class Customer {
     public boolean createCustomer(){
 
         String query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
-                        "VALUES ("+ this.forename +", "+
-                                this.surname +", " + this.address.houseNum + ", " +
-                                this.address.postcode + ");";
+                        "VALUES (\""+ this.forename +"\", \""+
+                                this.surname +"\", \"" + this.address.houseNum + "\", \"" +
+                                this.address.postcode + "\");";
 
         DBDriver.processInsertQuery(query);
         return false;
@@ -50,12 +50,11 @@ public class Customer {
     }
 
 
-    public void getAddress() throws SQLException {
-
+//    public void getAddress() throws SQLException {
+//
 //        this.address = Address.findAddress(this.houseNum, this.postcode);
-
-    }
-//    public void getAddress(){}
+//
+//    }
 
 
 
