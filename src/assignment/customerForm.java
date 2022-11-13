@@ -3,6 +3,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.border.TitledBorder;
+import java.sql.SQLException;
 
 public class customerForm extends JFrame implements ActionListener {
     private JTextField tfForename, tfSurname, tfHouseNo, tfRoadName, tfCityName, tfPostcode;
@@ -20,14 +22,12 @@ public class customerForm extends JFrame implements ActionListener {
 
         //Creating the middle panel (Left)
         JPanel panelLeft = new JPanel(); // the panel is not visible in output
-        JLabel labelLeft = new JLabel("Customer Details");
-        //panelLeft.add(labelLeft); // Components Added using Flow Layout
         panelLeft.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        String title = "A titled border";
+        TitledBorder border= BorderFactory.createTitledBorder("Customer Details");
+        panelLeft.setBorder(border);
 
-        JPanel labels = new JPanel(new GridLayout(0,1));
-        JPanel controls = new JPanel(new GridLayout(0,1));
-        panelLeft.add(labels, BorderLayout.WEST);
-        panelLeft.add(controls, BorderLayout.CENTER);
+        JPanel labels = new JPanel();
 
         tfForename = new JTextField(10); // accepts upto 10 characters
         tfSurname = new JTextField(10); // accepts upto 10 characters
@@ -36,19 +36,24 @@ public class customerForm extends JFrame implements ActionListener {
         tfCityName = new JTextField(10); // accepts upto 10 characters
         tfPostcode = new JTextField(10); // accepts upto 10 characters
 
+        GridLayout gb = new GridLayout(6, 2);
+        labels.setLayout(gb);
 
         labels.add(new JLabel("Forename: ", SwingConstants.LEFT));
-        controls.add(tfForename);
+        labels.add(tfForename);
         labels.add(new JLabel("Surname: ", SwingConstants.LEFT));
-        controls.add(tfSurname);
+        labels.add(tfSurname);
         labels.add(new JLabel("House No: ", SwingConstants.LEFT));
-        controls.add(tfHouseNo);
+        labels.add(tfHouseNo);
         labels.add(new JLabel("Road Name: ", SwingConstants.LEFT));
-        controls.add(tfRoadName);
+        labels.add(tfRoadName);
         labels.add(new JLabel("City Name: ", SwingConstants.LEFT));
-        controls.add(tfCityName);
+        labels.add(tfCityName);
         labels.add(new JLabel("Postcode: ", SwingConstants.LEFT));
-        controls.add(tfPostcode);
+        labels.add(tfPostcode);
+
+
+        panelLeft.add(labels, BorderLayout.WEST);
 
         //Creating the middle panel (Right)
         JPanel panelRight = new JPanel(); // the panel is not visible in output
@@ -70,15 +75,29 @@ public class customerForm extends JFrame implements ActionListener {
         frame.getContentPane().add(BorderLayout.SOUTH, panelBottom);
         frame.getContentPane().add(BorderLayout.NORTH, panelTop);
         frame.getContentPane().add(BorderLayout.CENTER, splitPane);
-
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-        new customerForm().setVisible(true);
+        new customerForm();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        Address add = new Address(this.tfHouseNo.getText().toString(),
+                this.tfRoadName.getText().toString(),
+                this.tfCityName.getText().toString(),
+                this.tfPostcode.getText().toString());
 
+        Customer newCus = null;
+        try {
+            add.createAddress();
+            newCus = new Customer(this.tfForename.getText().toString(),
+                    this.tfSurname.getText().toString(),
+                    add);
+        } catch (SQLException ex) {
+            throw new RuntimeException(ex);
+        }
+        newCus.createCustomer();
     }
 }
