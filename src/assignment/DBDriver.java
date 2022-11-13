@@ -1,8 +1,6 @@
 package assignment;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 
 public class DBDriver {
     static String URL = "jdbc:mysql://stusql.dcs.shef.ac.uk/";
@@ -15,12 +13,39 @@ public class DBDriver {
 
         try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
 
-            CreateTables.createTables(con);
+//            CreateTables.createTables(con);
 
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
     }
+
+    public static void processInsertQuery(String query) {
+        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+            stmt.execute(query);
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+
+    public static ResultSet processGetOutput(String query) {
+        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            return res;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+
 }
 
 
