@@ -3,18 +3,23 @@ package assignment.dbconnection;
 /** For enabling connection between database and models.
  * @author Vivek V Choradia
  * @version 2.0
- * @lastUpdated 14-11-2022 14:42
+ * @lastUpdated 14-11-2022 14:45
  */
 
 import java.sql.*;
 
 public class DBDriver {
-    public static final String URL = System.getenv("DB_URL");
-    public static final String DBNAME = System.getenv("DB_NAME");
-    public static final String USER = System.getenv("DB_USER");
-    public static final String PASSWORD = System.getenv("DB_PASSWORD");
+    public static final String URL = "jdbc:mysql://stusql.dcs.shef.ac.uk/";
+    public static final String DBNAME = "team001";
+    public static final String USER = "team001";
+    public static final String PASSWORD = "3314b4b3";
 
 
+    /**
+     * Takes a string query to execute only for queries which returns nothing.
+     * Example - INSERT, UPDATE
+     * @param query Query to be executed.
+     */
     public static void processQuery(String query) {
         try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
 

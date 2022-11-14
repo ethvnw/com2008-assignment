@@ -3,7 +3,7 @@ package assignment.models;
 /** Represents an order.
  * @author Vivek V Choradia
  * @version 2.0
- * @lastUpdated 14-11-2022 14:42
+ * @lastUpdated 14-11-2022 15:33
  */
 
 import assignment.dbconnection.DBDriver;
@@ -17,7 +17,7 @@ public class Order {
     private int orderID;
     private String date;
     private String status;
-    private int staffID;
+    private String assigned_Staff;
     private int customerID;
     private int bikeID;
 
@@ -41,16 +41,16 @@ public class Order {
      * @param status current status
      * @param date date of order
      * @param bikeID Bike ID
-     * @param staffID Assigned staff's ID
+     * @param assigned_Staff Assigned staff's ID
      * @param customerID Customer ID
      */
-    public Order(int orderID, String status, String date, int bikeID, int staffID, int customerID) {
+    public Order(int orderID, String status, String date, int bikeID, String assigned_Staff, int customerID) {
         this.orderID = orderID;
         this.date = date;
         this.customerID = customerID;
         this.bikeID = bikeID;
         this.status = status;
-        this.staffID = staffID;
+        this.assigned_Staff = assigned_Staff;
     }
 
     /**
@@ -65,10 +65,10 @@ public class Order {
 
     /**
      * Assigns a staff to complete the order
-     * @param staffID Staff's ID who is to be assigned.
+     * @param assigned_Staff Staff's ID who is to be assigned.
      */
-    public void assignStaff(int staffID) {
-        this.staffID = staffID;
+    public void assignStaff(String assigned_Staff) {
+        this.assigned_Staff = assigned_Staff;
         updateOrder();
     }
 
@@ -137,7 +137,7 @@ public class Order {
                         res.getString("status"),
                         res.getString("date"),
                         res.getInt("bikeId"),
-                        res.getInt("staffId"),
+                        res.getString("assigned_Staff"),
                         res.getInt("customerId")
                 );
             }
@@ -161,7 +161,7 @@ public class Order {
                         "SET date = \"" + this.date + "\", " +
                         "status = \"" + this.status + "\", " +
                         "customerId = \"" + this.customerID +"\", " +
-                        "staffId = \"" + this.staffID +"\", " +
+                        "assigned_Staff = \"" + this.assigned_Staff +"\", " +
                         "bikeId = \"" + this.bikeID +"\"  " +
                         "WHERE orderID = " + this.orderID + ";";
         DBDriver.processQuery(query);
@@ -189,7 +189,7 @@ public class Order {
                         res.getString("status"),
                         res.getString("date"),
                         res.getInt("bikeId"),
-                        res.getInt("staffId"),
+                        res.getString("assigned_Staff"),
                         res.getInt("customerId")
                 );
 

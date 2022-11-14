@@ -20,8 +20,8 @@ import java.util.Base64;
 
 public class AES_ENCRYPTION {
     private SecretKey key;
-    private final int KEY_SIZE = 40;
-    private final int DATA_LENGTH = 40;
+    private final int KEY_SIZE = 128;
+    private final int DATA_LENGTH = 128;
     private Cipher encryptionCipher;
 
     public void init() throws Exception {
@@ -42,7 +42,7 @@ public class AES_ENCRYPTION {
     public String decrypt(String encryptedData) throws Exception {
         byte[] dataInBytes = decode(encryptedData);
         Cipher decryptionCipher = Cipher.getInstance("AES/GCM/NoPadding");
-        GCMParameterSpec spec = new GCMParameterSpec(DATA_LENGTH, encryptionCipher.getIV());
+        GCMParameterSpec spec = new GCMParameterSpec(DATA_LENGTH, decryptionCipher.getIV());
         decryptionCipher.init(Cipher.DECRYPT_MODE, key, spec);
         byte[] decryptedBytes = decryptionCipher.doFinal(dataInBytes);
 
