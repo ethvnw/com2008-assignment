@@ -1,24 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added Javadoc">
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Gui driver function update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/AES_ENCRYPTION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/CreateTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Wheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/CustomerForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +26,7 @@
   </component>
   <component name="ProjectId" id="2Gu5Yczr87nT9Hqp6Qy3VM6oIp5" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <OptionsSetting value="false" id="Update" />
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -156,7 +143,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668423356122</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Gui driver function update">
+      <created>1668442840440</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668442840440</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,17 +176,7 @@
     <MESSAGE value="Added Encyption file and Staff.java. Updated Bike.java and BikeComponent.java." />
     <MESSAGE value="added login()" />
     <MESSAGE value="Added Javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/assignment/graphics/GuiMain.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Gui driver function update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Gui driver function update" />
   </component>
 </project>

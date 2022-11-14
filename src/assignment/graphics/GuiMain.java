@@ -1,7 +1,7 @@
 /** GUI main handler.
  * @author Ethan Watts
- * @version 1.0
- * @lastUpdated 13-11-2022 23:19
+ * @version 1.1
+ * @lastUpdated 14-11-2022 16:39
  */
 
 package assignment.graphics;
@@ -46,7 +46,6 @@ public class GuiMain extends JFrame {
             layout.next(mainPanel);
         });
 
-//        layout.set
         getContentPane().add(mainPanel, BorderLayout.NORTH);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         ////////////////////////////////////////////////////////////////////////////
