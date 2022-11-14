@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.TitledBorder;
 
-public class CustomerFormPanel extends JPanel{
+public class CustomerFormPanel extends JPanel {
     private final JTextField tfForename;
     private final JTextField tfSurname;
     private final JTextField tfHouseNo;

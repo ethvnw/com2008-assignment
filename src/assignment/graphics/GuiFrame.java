@@ -43,7 +43,17 @@ public class GuiFrame extends JFrame {
 
         // Panels for each page
         CustomerFormPanel cForm = new CustomerFormPanel();
-        mainPanel.add(cForm, "cForm");
+        mainPanel.add(cForm);
+        CustomerLoginPanel customerLogin = new CustomerLoginPanel();
+        mainPanel.add(customerLogin);
+        CustomerDashboardPanel customerDashboard = new CustomerDashboardPanel();
+        mainPanel.add(customerDashboard);
+        BikeCreationPanel bikeCreation = new BikeCreationPanel();
+        mainPanel.add(bikeCreation);
+        StaffLoginPanel staffLogin = new StaffLoginPanel();
+        mainPanel.add(staffLogin);
+        StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
+        mainPanel.add(staffDashboard);
 
         // TESTING /////////////////////////////////////////////////////////////
         JPanel testPanel = new JPanel();

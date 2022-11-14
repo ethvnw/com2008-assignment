@@ -8,9 +8,9 @@ package assignment.graphics;
 
 import javax.swing.*;
 
-public class StaffLoginPanel extends JPanel {
+public class StaffDashboardPanel extends JPanel {
 
-    public StaffLoginPanel() {
+    StaffDashboardPanel() {
 
     }
 }
