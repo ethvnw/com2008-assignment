@@ -7,6 +7,7 @@ package assignment.graphics;
  */
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.io.Serial;
 
@@ -21,35 +22,32 @@ public class GuiMain extends JFrame {
         CardLayout layout = new CardLayout();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setVisible(true);
-        setSize(screenSize.width/4, screenSize.height/4);
+        setSize(screenSize.width/2, screenSize.height/2);
 
         // Parent panel that all other panels are a part of
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(layout);
 
+        // Panels for each page
+        CustomerForm cForm = new CustomerForm();
+        mainPanel.add(cForm, "cForm");
+
         // TESTING /////////////////////////////////////////////////////////////
-        JPanel testPanel1 = new JPanel();
-        testPanel1.add(new JLabel("Test 1"));
-        JPanel testPanel2 = new JPanel();
-        testPanel2.add(new JLabel("Test 2"));
-        JPanel testPanel3 = new JPanel();
-        testPanel3.add(new JLabel("Test 3"));
+        JPanel testPanel = new JPanel();
+        testPanel.add(new JTextField("Test Test Test Test Test Test Test Test "));
+        mainPanel.add(testPanel, "tPanel");
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(new JLabel("Buttons"));
-
-        mainPanel.add(testPanel1, "1");
-        mainPanel.add(testPanel2, "2");
-        mainPanel.add(testPanel3, "3");
 
         JButton testButton = new JButton("Test");
         buttonPanel.add(testButton);
 
         testButton.addActionListener(e -> {
-            layout.show(mainPanel,"3");
-            // layout.next(mainPanel);
+            layout.next(mainPanel);
         });
 
+//        layout.set
         getContentPane().add(mainPanel, BorderLayout.NORTH);
         getContentPane().add(buttonPanel, BorderLayout.SOUTH);
         ////////////////////////////////////////////////////////////////////////////
