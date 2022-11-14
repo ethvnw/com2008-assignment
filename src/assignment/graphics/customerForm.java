@@ -34,14 +34,14 @@ public class customerForm extends JFrame implements ActionListener {
         //Creating the top panel
         JPanel panelTop = new JPanel(); // the panel is not visible in output
         JLabel labelTop = new JLabel("Build - a Bike");
+        labelTop.setFont(new Font("Serif", Font.PLAIN, 20));
         panelTop.add(labelTop); // Components Added using Flow Layout
 
         //Creating the middle panel (Left)
         JPanel panelLeft = new JPanel(); // the panel is not visible in output
         panelLeft.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        String title = "A titled border";
-        TitledBorder border= BorderFactory.createTitledBorder("Customer Details");
-        panelLeft.setBorder(border);
+        TitledBorder borderLeft = BorderFactory.createTitledBorder("Customer Details");
+        panelLeft.setBorder(borderLeft);
 
         JPanel labels = new JPanel();
 
@@ -68,14 +68,13 @@ public class customerForm extends JFrame implements ActionListener {
         labels.add(new JLabel("Postcode: ", SwingConstants.LEFT));
         labels.add(tfPostcode);
 
-
         panelLeft.add(labels, BorderLayout.WEST);
 
         //Creating the middle panel (Right)
         JPanel panelRight = new JPanel(); // the panel is not visible in output
-        JLabel labelTwo = new JLabel("Order");
-        panelRight.add(labelTwo); // Components Added using Flow Layout
         panelRight.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        TitledBorder borderRight= BorderFactory.createTitledBorder("Order Details");
+        panelRight.setBorder(borderRight);
 
         //Split middle panel into two
         JSplitPane splitPane = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, panelLeft, panelRight);
