@@ -9,6 +9,8 @@ package assignment.models;
 import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Customer {
     private int customerID;
@@ -38,7 +40,7 @@ public class Customer {
                                 this.surname +"\", \"" + this.address.houseNum + "\", \"" +
                                 this.address.postcode + "\");";
 
-        DBDriver.processInsertQuery(query);
+        DBDriver.processQuery(query);
         return false;
     }
 
@@ -57,6 +59,15 @@ public class Customer {
     }
 
 
+    /**
+     * To get a customer (only when we call
+     * @param forename
+     * @param surname
+     * @param houseNum
+     * @param postcode
+     * @return
+     * @throws SQLException
+     */
     public Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
         Address add = Address.findAddress(houseNum, postcode);
         String query = "SELECT * FROM customer WHERE forename = \"" + forename +"\", "+
@@ -84,7 +95,43 @@ public class Customer {
         return null;
     }
 
+    /**
+     * To get a list of all customers
+     * @return List of all Customers
+     */
+    public List<Customer> getAllCustomers() {
+        List<Customer> customers = new ArrayList<Customer>();
 
+        String query = "SELECT * FROM customer;";
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+
+            ResultSet res = stmt.executeQuery(query);
+
+            while (res.next()) {
+                Address add = Address.findAddress(
+                        res.getString("houseNum"),
+                        res.getString("postcode")
+                );
+                Customer c = new Customer(
+                        res.getInt(1),
+                        res.getString(2),
+                        res.getString(3),
+                        add
+                );
+                customers.add(c);
+            }
+            res.close();
+            return customers;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
 
 
 
