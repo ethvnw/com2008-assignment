@@ -32,14 +32,7 @@ public class Order {
         String query = "INSERT INTO order(date, customerID, bikeID, status)" +
                 "VALUES(\""+this.date+"\", \"" + this.customerID +"\", \"" + this.bikeID + "\", \"" + this.status +"\")";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-
-            Statement stmt = con.createStatement();
-            stmt.execute(query);
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+        DBDriver.processInsertQuery(query);
     }
 
     public void assignStaff(int staffID) {
@@ -59,8 +52,7 @@ public class Order {
             ResultSet res = stmt.executeQuery(query);
 
             while(res.next()) {
-                String status = res.getString("status");
-                return status;
+                return res.getString("status");
             }
 
             return null;
@@ -87,7 +79,8 @@ public class Order {
             ResultSet res = stmt.executeQuery(query);
 
             while(res.next()) {
-                Order ord = new Order(
+
+                return new Order(
                         res.getInt("orderId"),
                         res.getString("status"),
                         res.getString("date"),
@@ -95,8 +88,6 @@ public class Order {
                         res.getInt("staffId"),
                         res.getInt("customerId")
                 );
-
-                return ord;
             }
 
             return null;
