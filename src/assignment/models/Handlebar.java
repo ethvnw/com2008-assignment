@@ -1,4 +1,6 @@
-package assignment;
+package assignment.models;
+
+import assignment.models.BikeComponent;
 
 /** Represents a Handlebar component (inherited from BikeComponent).
  * @author Vivek V Choradia
@@ -6,7 +8,7 @@ package assignment;
  * @lastUpdated 14-11-2022 10:44
  */
 
-public class Handlebar extends BikeComponent{
+public class Handlebar extends BikeComponent {
 
     private String type;
     public Handlebar(int handlebarSerial, String handlebarBrand) {

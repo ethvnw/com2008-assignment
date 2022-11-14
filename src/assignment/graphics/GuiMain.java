@@ -1,4 +1,4 @@
-package assignment;
+package assignment.graphics;
 
 /** GUI main handler.
  * @author Ethan Watts

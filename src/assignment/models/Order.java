@@ -1,10 +1,12 @@
-package assignment;
+package assignment.models;
 
 /** Represents an order.
  * @author Vivek V Choradia
  * @version 1.0
  * @lastUpdated 14-11-2022 10:40
  */
+
+import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
 

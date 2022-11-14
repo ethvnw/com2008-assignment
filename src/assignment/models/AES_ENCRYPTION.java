@@ -1,4 +1,4 @@
-package assignment;
+package assignment.models;
 
 /** To process Encryption/Decryption for staff login.
  * @author Vivek V Choradia

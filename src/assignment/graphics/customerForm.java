@@ -1,4 +1,4 @@
-package assignment;
+package assignment.graphics;
 
 /** Customer Form page where asking for customer details before processing payment.
  * @author Han Weixiang
@@ -6,6 +6,9 @@ package assignment;
  * @lastUpdated 13-11-2022 21:43
  */
 
+
+import assignment.models.Address;
+import assignment.models.Customer;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +18,12 @@ import javax.swing.border.TitledBorder;
 import java.sql.SQLException;
 
 public class customerForm extends JFrame implements ActionListener {
-    private JTextField tfForename, tfSurname, tfHouseNo, tfRoadName, tfCityName, tfPostcode;
+    private final JTextField tfForename;
+    private final JTextField tfSurname;
+    private final JTextField tfHouseNo;
+    private final JTextField tfRoadName;
+    private final JTextField tfCityName;
+    private final JTextField tfPostcode;
 
     public customerForm (){
         //Creating the Frame
@@ -92,16 +100,16 @@ public class customerForm extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Address add = new Address(this.tfHouseNo.getText().toString(),
-                this.tfRoadName.getText().toString(),
-                this.tfCityName.getText().toString(),
-                this.tfPostcode.getText().toString());
+        Address add = new Address(this.tfHouseNo.getText(),
+                this.tfRoadName.getText(),
+                this.tfCityName.getText(),
+                this.tfPostcode.getText());
 
         Customer newCus = null;
         try {
             add.createAddress();
-            newCus = new Customer(this.tfForename.getText().toString(),
-                    this.tfSurname.getText().toString(),
+            newCus = new Customer(this.tfForename.getText(),
+                    this.tfSurname.getText(),
                     add);
         } catch (SQLException ex) {
             throw new RuntimeException(ex);

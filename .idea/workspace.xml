@@ -3,18 +3,22 @@
   <component name="ChangeListManager">
     <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added Javadoc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Wheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/customerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/AES_ENCRYPTION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Bike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/CreateTables.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/main.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,11 +70,11 @@
   </component>
   <component name="RunManager">
     <configuration name="DBDriver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="assignment.DBDriver" />
+      <option name="MAIN_CLASS_NAME" value="assignment.dbconnection.DBDriver" />
       <module name="assignment" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="assignment.*" />
+          <option name="PATTERN" value="assignment.graphics.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,7 +105,7 @@
       <workItem from="1667833693033" duration="4547000" />
       <workItem from="1668287394843" duration="771000" />
       <workItem from="1668357324292" duration="12307000" />
-      <workItem from="1668375617778" duration="11614000" />
+      <workItem from="1668375617778" duration="13240000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -145,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668422055187</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Added Javadoc">
+      <created>1668423356122</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1668423356122</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -177,7 +188,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/assignment/GuiMain.java</url>
+          <url>file://$PROJECT_DIR$/src/assignment/graphics/GuiMain.java</url>
           <line>17</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>

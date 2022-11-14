@@ -1,10 +1,12 @@
-package assignment;
+package assignment.models;
 
 /** Represents a Customer/Shopper.
  * @author Vivek V Choradia
  * @version 1.0
  * @lastUpdated 13-11-2022 23:18
  */
+
+import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
 

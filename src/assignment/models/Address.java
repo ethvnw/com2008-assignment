@@ -1,4 +1,6 @@
-package assignment;
+package assignment.models;
+
+import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
 

@@ -1,4 +1,4 @@
-package assignment;
+package assignment.models;
 
 /** Represents a superclass - BikeComponent.
  * @author Vivek V Choradia

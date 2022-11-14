@@ -1,4 +1,6 @@
-package assignment;
+package assignment.models;
+
+import assignment.models.BikeComponent;
 
 /** Represents a FrameSet component (inherited from BikeComponent).
  * @author Vivek V Choradia
