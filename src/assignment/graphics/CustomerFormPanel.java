@@ -1,5 +1,5 @@
 /** Customer Form page where asking for customer details before processing payment.
- * @author Han Weixiang
+ * @author Han Weixiang, Ethan Watts
  * @version 1.1
  * @lastUpdated 14-11-2022 16:39
  */
@@ -8,7 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.TitledBorder;
 
-public class CustomerForm extends JPanel{
+public class CustomerFormPanel extends JPanel{
     private final JTextField tfForename;
     private final JTextField tfSurname;
     private final JTextField tfHouseNo;
@@ -17,7 +17,7 @@ public class CustomerForm extends JPanel{
     private final JTextField tfPostcode;
     private final JTextField tfOrderDetails;
 
-    public CustomerForm (){
+    public CustomerFormPanel (){
         BorderLayout bl = new BorderLayout();
         this.setLayout(bl);
 

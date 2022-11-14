@@ -1,4 +1,4 @@
-/** GUI main handler.
+/** GUI Frame creation handler.
  * @author Ethan Watts
  * @version 1.1
  * @lastUpdated 14-11-2022 16:39
@@ -10,25 +10,39 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;
 
-public class GuiMain extends JFrame {
+public class GuiFrame extends JFrame {
     @Serial
     private static final long serialVersionUID = 1L;
-    public GuiMain() {
+
+    public GuiFrame() {
         // Set up the JFrame
         super("Build a Bike");
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
-        CardLayout layout = new CardLayout();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setVisible(true);
-        setSize(screenSize.width/2, screenSize.height/2);
+        setSize(screenSize.width / 2, screenSize.height / 2);
+        this.setLayout(new BorderLayout(0,10));
+
+        // Top navigation panel - always displayed
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        buttonPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.gray));
+        JLabel title = new JLabel("Build a Bike");
+        title.setFont(new Font("Sans-Serif", Font.BOLD, 16));
+        buttonPanel.add(title);
+
+        JButton login = new JButton("Login");
+        buttonPanel.add(login);
+
+        this.add(buttonPanel);
 
         // Parent panel that all other panels are a part of
         JPanel mainPanel = new JPanel();
-        mainPanel.setLayout(layout);
+        CardLayout panels = new CardLayout();
+        mainPanel.setLayout(panels);
+        this.add(mainPanel);
 
         // Panels for each page
-        CustomerForm cForm = new CustomerForm();
+        CustomerFormPanel cForm = new CustomerFormPanel();
         mainPanel.add(cForm, "cForm");
 
         // TESTING /////////////////////////////////////////////////////////////
@@ -36,22 +50,15 @@ public class GuiMain extends JFrame {
         testPanel.add(new JTextField("Test Test Test Test Test Test Test Test "));
         mainPanel.add(testPanel, "tPanel");
 
-        JPanel buttonPanel = new JPanel();
-        buttonPanel.add(new JLabel("Buttons"));
-
         JButton testButton = new JButton("Test");
         buttonPanel.add(testButton);
 
         testButton.addActionListener(e -> {
-            layout.next(mainPanel);
+            panels.next(mainPanel);
         });
 
-        getContentPane().add(mainPanel, BorderLayout.NORTH);
-        getContentPane().add(buttonPanel, BorderLayout.SOUTH);
+        getContentPane().add(mainPanel, BorderLayout.CENTER);
+        getContentPane().add(buttonPanel, BorderLayout.NORTH);
         ////////////////////////////////////////////////////////////////////////////
-    }
-
-    public static void main(String[] args) {
-        new GuiMain();
     }
 }
