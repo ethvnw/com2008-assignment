@@ -1,5 +1,11 @@
 package assignment;
 
+/** GUI main handler.
+ * @author Ethan Watts
+ * @version 1.0
+ * @lastUpdated 13-11-2022 23:19
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;

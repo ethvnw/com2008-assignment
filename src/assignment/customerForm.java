@@ -1,4 +1,12 @@
 package assignment;
+
+/** Customer Form page where asking for customer details before processing payment.
+ * @author Han Weixiang
+ * @version 1.0
+ * @lastUpdated 13-11-2022 21:43
+ */
+
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

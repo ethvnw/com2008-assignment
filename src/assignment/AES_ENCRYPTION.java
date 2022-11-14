@@ -1,5 +1,11 @@
 package assignment;
 
+/** To process Encryption/Decryption for staff login.
+ * @author Vivek V Choradia
+ * @version 1.0
+ * @lastUpdated 14-11-2022 10:37
+ */
+
 
 ///////////////////////////////////////
 //CHANGE THIS FILE -- COPIED FROM THE INTERNET

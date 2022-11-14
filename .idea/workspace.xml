@@ -1,9 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added Encyption file and Staff.java. Updated Bike.java and BikeComponent.java.">
-      <change afterPath="$PROJECT_DIR$/src/assignment/.env" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added Javadoc">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Bike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/GuiMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Handlebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/customerForm.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -90,7 +101,7 @@
       <workItem from="1667833693033" duration="4547000" />
       <workItem from="1668287394843" duration="771000" />
       <workItem from="1668357324292" duration="12307000" />
-      <workItem from="1668375617778" duration="10380000" />
+      <workItem from="1668375617778" duration="11614000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -127,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668421461535</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added login()">
+      <created>1668422055187</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1668422055187</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,14 +169,16 @@
     <MESSAGE value="Updated Order.java and added functions" />
     <MESSAGE value="Added Bike and Bike Components" />
     <MESSAGE value="Added Encyption file and Staff.java. Updated Bike.java and BikeComponent.java." />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Encyption file and Staff.java. Updated Bike.java and BikeComponent.java." />
+    <MESSAGE value="added login()" />
+    <MESSAGE value="Added Javadoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/assignment/GuiMain.java</url>
-          <line>11</line>
+          <line>17</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

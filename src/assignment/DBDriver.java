@@ -1,5 +1,11 @@
 package assignment;
 
+/** For enabling connection between database and models.
+ * @author Vivek V Choradia
+ * @version 2.0
+ * @lastUpdated 13-11-2022 21:00
+ */
+
 import java.sql.*;
 
 public class DBDriver {
@@ -11,13 +17,13 @@ public class DBDriver {
     public static void main(String[] args) {
         System.out.println("Connecting...");
 
-        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
-
-//            CreateTables.createTables(con);
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
+//        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+//
+////            CreateTables.createTables(con);
+//
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
     }
 
     public static void processInsertQuery(String query) {

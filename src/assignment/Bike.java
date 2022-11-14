@@ -1,5 +1,11 @@
 package assignment;
 
+/** Represents a Bike (Assembled Product).
+ * @author Vivek V Choradia
+ * @version 1.0
+ * @lastUpdated 14-11-2022 10:37
+ */
+
 import java.sql.*;
 
 public class Bike {

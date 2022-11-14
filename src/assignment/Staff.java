@@ -1,10 +1,12 @@
 package assignment;
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.Signature;
-import java.sql.*;
 
-import javax.crypto.Cipher;
+/** Represents a Staff.
+ * @author Vivek V Choradia
+ * @version 1.0
+ * @lastUpdated 14-11-2022 10:37
+ */
+
+import java.sql.*;
 
 public class Staff {
     private int staffId;
