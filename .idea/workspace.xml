@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added Javadoc">
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated file directory and introduced packages. Introduced .env file for storing database credentials.">
+      <change afterPath="$PROJECT_DIR$/src/assignment/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/.env" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/AES_ENCRYPTION.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/AES_ENCRYPTION.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/CreateTables.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/CreateTables.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/GuiMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Wheel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/customerForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerForm.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +95,8 @@
       <workItem from="1667833693033" duration="4547000" />
       <workItem from="1668287394843" duration="771000" />
       <workItem from="1668357324292" duration="12307000" />
-      <workItem from="1668375617778" duration="13240000" />
+      <workItem from="1668375617778" duration="13390000" />
+      <workItem from="1668433481950" duration="2544000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -156,7 +147,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668423356122</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updated file directory and introduced packages. Introduced .env file for storing database credentials.">
+      <created>1668425001522</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1668425001522</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +180,8 @@
     <MESSAGE value="Added Encyption file and Staff.java. Updated Bike.java and BikeComponent.java." />
     <MESSAGE value="added login()" />
     <MESSAGE value="Added Javadoc" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added Javadoc" />
+    <MESSAGE value="Updated file directory and introduced packages. Introduced .env file for storing database credentials." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated file directory and introduced packages. Introduced .env file for storing database credentials." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

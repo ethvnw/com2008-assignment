@@ -38,7 +38,7 @@ public class Customer {
                                 this.surname +"\", \"" + this.address.houseNum + "\", \"" +
                                 this.address.postcode + "\");";
 
-        DBDriver.processInsertQuery(query);
+        DBDriver.processQuery(query);
         return false;
     }
 

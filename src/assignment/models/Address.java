@@ -26,7 +26,7 @@ public class Address {
         if (newAdd == null) {
             String query = "INSERT INTO address(houseNum, road, city, postcode) " +
                     "VALUES(\"" + houseNum + "\", \"" + road + "\", \"" + city + "\", \"" + postcode + "\");";
-            DBDriver.processInsertQuery(query);
+            DBDriver.processQuery(query);
         }
     }
 

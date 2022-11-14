@@ -15,7 +15,7 @@ public class DBDriver {
     public static final String PASSWORD = System.getenv("DB_PASSWORD");
 
 
-    public static void processInsertQuery(String query) {
+    public static void processQuery(String query) {
         try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
 
             Statement stmt = con.createStatement();
