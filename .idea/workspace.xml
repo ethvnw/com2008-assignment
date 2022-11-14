@@ -1,13 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated file directory and introduced packages. Introduced .env file for storing database credentials.">
-      <change afterPath="$PROJECT_DIR$/src/assignment/main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated name of a function. Added Javadocs to Customer.java and created getAllOrderOfACustomer().">
       <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +90,7 @@
       <workItem from="1668287394843" duration="771000" />
       <workItem from="1668357324292" duration="12307000" />
       <workItem from="1668375617778" duration="13390000" />
-      <workItem from="1668433481950" duration="2544000" />
+      <workItem from="1668433481950" duration="2791000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -154,7 +148,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668425001522</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Updated name of a function. Added Javadocs to Customer.java and created getAllOrderOfACustomer().">
+      <created>1668436936154</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1668436936154</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +182,8 @@
     <MESSAGE value="added login()" />
     <MESSAGE value="Added Javadoc" />
     <MESSAGE value="Updated file directory and introduced packages. Introduced .env file for storing database credentials." />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated file directory and introduced packages. Introduced .env file for storing database credentials." />
+    <MESSAGE value="Updated name of a function. Added Javadocs to Customer.java and created getAllOrderOfACustomer()." />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated name of a function. Added Javadocs to Customer.java and created getAllOrderOfACustomer()." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
