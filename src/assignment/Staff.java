@@ -1,4 +1,4 @@
 package assignment;
 
-public class Staff extends Order {
-}
+//public class Staff extends Order {
+//}

@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Setting up Customer and Address model">
-      <change afterPath="$PROJECT_DIR$/src/assignment/main.java" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added new get function to Customer.java">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Staff.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +91,7 @@
       <workItem from="1667833693033" duration="4547000" />
       <workItem from="1668287394843" duration="771000" />
       <workItem from="1668357324292" duration="12307000" />
+      <workItem from="1668375617778" duration="4582000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
