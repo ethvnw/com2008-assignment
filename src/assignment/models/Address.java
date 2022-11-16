@@ -1,5 +1,12 @@
 package assignment.models;
 
+/**
+ * Represents an address.
+ * @author Vivek V Choradia
+ * @version 1.1
+ * @lastUpdated 16-11-2022 18:45
+ */
+
 import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
@@ -11,6 +18,13 @@ public class Address {
     private String city;
     String postcode;
 
+    /**
+     * Address constructor. Takes all the details of an address.
+     * @param houseNum house number
+     * @param road road
+     * @param city city
+     * @param postcode postcode
+     */
     public Address(String houseNum, String road, String city, String postcode){
         this.houseNum = houseNum;
         this.road = road;
@@ -19,7 +33,10 @@ public class Address {
     }
 
 
-
+    /**
+     * To insert an address in the database
+     * @throws SQLException throws an SQL exception is an error is found while processing the query.
+     */
     public void createAddress() throws SQLException {
 
         Address newAdd = findAddress(houseNum, postcode);
@@ -30,6 +47,13 @@ public class Address {
         }
     }
 
+    /**
+     * To find any existing address
+     * @param houseNum house number
+     * @param postcode postcode
+     * @return an Address object
+     * @throws SQLException throws an SQL exception is an error is found while processing the query.
+     */
     public static Address findAddress(String houseNum, String postcode) throws SQLException {
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
@@ -59,6 +83,31 @@ public class Address {
         return null;
     }
 
+    /**
+     * To update the address of the customer.
+     * @param houseNum house number
+     * @param road road
+     * @param city city
+     * @param postcode postcode
+     */
+
+    // TODO check whether such an address already exists or not before updating the address.
+    public void updateAddress(String houseNum, String road, String city, String postcode) throws SQLException {
+
+        String query = "UPDATE address " +
+                "SET houseNum = \"" + houseNum + "\"," +
+                "road  = \"" + road + "\", " +
+                "city = \"" + city + "\", " +
+                "postcode = \"" + postcode + "\" " +
+                " WHERE houseNum = \"" + this.houseNum + "\" AND postcode = \"" + this.postcode + "\" ; ";
+
+        DBDriver.processQuery(query);
+
+        this.houseNum = houseNum;
+        this.road = road;
+        this.city = city;
+        this.postcode = postcode;
+    }
 
 
 }

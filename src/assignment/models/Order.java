@@ -11,6 +11,8 @@ import assignment.dbconnection.DBDriver;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Order {
 
@@ -57,6 +59,9 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        Date date = new Date();
+        this.date = formatter.format(date);
         String query = "INSERT INTO order(date, customerID, bikeID, status)" +
                 "VALUES(\""+this.date+"\", \"" + this.customerID +"\", \"" + this.bikeID + "\", \"" + this.status +"\")";
 
@@ -116,13 +121,12 @@ public class Order {
         return this.status;
     }
 
-
     /**
      * Returns the Order object.
      * @param orderID Order's ID
      * @return An order object of the given orderID
      */
-    public Order getOrder(int orderID) {
+    public static Order getOrder(int orderID) {
 
         String query = "SELECT * FROM order where orderId = " + orderID + ";";
 
@@ -154,6 +158,34 @@ public class Order {
     }
 
     /**
+     * To get a list of orders
+     * @param query Get orders based on the giving query
+     * @return A list of orders
+     */
+    public static List<Order> getOrders(String query) {
+
+        List<Order> orders = new ArrayList<Order>();
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            while(res.next()) {
+                Order ord = Order.getOrder(res.getInt("orderId"));
+                orders.add(ord);
+            }
+
+            return orders;
+
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
+    }
+
+    /**
      * To update the order in the database.
      */
     public void updateOrder() {
@@ -174,40 +206,10 @@ public class Order {
      */
     public List<Order> getAllOrderOfACustomer(int customerID) {
 
-        List<Order> orders = new ArrayList<Order>();
-
         String query = "SELECT * FROM order WHERE customerID = " + customerID + "; ";
 
-        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while(res.next()) {
-
-                Order ord = new Order(
-                        res.getInt("orderId"),
-                        res.getString("status"),
-                        res.getString("date"),
-                        res.getInt("bikeId"),
-                        res.getString("assigned_Staff"),
-                        res.getInt("customerId")
-                );
-
-                orders.add(ord);
-            }
-
-            return orders;
-
-        }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
+        return getOrders(query);
     }
-
-
-
 
 
 }
