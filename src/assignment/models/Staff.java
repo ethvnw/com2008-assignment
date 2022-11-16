@@ -7,35 +7,48 @@ package assignment.models;
  */
 
 import assignment.dbconnection.DBDriver;
-import assignment.models.AES_ENCRYPTION;
+
+// TODO create assembleBike()
 
 import java.sql.*;
+import java.util.List;
+import java.util.Objects;
 
 public class Staff {
-    private int staffId;
     private String username;
     private String password;
 
 
-//    Constructors
+    //Constructor
     public Staff(String username, String password) {
         this.username = username;
         this.password = password;
     }
 
-    public Staff(int staffId, String username, String password) {
-        this.staffId = staffId;
-        this.username = username;
-        this.password = password;
+    /**
+     * To insert the staff in the database.
+     * @throws Exception handling exception while encrypting the password.
+     */
+    public void createStaff() throws Exception {
+        Encryption encryption = new Encryption();
+
+        String query = "INSERT INTO staff(username, password)" +
+                        "VALUES(\""+ this.username + "\", \"" + encryption.encrypt(password) + "\");";
+
+        DBDriver.processQuery(query);
     }
 
-    public int login() throws Exception, SQLException {
+    /**
+     * To login as a staff.
+     * @return true if login was successful otherwise false.
+     * @throws Exception handles exception if any error occurs while comparing the password.
+     */
+    public boolean login() throws Exception {
 
-        AES_ENCRYPTION aes_encryption = new AES_ENCRYPTION();
-        aes_encryption.init();
 
-        String query = "SELECT * FROM staff WHERE username = \"" + this.username +
-                        "\" AND password = \"" + aes_encryption.encrypt(password) +"\";";
+        Encryption encryption = new Encryption();
+
+        String query = "SELECT * FROM staff WHERE username = \"" + this.username + "\";";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
 
@@ -43,13 +56,46 @@ public class Staff {
             ResultSet res = stmt.executeQuery(query);
 
             while(res.next()) {
-                return res.getInt("staffId");
+                String password = encryption.decrypt(res.getString("password"));
+                return Objects.equals(password, this.password);
             }
-
-            return 0;
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return 0;
+        return false;
     }
+
+    /**
+     * To get all the orders in the database.
+     * @return A list of Orders.
+     */
+    public static List<Order> getAllOrders() {
+        return Order.getOrders("SELECT orderId FROM order");
+    }
+
+    /**
+     * To get all the customers in the database.
+     * @return A list of all Customers
+     */
+    public static List<Customer> getAllCustomers() {
+        return Customer.getCustomers("SELECT customerId FROM customer");
+    }
+
+    /**
+     * To get all the pending orders from the database.
+     * @return List of pending orders.
+     */
+    public static List<Order> getAllPendingOrders() {
+        return Order.getOrders("SELECT orderId FROM order WHERE status = \"Pending\"");
+    }
+
+    /**
+     * To get all the in progress orders from the database.
+     * @return To get List of In Progress orders.
+     */
+    public static List<Order> getAllInProgress() {
+        return Order.getOrders("SELECT orderId FROM order WHERE status = \"In Progress\"");
+    }
+
+
 }

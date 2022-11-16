@@ -47,11 +47,22 @@ public class Bike {
         this.wheels = ws;
     }
 
+
+    /**
+     * To calculate the cost of a bike
+     * @return total cost of the bike
+     */
     public double calculateCost() {
         this.cost = (this.frameSet.cost + this.handlebar.cost + this.wheels.cost);
         return this.cost;
     }
 
+    /**
+     * To get a Bike
+     * @param bikeID bikeID
+     * @return A Bike Object
+     * @throws SQLException to handle database queries
+     */
     public Bike getBike(int bikeID) throws SQLException {
         String query = "SELECT * FROM bike where bikeId = " + bikeID + ";";
 
