@@ -6,6 +6,8 @@
 
 package assignment.graphics;
 
+import assignment.graphics.customerdashboard.CustomerDashboardPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;
@@ -28,6 +30,8 @@ public class GuiFrame extends JFrame {
         buttonPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.gray));
         JLabel title = new JLabel("Build a Bike");
         title.setFont(new Font("Sans-Serif", Font.BOLD, 16));
+        buttonPanel.setOpaque(true);
+        buttonPanel.setBackground(Color.white);
         buttonPanel.add(title);
 
         JButton login = new JButton("Login");
