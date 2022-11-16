@@ -6,7 +6,7 @@
 
 package assignment.graphics;
 
-import assignment.graphics.customerdashboard.CustomerDashboardPanel;
+import assignment.graphics.customerdashboard.CustomerLoginPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -34,8 +34,10 @@ public class GuiFrame extends JFrame {
         buttonPanel.setBackground(Color.white);
         buttonPanel.add(title);
 
-        JButton login = new JButton("Login");
-        buttonPanel.add(login);
+        JButton customerLoginButton = new JButton("Customer Login");
+        JButton staffLoginButton = new JButton("Staff Login");
+        buttonPanel.add(customerLoginButton);
+        buttonPanel.add(staffLoginButton);
 
         this.add(buttonPanel);
 
@@ -49,13 +51,11 @@ public class GuiFrame extends JFrame {
         CustomerFormPanel cForm = new CustomerFormPanel();
         mainPanel.add(cForm);
         CustomerLoginPanel customerLogin = new CustomerLoginPanel();
-        mainPanel.add(customerLogin);
-        CustomerDashboardPanel customerDashboard = new CustomerDashboardPanel();
-        mainPanel.add(customerDashboard);
+        mainPanel.add(customerLogin,"customerLogin");
         BikeCreationPanel bikeCreation = new BikeCreationPanel();
         mainPanel.add(bikeCreation);
         StaffLoginPanel staffLogin = new StaffLoginPanel();
-        mainPanel.add(staffLogin);
+        mainPanel.add(staffLogin,"staffLogin");
         StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
         mainPanel.add(staffDashboard);
 
@@ -67,9 +67,13 @@ public class GuiFrame extends JFrame {
         JButton testButton = new JButton("Test");
         buttonPanel.add(testButton);
 
-        testButton.addActionListener(e -> {
-            panels.next(mainPanel);
-        });
+        testButton.addActionListener(e -> panels.next(mainPanel));
+        ////////////////////////////////////////////////////////////////////////
+
+        // Button event listeners
+        customerLoginButton.addActionListener(e -> panels.show(mainPanel,"customerLogin"));
+        staffLoginButton.addActionListener(e -> panels.show(mainPanel,"staffLogin"));
+
 
         getContentPane().add(mainPanel, BorderLayout.CENTER);
         getContentPane().add(buttonPanel, BorderLayout.NORTH);

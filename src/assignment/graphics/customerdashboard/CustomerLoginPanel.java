@@ -9,7 +9,7 @@ package assignment.graphics.customerdashboard;
 import javax.swing.*;
 import java.awt.*;
 
-public class CustomerDashboardPanel extends JPanel {
+public class CustomerLoginPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();
     private final JPanel orderForm = new JPanel();
     private JTextField orderNo = new JTextField("Enter order number...",20);
@@ -23,7 +23,7 @@ public class CustomerDashboardPanel extends JPanel {
     private final JButton viewAccount = new JButton("Submit");
 
 
-    public CustomerDashboardPanel() {
+    public CustomerLoginPanel() {
         CardLayout panels = new CardLayout();
         this.setLayout(panels);
 
