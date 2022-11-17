@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Bike.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/models/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Encryption.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
     </list>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668615066632</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Updated typos">
+      <created>1668687069079</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1668687069079</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,7 +204,8 @@
     <MESSAGE value="Cleaned up GUI" />
     <MESSAGE value="Added template panel files, imported into GuiFrame" />
     <MESSAGE value="Login page for customer dashboard added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Login page for customer dashboard added" />
+    <MESSAGE value="Updated typos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated typos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
