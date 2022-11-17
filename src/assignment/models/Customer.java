@@ -55,15 +55,26 @@ public class Customer {
      */
     public static Customer getCustomer(int customerID) throws SQLException {
         String query = "SELECT * FROM team001.customer where customerID = " + customerID + ";";
-        ResultSet res = DBDriver.processGetOutput(query);
-        Customer cus;
-        if(res != null) {
-            String forename = res.getString("forename");
-            String lastname = res.getString("surname");
-            Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
-            cus = new Customer(customerID, forename, lastname, add);
-            return cus;
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+
+            ResultSet res = stmt.executeQuery(query);
+
+            while (res.next()) {
+                Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
+                return new Customer(res.getInt("customerID"),
+                        res.getString("forename"),
+                        res.getString("surname"),
+                        add);
+            }
+
+            res.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
+
         return null;
     }
 
