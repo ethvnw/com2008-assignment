@@ -14,8 +14,8 @@ import javax.swing.*;
 public class Main {
     public static void main(String[] args) throws Exception {
         // Run the application
-//        JFrame guiFrame = new GuiFrame();
-//        SwingUtilities.invokeLater(() -> guiFrame.setVisible(true));
+        JFrame guiFrame = new GuiFrame();
+        SwingUtilities.invokeLater(() -> guiFrame.setVisible(true));
 
 
 //        Staff s1 = new Staff("vivek3", "choradia");
@@ -30,11 +30,11 @@ public class Main {
 //        System.out.println(s3.login());
 //        System.out.println(s4.login());
 
-        Order ord = new Order(2, 5);
+//        Order ord = new Order(2, 5);
 //        Order ord2 = new Order(4, 7);
 //        Order ord3 = new Order(1, 2);
-//
-        ord.createOrder();
+
+//        ord.createOrder();
 //        ord2.createOrder();
 //        ord3.createOrder();
 
