@@ -87,7 +87,7 @@ public class Customer {
      * @return Customer object
      * @throws SQLException handles exception from database queries
      */
-    public Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
+    public static Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
         Address add = Address.findAddress(houseNum, postcode);
         String query = "SELECT * FROM team001.customer WHERE forename = \"" + forename +"\", "+
                         "surname = \"" + surname +"\" ,houseNum = \"" + add.houseNum + "\" ," +
