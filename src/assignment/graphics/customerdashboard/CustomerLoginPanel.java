@@ -1,7 +1,7 @@
-/** Customer dashboard panel
+/** Customer login panel
  * @author Ethan Watts
- * @version 1.0
- * @lastUpdated 16/11/22 23:30
+ * @version 1.3
+ * @lastUpdated 17/11/22 14:54
  */
 
 package assignment.graphics.customerdashboard;
