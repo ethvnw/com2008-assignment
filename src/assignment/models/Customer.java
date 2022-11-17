@@ -78,7 +78,7 @@ public class Customer {
      */
     public Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
         Address add = Address.findAddress(houseNum, postcode);
-        String query = "SELECT * FROM customer WHERE forename = \"" + forename +"\", "+
+        String query = "SELECT * FROM team001.customer WHERE forename = \"" + forename +"\", "+
                         "surname = \"" + surname +"\" ,houseNum = \"" + add.houseNum + "\" ," +
                         "postcode = \"" + add.postcode + "\";";
 

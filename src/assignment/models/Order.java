@@ -66,6 +66,20 @@ public class Order {
         DBDriver.processQuery(query);
     }
 
+    public void deleteOrder() {
+        Bike bike = Bike.getBike(this.bikeID);
+        assert bike != null;
+        bike.getFrameSet().quantity -=1;
+        bike.getFrameSet().updateQuantity();
+        bike.getHandlebar().quantity -=1;
+        bike.getFrameSet().updateQuantity();
+        bike.getWheels().quantity -=1;
+        bike.getFrameSet().updateQuantity();
+
+        String query = "DELETE FROM order"
+
+    }
+
     /**
      * Assigns a staff to complete the order
      * @param assigned_Staff Staff's ID who is to be assigned.
@@ -82,41 +96,6 @@ public class Order {
     public void changeStatus(String status) {
         this.status = status;
         updateOrder();
-    }
-
-    /**
-     * Returns the current status of the given order (using orderID)
-     * @param orderID Order's ID
-     * @return current status of the order
-     */
-    public String getStatus(int orderID) {
-
-        String query = "SELECT status FROM order where orderId = " + orderID + ";";
-
-        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while(res.next()) {
-                return res.getString("status");
-            }
-
-            return null;
-
-        }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
-
-    /**
-     *  To return the current status of the order.
-     * @return current status of the order.
-     */
-    public String getStatus() {
-        return this.status;
     }
 
     /**
@@ -219,5 +198,40 @@ public class Order {
 
     public int getBikeID() {
         return bikeID;
+    }
+
+    /**
+     *  To return the current status of the order.
+     * @return current status of the order.
+     */
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Returns the current status of the given order (using orderID)
+     * @param orderID Order's ID
+     * @return current status of the order
+     */
+    public static String getStatus(int orderID) {
+
+        String query = "SELECT status FROM order where orderId = " + orderID + ";";
+
+        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+            Statement stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            while(res.next()) {
+                return res.getString("status");
+            }
+
+            return null;
+
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 }

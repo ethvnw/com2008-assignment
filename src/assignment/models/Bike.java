@@ -63,6 +63,8 @@ public class Bike {
                 this.wheels.serialNo + ", \'" + this.wheels.brand +"\"," +");";
 
         DBDriver.processQuery(query);
+
+//        this.frameSet.quantity
     }
 
 
