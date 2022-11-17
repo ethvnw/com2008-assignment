@@ -54,7 +54,7 @@ public class Customer {
      * @throws SQLException handles exception from database queries
      */
     public static Customer getCustomer(int customerID) throws SQLException {
-        String query = "SELECT * FROM customer where customerID = " + customerID + ";";
+        String query = "SELECT * FROM team001.customer where customerID = " + customerID + ";";
         ResultSet res = DBDriver.processGetOutput(query);
         Customer cus;
         if(res != null) {

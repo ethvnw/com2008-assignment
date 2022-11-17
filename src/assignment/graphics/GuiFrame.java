@@ -31,7 +31,6 @@ public class GuiFrame extends JFrame {
         JLabel title = new JLabel("Build a Bike");
         title.setFont(new Font("Sans-Serif", Font.BOLD, 16));
         buttonPanel.setOpaque(true);
-        buttonPanel.setBackground(Color.white);
         buttonPanel.add(title);
 
         JButton customerLoginButton = new JButton("Customer Login");

@@ -126,7 +126,7 @@ public class Order {
      */
     public static Order getOrder(int orderID) {
 
-        String query = "SELECT * FROM order where orderID = " + orderID + ";";
+        String query = "SELECT * FROM team001.order WHERE orderID = " + orderID + ";";
 
         try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();

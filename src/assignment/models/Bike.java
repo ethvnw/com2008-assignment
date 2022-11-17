@@ -84,7 +84,7 @@ public class Bike {
      * @throws SQLException to handle database queries
      */
     public static Bike getBike(int bikeID) {
-        String query = "SELECT * FROM bike where bikeId = " + bikeID + ";";
+        String query = "SELECT * FROM team001.bike where bikeId = " + bikeID + ";";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
@@ -97,7 +97,7 @@ public class Bike {
 
                 return new Bike(res.getInt("serialNo"),
                         res.getString("brand"),
-                        res.getString("name"),
+                        res.getString("bikeName"),
                         frameSet, handlebar, wheels);
             }
 
