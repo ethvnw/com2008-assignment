@@ -211,5 +211,15 @@ public class Order {
         return getOrders(query);
     }
 
+    public int getOrderID() {
+        return orderID;
+    }
 
+    public String getDate() {
+        return date;
+    }
+
+    public int getBikeID() {
+        return bikeID;
+    }
 }
