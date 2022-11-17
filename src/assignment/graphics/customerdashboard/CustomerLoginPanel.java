@@ -1,10 +1,12 @@
 /** Customer dashboard panel
- * @author
+ * @author Ethan Watts
  * @version 1.0
- * @lastUpdated
+ * @lastUpdated 16/11/22 23:30
  */
 
 package assignment.graphics.customerdashboard;
+
+import assignment.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,6 +16,7 @@ public class CustomerLoginPanel extends JPanel {
     private final JPanel orderForm = new JPanel();
     private JTextField orderNo = new JTextField("Enter order number...",20);
     private final JButton modifyOrder = new JButton("Submit");
+    private JLabel orderErrorMsg = new JLabel();
 
     private final JPanel accountForm = new JPanel();
     private JTextField firstName = new JTextField("Enter first name...",20);
@@ -27,21 +30,36 @@ public class CustomerLoginPanel extends JPanel {
         CardLayout panels = new CardLayout();
         this.setLayout(panels);
 
-        CustomerOrdersPanel ordersPanel = new CustomerOrdersPanel();
-        this.add(ordersPanel,"ordersPanel");
         CustomerAccountPanel accountPanel = new CustomerAccountPanel();
         this.add(accountPanel,"accountPanel");
         this.add(buttonPanel,"buttonPanel");
 
         // Form to view order by order number
-        orderForm.setLayout(new GridLayout(2,1));
+        orderForm.setLayout(new GridLayout(3,1));
         orderForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         orderForm.setBorder(BorderFactory.createTitledBorder("View an Order"));
 
         orderForm.add(orderNo);
         orderForm.add(modifyOrder);
+        orderErrorMsg.setForeground(Color.red);
+        orderForm.add(orderErrorMsg);
+
         modifyOrder.addActionListener(e -> {
-            panels.show(this,"ordersPanel");
+            Order order = null;
+            try {
+                order = Order.getOrder(Integer.parseInt(orderNo.getText()));
+                if (order != null) {
+                    CustomerOrdersPanel ordersPanel = new CustomerOrdersPanel(order);
+                    this.add(ordersPanel,"ordersPanel");
+                    panels.show(this,"ordersPanel");
+                }
+                else {
+                    orderErrorMsg.setText("Incorrect order number");
+                }
+            } catch (NumberFormatException exception) {
+                orderErrorMsg.setText("Enter only numbers");
+                exception.printStackTrace();
+            }
         });
 
         buttonPanel.add(orderForm);
@@ -61,7 +79,6 @@ public class CustomerLoginPanel extends JPanel {
         });
 
         buttonPanel.add(accountForm);
-
 
         panels.show(this,"buttonPanel");
     }

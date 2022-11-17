@@ -21,7 +21,7 @@ public class Bike {
     private Handlebar handlebar;
     private Wheel wheels;
 
-    public Bike(int serialNo, String brand,String name,
+    public Bike(int serialNo, String brand, String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
                 int wheelsSerial, String wheelsBrand) {
@@ -35,7 +35,7 @@ public class Bike {
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
     }
 
-    public Bike(int serialNo, String brand,String name,
+    public Bike(int serialNo, String brand, String name,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
         this.serialNo = serialNo;
@@ -50,6 +50,7 @@ public class Bike {
 
     /**
      * To calculate the cost of a bike
+     *
      * @return total cost of the bike
      */
     public double calculateCost() {
@@ -59,37 +60,59 @@ public class Bike {
 
     /**
      * To get a Bike
+     *
      * @param bikeID bikeID
      * @return A Bike Object
      * @throws SQLException to handle database queries
      */
-    public Bike getBike(int bikeID) throws SQLException {
+    public static Bike getBike(int bikeID) {
         String query = "SELECT * FROM bike where bikeId = " + bikeID + ";";
 
-        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
             ResultSet res = stmt.executeQuery(query);
 
-            while(res.next()) {
+            while (res.next()) {
                 FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
                 Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
                 Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
 
                 return new Bike(res.getInt("serialNo"),
-                                    res.getString("brand"),
-                                    res.getString("name"),
-                                    frameSet, handlebar, wheels);
+                        res.getString("brand"),
+                        res.getString("name"),
+                        frameSet, handlebar, wheels);
             }
 
             return null;
 
-        }
-        catch (SQLException ex) {
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
 
         return null;
     }
 
+    public FrameSet getFrameSet() {
+        return frameSet;
+    }
 
+    public Handlebar getHandlebar() {
+        return handlebar;
+    }
+
+    public Wheel getWheels() {
+        return wheels;
+    }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getCost() {
+        return cost;
+    }
 }

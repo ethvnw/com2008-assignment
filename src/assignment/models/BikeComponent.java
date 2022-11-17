@@ -18,6 +18,7 @@ public class BikeComponent {
         this.brand = brand;
     }
 
-
-
+    public String getBrand() {
+        return brand;
+    }
 }
