@@ -65,20 +65,20 @@ public class Order {
 
         DBDriver.processQuery(query);
     }
-
-    public void deleteOrder() {
-        Bike bike = Bike.getBike(this.bikeID);
-        assert bike != null;
-        bike.getFrameSet().quantity -=1;
-        bike.getFrameSet().updateQuantity();
-        bike.getHandlebar().quantity -=1;
-        bike.getFrameSet().updateQuantity();
-        bike.getWheels().quantity -=1;
-        bike.getFrameSet().updateQuantity();
-
-        String query = "DELETE FROM order"
-
-    }
+//
+//    public void deleteOrder() {
+//        Bike bike = Bike.getBike(this.bikeID);
+//        assert bike != null;
+//        bike.getFrameSet().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//        bike.getHandlebar().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//        bike.getWheels().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//
+//        String query = "DELETE FROM order";
+//
+//    }
 
     /**
      * Assigns a staff to complete the order
@@ -181,9 +181,9 @@ public class Order {
      * @param customerID Customer's ID
      * @return List of orders
      */
-    public List<Order> getAllOrderOfACustomer(int customerID) {
+    public static List<Order> getAllOrderOfACustomer(int customerID) {
 
-        String query = "SELECT * FROM order WHERE customerID = " + customerID + "; ";
+        String query = "SELECT * FROM team001.order WHERE customerID = " + customerID + "; ";
 
         return getOrders(query);
     }
@@ -198,6 +198,10 @@ public class Order {
 
     public int getBikeID() {
         return bikeID;
+    }
+
+    public String getAssigned_Staff() {
+        return assigned_Staff;
     }
 
     /**

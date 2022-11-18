@@ -89,8 +89,11 @@ public class Customer {
      */
     public static Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
         Address add = Address.findAddress(houseNum, postcode);
-        String query = "SELECT * FROM team001.customer WHERE forename = \"" + forename +"\", "+
-                        "surname = \"" + surname +"\" ,houseNum = \"" + add.houseNum + "\" ," +
+        if (add == null)
+            return null;
+
+        String query = "SELECT * FROM team001.customer WHERE forename = \"" + forename +"\" AND "+
+                        "surname = \"" + surname +"\" AND houseNum = \"" + add.houseNum + "\" AND " +
                         "postcode = \"" + add.postcode + "\";";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
@@ -238,4 +241,19 @@ public class Customer {
         this.address.updateAddress(houseNum, road, city, postcode);
     }
 
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getForename() {
+        return forename;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
 }
