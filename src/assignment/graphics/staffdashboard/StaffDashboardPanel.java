@@ -7,6 +7,7 @@
 package assignment.graphics.staffdashboard;
 
 import assignment.models.Customer;
+import assignment.models.Staff;
 
 import javax.swing.*;
 
@@ -16,7 +17,7 @@ public class StaffDashboardPanel extends JPanel {
 
     }
 
-    StaffDashboardPanel() {
+    public StaffDashboardPanel() {
 
     }
 }

@@ -21,4 +21,9 @@ public class BikeComponent {
     public String getBrand() {
         return brand;
     }
+
+    public void updateQuantity() {
+        String query = "UPDATE ";
+
+    }
 }

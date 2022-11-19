@@ -17,6 +17,7 @@ import java.util.Objects;
 public class Staff {
     private String username;
     private String password;
+    public static String loggedInStaff = null;
 
 
     //Constructor
@@ -43,7 +44,11 @@ public class Staff {
      * @return true if login was successful otherwise false.
      * @throws Exception handles exception if any error occurs while comparing the password.
      */
-    public boolean login() throws Exception {
+    public String login() throws Exception {
+
+        if (loggedInStaff != null) {
+            return null;
+        }
 
         Encryption encryption = new Encryption();
 
@@ -54,14 +59,34 @@ public class Staff {
             Statement stmt = con.createStatement();
             ResultSet res = stmt.executeQuery(query);
 
+            if (res == null) {
+                return null;
+            }
+
             while(res.next()) {
                 String password = encryption.decrypt(res.getString("password"));
-                return Objects.equals(password, this.password);
+                if(Objects.equals(password, this.password)) {
+                    loggedInStaff = this.username;
+                    return this.username;
+                }
             }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        return false;
+        return null;
+    }
+
+    /**
+     * To log out the current staff member
+     * @return status whether logout was successful or not
+     */
+    public boolean logout() {
+        if(loggedInStaff == null) {
+            return false;
+        } else {
+            loggedInStaff = null;
+            return true;
+        }
     }
 
     /**
@@ -71,30 +96,30 @@ public class Staff {
      * @return Staff object
      * @throws SQLException handles exception from database queries
      */
-    public static Staff getStaff(String username, String password) throws SQLException {
-        String query = "SELECT * FROM team001.staff WHERE this.username = \"" + username +"\" AND "+
-                "this.password = \"" + password +"\" ";
-
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-
-            Statement stmt = con.createStatement();
-
-            ResultSet res = stmt.executeQuery(query);
-
-            while (res.next()) {
-                return new Staff(res.getInt("staffID"),
-                        res.getString("username"),
-                        res.getString("password"),
-                        add);
-            }
-
-            res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
+//    public static Staff getStaff(String username, String password) throws SQLException {
+//        String query = "SELECT * FROM team001.staff WHERE this.username = \"" + username +"\" AND "+
+//                "this.password = \"" + password +"\" ";
+//
+//        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+//
+//            Statement stmt = con.createStatement();
+//
+//            ResultSet res = stmt.executeQuery(query);
+//
+//            while (res.next()) {
+//                return new Staff(res.getInt("staffID"),
+//                        res.getString("username"),
+//                        res.getString("password"),
+//                        add);
+//            }
+//
+//            res.close();
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//
+//        return null;
+//    }
 
     /**
      * To get all the orders in the database.

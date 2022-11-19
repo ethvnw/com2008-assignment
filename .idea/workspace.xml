@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Customer Panel Update Layout">
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added all elements of customer dashboard">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,23 +38,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "187",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "319",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Natal/Documents/GitHub/COM2008",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.import"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;187&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;319&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Natal/Documents/GitHub/COM2008&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;inlay.hints&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Natal\Documents\GitHub\COM2008\src\assignment" />
@@ -87,8 +90,8 @@
       <workItem from="1668540545403" duration="176000" />
       <workItem from="1668603094485" duration="8575000" />
       <workItem from="1668615143459" duration="24000" />
-      <workItem from="1668615215184" duration="488000" />
-      <workItem from="1668637759445" duration="5625000" />
+      <workItem from="1668615215184" duration="390000" />
+      <workItem from="1668777542477" duration="8317000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -167,21 +170,28 @@
       <option name="project" value="LOCAL" />
       <updated>1668615066632</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added login buttons">
-      <created>1668615658767</created>
+    <task id="LOCAL-00012" summary="Updated typos">
+      <created>1668687069079</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1668615658767</updated>
+      <updated>1668687069079</updated>
     </task>
-    <task id="LOCAL-00013" summary="Customer Panel Update Layout">
-      <created>1668871373403</created>
+    <task id="LOCAL-00013" summary="added createBike()">
+      <created>1668688044445</created>
       <option name="number" value="00013" />
       <option name="presentableId" value="LOCAL-00013" />
       <option name="project" value="LOCAL" />
-      <updated>1668871373403</updated>
+      <updated>1668688044445</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="reverted changed in main.java to run GUI">
+      <created>1668688124601</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668688124601</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,9 +221,11 @@
     <MESSAGE value="Cleaned up GUI" />
     <MESSAGE value="Added template panel files, imported into GuiFrame" />
     <MESSAGE value="Login page for customer dashboard added" />
-    <MESSAGE value="Added login buttons" />
-    <MESSAGE value="Customer Panel Update Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer Panel Update Layout" />
+    <MESSAGE value="Updated typos" />
+    <MESSAGE value="added createBike()" />
+    <MESSAGE value="reverted changed in main.java to run GUI" />
+    <MESSAGE value="Added all elements of customer dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added all elements of customer dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -224,9 +236,5 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
-  </component>
-  <component name="XSLT-Support.FileAssociations.UIState">
-    <expand />
-    <select />
   </component>
 </project>

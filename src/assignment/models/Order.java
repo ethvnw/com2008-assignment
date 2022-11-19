@@ -65,7 +65,7 @@ public class Order {
 
         DBDriver.processQuery(query);
     }
-//
+
 //    public void deleteOrder() {
 //        Bike bike = Bike.getBike(this.bikeID);
 //        assert bike != null;
@@ -76,7 +76,7 @@ public class Order {
 //        bike.getWheels().quantity -=1;
 //        bike.getFrameSet().updateQuantity();
 //
-//        String query = "DELETE FROM order";
+//        String query = "DELETE FROM order"
 //
 //    }
 
@@ -183,7 +183,7 @@ public class Order {
      */
     public static List<Order> getAllOrderOfACustomer(int customerID) {
 
-        String query = "SELECT * FROM team001.order WHERE customerID = " + customerID + "; ";
+        String query = "SELECT * FROM order WHERE customerID = " + customerID + "; ";
 
         return getOrders(query);
     }
@@ -198,10 +198,6 @@ public class Order {
 
     public int getBikeID() {
         return bikeID;
-    }
-
-    public String getAssigned_Staff() {
-        return assigned_Staff;
     }
 
     /**
@@ -237,5 +233,9 @@ public class Order {
         }
 
         return null;
+    }
+
+    public String getAssigned_Staff() {
+        return this.assigned_Staff;
     }
 }

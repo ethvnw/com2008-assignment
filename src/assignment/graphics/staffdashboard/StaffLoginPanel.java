@@ -41,10 +41,11 @@ public class StaffLoginPanel extends JPanel {
         accountForm.add(staffErrorMsg);
 
         viewAccount.addActionListener(e -> {
-            Staff staff = null;
             try {
-                staff = Staff.getStaff(username.getText(), password.getText());
-                if (staff != null) {
+                Staff staff = new Staff(username.getText(), password.getText());
+
+                if (staff.login() != null) {
+//                    Staff.loggedInStaff
                     StaffDashboardPanel dashboardPanel = new StaffDashboardPanel(staff);
                     this.add(dashboardPanel,"dashboardPanel");
                     panels.show(this,"dashboardPanel");
@@ -52,8 +53,8 @@ public class StaffLoginPanel extends JPanel {
                 else {
                     staffErrorMsg.setText("Details do not match a registered staff");
                 }
-            } catch (SQLException ex) {
-                ex.printStackTrace();
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
             }
         });
     }
