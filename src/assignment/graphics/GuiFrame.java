@@ -7,6 +7,8 @@
 package assignment.graphics;
 
 import assignment.graphics.customerdashboard.CustomerLoginPanel;
+import assignment.graphics.staffdashboard.StaffDashboardPanel;
+import assignment.graphics.staffdashboard.StaffLoginPanel;
 
 import javax.swing.*;
 import java.awt.*;

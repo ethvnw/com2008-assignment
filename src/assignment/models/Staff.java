@@ -45,7 +45,6 @@ public class Staff {
      */
     public boolean login() throws Exception {
 
-
         Encryption encryption = new Encryption();
 
         String query = "SELECT * FROM staff WHERE username = \"" + this.username + "\";";
@@ -63,6 +62,38 @@ public class Staff {
             ex.printStackTrace();
         }
         return false;
+    }
+
+    /**
+     * To get a staff
+     * @param username username
+     * @param password password
+     * @return Staff object
+     * @throws SQLException handles exception from database queries
+     */
+    public static Staff getStaff(String username, String password) throws SQLException {
+        String query = "SELECT * FROM team001.staff WHERE this.username = \"" + username +"\" AND "+
+                "this.password = \"" + password +"\" ";
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+
+            ResultSet res = stmt.executeQuery(query);
+
+            while (res.next()) {
+                return new Staff(res.getInt("staffID"),
+                        res.getString("username"),
+                        res.getString("password"),
+                        add);
+            }
+
+            res.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 
     /**
