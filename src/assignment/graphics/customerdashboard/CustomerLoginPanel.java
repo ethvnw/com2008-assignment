@@ -1,15 +1,17 @@
-/** Customer dashboard panel
+/** Customer login panel
  * @author Ethan Watts
- * @version 1.0
- * @lastUpdated 16/11/22 23:30
+ * @version 1.3
+ * @lastUpdated 17/11/22 14:54
  */
 
 package assignment.graphics.customerdashboard;
 
+import assignment.models.Customer;
 import assignment.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
 public class CustomerLoginPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();
@@ -24,14 +26,11 @@ public class CustomerLoginPanel extends JPanel {
     private JTextField houseNo = new JTextField("Enter house number...");
     private JTextField postcode = new JTextField("Enter postcode...");
     private final JButton viewAccount = new JButton("Submit");
-
+    private JLabel customerErrorMsg = new JLabel();
 
     public CustomerLoginPanel() {
         CardLayout panels = new CardLayout();
         this.setLayout(panels);
-
-        CustomerAccountPanel accountPanel = new CustomerAccountPanel();
-        this.add(accountPanel,"accountPanel");
         this.add(buttonPanel,"buttonPanel");
 
         // Form to view order by order number
@@ -49,9 +48,14 @@ public class CustomerLoginPanel extends JPanel {
             try {
                 order = Order.getOrder(Integer.parseInt(orderNo.getText()));
                 if (order != null) {
-                    CustomerOrdersPanel ordersPanel = new CustomerOrdersPanel(order);
-                    this.add(ordersPanel,"ordersPanel");
-                    panels.show(this,"ordersPanel");
+                    if (order.getStatus().equals("Pending")) {
+                        CustomerOrdersPanel ordersPanel = new CustomerOrdersPanel(order);
+                        this.add(ordersPanel,"ordersPanel");
+                        panels.show(this,"ordersPanel");
+                    }
+                    else {
+                        orderErrorMsg.setText("Order is already confirmed");
+                    }
                 }
                 else {
                     orderErrorMsg.setText("Incorrect order number");
@@ -65,7 +69,7 @@ public class CustomerLoginPanel extends JPanel {
         buttonPanel.add(orderForm);
 
         // Form to view account details
-        accountForm.setLayout(new GridLayout(5,1));
+        accountForm.setLayout(new GridLayout(6,1));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 
@@ -74,8 +78,24 @@ public class CustomerLoginPanel extends JPanel {
         accountForm.add(houseNo);
         accountForm.add(postcode);
         accountForm.add(viewAccount);
+        customerErrorMsg.setForeground(Color.red);
+        accountForm.add(customerErrorMsg);
+
         viewAccount.addActionListener(e -> {
-            panels.show(this,"accountPanel");
+            Customer customer = null;
+            try {
+                customer = Customer.getCustomer(firstName.getText(),surname.getText(), houseNo.getText(), postcode.getText());
+                if (customer != null) {
+                    CustomerAccountPanel accountPanel = new CustomerAccountPanel(customer);
+                    this.add(accountPanel,"accountPanel");
+                    panels.show(this,"accountPanel");
+                }
+                else {
+                    customerErrorMsg.setText("Details do not match a registered customer");
+                }
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         });
 
         buttonPanel.add(accountForm);

@@ -31,7 +31,6 @@ public class GuiFrame extends JFrame {
         JLabel title = new JLabel("Build a Bike");
         title.setFont(new Font("Sans-Serif", Font.BOLD, 16));
         buttonPanel.setOpaque(true);
-        buttonPanel.setBackground(Color.white);
         buttonPanel.add(title);
 
         JButton customerLoginButton = new JButton("Customer Login");
@@ -50,12 +49,8 @@ public class GuiFrame extends JFrame {
         // Panels for each page
         CustomerFormPanel cForm = new CustomerFormPanel();
         mainPanel.add(cForm);
-        CustomerLoginPanel customerLogin = new CustomerLoginPanel();
-        mainPanel.add(customerLogin,"customerLogin");
         BikeCreationPanel bikeCreation = new BikeCreationPanel();
         mainPanel.add(bikeCreation);
-        StaffLoginPanel staffLogin = new StaffLoginPanel();
-        mainPanel.add(staffLogin,"staffLogin");
         StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
         mainPanel.add(staffDashboard);
 
@@ -71,9 +66,16 @@ public class GuiFrame extends JFrame {
         ////////////////////////////////////////////////////////////////////////
 
         // Button event listeners
-        customerLoginButton.addActionListener(e -> panels.show(mainPanel,"customerLogin"));
-        staffLoginButton.addActionListener(e -> panels.show(mainPanel,"staffLogin"));
-
+        customerLoginButton.addActionListener(e -> {
+            CustomerLoginPanel customerLogin = new CustomerLoginPanel();
+            mainPanel.add(customerLogin,"customerLogin");
+            panels.show(mainPanel,"customerLogin");
+        });
+        staffLoginButton.addActionListener(e -> {
+            StaffLoginPanel staffLogin = new StaffLoginPanel();
+            mainPanel.add(staffLogin,"staffLogin");
+            panels.show(mainPanel,"staffLogin");
+        });
 
         getContentPane().add(mainPanel, BorderLayout.CENTER);
         getContentPane().add(buttonPanel, BorderLayout.NORTH);

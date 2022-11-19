@@ -1,9 +1,9 @@
 package assignment.models;
 
 /** Represents a Bike (Assembled Product).
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Ethan Watts
  * @version 1.0
- * @lastUpdated 14-11-2022 10:37
+ * @lastUpdated 17-11-2022 12:24
  */
 
 import assignment.dbconnection.DBDriver;
@@ -33,6 +33,8 @@ public class Bike {
         this.frameSet = new FrameSet(frameSetSerial, frameSetBrand);
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
+
+        this.cost = calculateCost();
     }
 
     public Bike(int serialNo, String brand, String name,
@@ -45,6 +47,24 @@ public class Bike {
         this.frameSet = fs;
         this.handlebar = hb;
         this.wheels = ws;
+
+        this.cost = calculateCost();
+    }
+
+    public void createBike() {
+        String query = "INSERT INTO bike(serialNo, brand, name, cost" +
+                "frameSetSerial, frameSetBrand," +
+                " handlebarSerial,  handlebarBrand, " +
+                "wheelsSerial,  wheelsBrand)" +
+                " VALUES("+this.serialNo+", \""+this.brand+"\"," +
+                "\"" + this.name + "\"," + this.cost + ", " +
+                this.frameSet.serialNo + ", \'" + this.frameSet.brand +"\"," +
+                this.handlebar.serialNo + ", \'" + this.handlebar.brand +"\"," +
+                this.wheels.serialNo + ", \'" + this.wheels.brand +"\"," +");";
+
+        DBDriver.processQuery(query);
+
+//        this.frameSet.quantity
     }
 
 
@@ -66,7 +86,7 @@ public class Bike {
      * @throws SQLException to handle database queries
      */
     public static Bike getBike(int bikeID) {
-        String query = "SELECT * FROM bike where bikeId = " + bikeID + ";";
+        String query = "SELECT * FROM team001.bike where bikeId = " + bikeID + ";";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
@@ -79,7 +99,7 @@ public class Bike {
 
                 return new Bike(res.getInt("serialNo"),
                         res.getString("brand"),
-                        res.getString("name"),
+                        res.getString("bikeName"),
                         frameSet, handlebar, wheels);
             }
 

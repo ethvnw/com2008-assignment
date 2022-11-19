@@ -54,16 +54,27 @@ public class Customer {
      * @throws SQLException handles exception from database queries
      */
     public static Customer getCustomer(int customerID) throws SQLException {
-        String query = "SELECT * FROM customer where customerID = " + customerID + ";";
-        ResultSet res = DBDriver.processGetOutput(query);
-        Customer cus;
-        if(res != null) {
-            String forename = res.getString("forename");
-            String lastname = res.getString("surname");
-            Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
-            cus = new Customer(customerID, forename, lastname, add);
-            return cus;
+        String query = "SELECT * FROM team001.customer where customerID = " + customerID + ";";
+
+        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+
+            Statement stmt = con.createStatement();
+
+            ResultSet res = stmt.executeQuery(query);
+
+            while (res.next()) {
+                Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
+                return new Customer(res.getInt("customerID"),
+                        res.getString("forename"),
+                        res.getString("surname"),
+                        add);
+            }
+
+            res.close();
+        } catch (SQLException ex) {
+            ex.printStackTrace();
         }
+
         return null;
     }
 
@@ -76,10 +87,13 @@ public class Customer {
      * @return Customer object
      * @throws SQLException handles exception from database queries
      */
-    public Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
+    public static Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
         Address add = Address.findAddress(houseNum, postcode);
-        String query = "SELECT * FROM customer WHERE forename = \"" + forename +"\", "+
-                        "surname = \"" + surname +"\" ,houseNum = \"" + add.houseNum + "\" ," +
+        if (add == null)
+            return null;
+
+        String query = "SELECT * FROM team001.customer WHERE forename = \"" + forename +"\" AND "+
+                        "surname = \"" + surname +"\" AND houseNum = \"" + add.houseNum + "\" AND " +
                         "postcode = \"" + add.postcode + "\";";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
@@ -227,4 +241,19 @@ public class Customer {
         this.address.updateAddress(houseNum, road, city, postcode);
     }
 
+    public int getCustomerID() {
+        return customerID;
+    }
+
+    public Address getAddress() {
+        return address;
+    }
+
+    public String getForename() {
+        return forename;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
 }

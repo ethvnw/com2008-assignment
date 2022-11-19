@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added login buttons">
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Added all elements of customer dashboard">
+      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerOrdersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerOrdersPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -89,8 +92,8 @@
       <workItem from="1668540545403" duration="176000" />
       <workItem from="1668603094485" duration="8575000" />
       <workItem from="1668615143459" duration="24000" />
-      <workItem from="1668615215184" duration="488000" />
-      <workItem from="1668637759445" duration="5625000" />
+      <workItem from="1668615215184" duration="390000" />
+      <workItem from="1668777542477" duration="8317000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -169,14 +172,28 @@
       <option name="project" value="LOCAL" />
       <updated>1668615066632</updated>
     </task>
-    <task id="LOCAL-00012" summary="Added login buttons">
-      <created>1668615658767</created>
+    <task id="LOCAL-00012" summary="Updated typos">
+      <created>1668687069079</created>
       <option name="number" value="00012" />
       <option name="presentableId" value="LOCAL-00012" />
       <option name="project" value="LOCAL" />
-      <updated>1668615658767</updated>
+      <updated>1668687069079</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="added createBike()">
+      <created>1668688044445</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1668688044445</updated>
+    </task>
+    <task id="LOCAL-00014" summary="reverted changed in main.java to run GUI">
+      <created>1668688124601</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668688124601</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,8 +223,11 @@
     <MESSAGE value="Cleaned up GUI" />
     <MESSAGE value="Added template panel files, imported into GuiFrame" />
     <MESSAGE value="Login page for customer dashboard added" />
-    <MESSAGE value="Added login buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added login buttons" />
+    <MESSAGE value="Updated typos" />
+    <MESSAGE value="added createBike()" />
+    <MESSAGE value="reverted changed in main.java to run GUI" />
+    <MESSAGE value="Added all elements of customer dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added all elements of customer dashboard" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

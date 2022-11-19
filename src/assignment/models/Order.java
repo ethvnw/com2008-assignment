@@ -26,12 +26,10 @@ public class Order {
 
     /**
      * To create an order object
-     * @param date date of order
      * @param customerID Customer ID
      * @param bikeID Bike ID
      */
-    public Order(String date, int customerID, int bikeID) {
-        this.date = date;
+    public Order( int customerID, int bikeID) {
         this.customerID = customerID;
         this.bikeID = bikeID;
         this.status = "Pending";
@@ -62,11 +60,25 @@ public class Order {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
         Date date = new Date();
         this.date = formatter.format(date);
-        String query = "INSERT INTO order(date, customerID, bikeID, status)" +
-                "VALUES(\""+this.date+"\", \"" + this.customerID +"\", \"" + this.bikeID + "\", \"" + this.status +"\")";
+        String query = "INSERT INTO order (date, customerID, bikeID, status)" +
+                " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
 
         DBDriver.processQuery(query);
     }
+//
+//    public void deleteOrder() {
+//        Bike bike = Bike.getBike(this.bikeID);
+//        assert bike != null;
+//        bike.getFrameSet().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//        bike.getHandlebar().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//        bike.getWheels().quantity -=1;
+//        bike.getFrameSet().updateQuantity();
+//
+//        String query = "DELETE FROM order";
+//
+//    }
 
     /**
      * Assigns a staff to complete the order
@@ -87,48 +99,13 @@ public class Order {
     }
 
     /**
-     * Returns the current status of the given order (using orderID)
-     * @param orderID Order's ID
-     * @return current status of the order
-     */
-    public String getStatus(int orderID) {
-
-        String query = "SELECT status FROM order where orderId = " + orderID + ";";
-
-        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while(res.next()) {
-                return res.getString("status");
-            }
-
-            return null;
-
-        }
-        catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
-    }
-
-    /**
-     *  To return the current status of the order.
-     * @return current status of the order.
-     */
-    public String getStatus() {
-        return this.status;
-    }
-
-    /**
      * Returns the Order object.
      * @param orderID Order's ID
      * @return An order object of the given orderID
      */
     public static Order getOrder(int orderID) {
 
-        String query = "SELECT * FROM order where orderId = " + orderID + ";";
+        String query = "SELECT * FROM team001.order WHERE orderID = " + orderID + ";";
 
         try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
@@ -137,12 +114,12 @@ public class Order {
             while(res.next()) {
 
                 return new Order(
-                        res.getInt("orderId"),
+                        res.getInt("orderID"),
                         res.getString("status"),
                         res.getString("date"),
-                        res.getInt("bikeId"),
+                        res.getInt("bikeID"),
                         res.getString("assigned_Staff"),
-                        res.getInt("customerId")
+                        res.getInt("customerID")
                 );
             }
 
@@ -172,7 +149,7 @@ public class Order {
             ResultSet res = stmt.executeQuery(query);
 
             while(res.next()) {
-                Order ord = Order.getOrder(res.getInt("orderId"));
+                Order ord = Order.getOrder(res.getInt("orderID"));
                 orders.add(ord);
             }
 
@@ -192,9 +169,9 @@ public class Order {
         String query = "UPDATE order" +
                         "SET date = \"" + this.date + "\", " +
                         "status = \"" + this.status + "\", " +
-                        "customerId = \"" + this.customerID +"\", " +
+                        "customerID = \"" + this.customerID +"\", " +
                         "assigned_Staff = \"" + this.assigned_Staff +"\", " +
-                        "bikeId = \"" + this.bikeID +"\"  " +
+                        "bikeID = \"" + this.bikeID +"\"  " +
                         "WHERE orderID = " + this.orderID + ";";
         DBDriver.processQuery(query);
     }
@@ -204,9 +181,9 @@ public class Order {
      * @param customerID Customer's ID
      * @return List of orders
      */
-    public List<Order> getAllOrderOfACustomer(int customerID) {
+    public static List<Order> getAllOrderOfACustomer(int customerID) {
 
-        String query = "SELECT * FROM order WHERE customerID = " + customerID + "; ";
+        String query = "SELECT * FROM team001.order WHERE customerID = " + customerID + "; ";
 
         return getOrders(query);
     }
@@ -221,5 +198,44 @@ public class Order {
 
     public int getBikeID() {
         return bikeID;
+    }
+
+    public String getAssigned_Staff() {
+        return assigned_Staff;
+    }
+
+    /**
+     *  To return the current status of the order.
+     * @return current status of the order.
+     */
+    public String getStatus() {
+        return this.status;
+    }
+
+    /**
+     * Returns the current status of the given order (using orderID)
+     * @param orderID Order's ID
+     * @return current status of the order
+     */
+    public static String getStatus(int orderID) {
+
+        String query = "SELECT status FROM order where orderId = " + orderID + ";";
+
+        try(Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+            Statement stmt = con.createStatement();
+            ResultSet res = stmt.executeQuery(query);
+
+            while(res.next()) {
+                return res.getString("status");
+            }
+
+            return null;
+
+        }
+        catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+
+        return null;
     }
 }

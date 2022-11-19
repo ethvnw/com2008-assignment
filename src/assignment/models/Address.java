@@ -109,5 +109,19 @@ public class Address {
         this.postcode = postcode;
     }
 
+    public String getHouseNum() {
+        return houseNum;
+    }
 
+    public String getRoad() {
+        return road;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
 }

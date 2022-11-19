@@ -25,7 +25,7 @@ public class Encryption {
     private String EncryptionScheme;
     SecretKey key;
     public Encryption() throws Exception {
-        EncryptionKey = "TEAM001";
+        EncryptionKey = "ThisisSpartaThisisSparta";
         EncryptionScheme = ENCRYPTION_SCHEME;
         arrayBytes = EncryptionKey.getBytes(UNICODE_FORMAT);
         ks = new DESedeKeySpec(arrayBytes);
