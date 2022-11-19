@@ -46,12 +46,12 @@ public class CustomerAccountPanel extends JPanel {
         customerDetails.add(postcode);
         customerDetails.add(updateDetails);
 
-
         List<Order> orderList = Order.getAllOrderOfACustomer(customer.getCustomerID());
         String[] columnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
         orderDetails = new JTable(new DefaultTableModel(columnNames,0));
         orderScrollPane = new JScrollPane(orderDetails);
+        orderScrollPane.setPreferredSize((new Dimension(1000,600)));
         orderScrollPane.setBorder(BorderFactory.createTitledBorder("Your Orders"));
 
         for (Order order : orderList) {

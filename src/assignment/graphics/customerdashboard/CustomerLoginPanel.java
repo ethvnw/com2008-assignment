@@ -6,6 +6,7 @@
 
 package assignment.graphics.customerdashboard;
 
+import assignment.graphics.HintTextField;
 import assignment.models.Customer;
 import assignment.models.Order;
 
@@ -16,15 +17,15 @@ import java.sql.SQLException;
 public class CustomerLoginPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();
     private final JPanel orderForm = new JPanel();
-    private JTextField orderNo = new JTextField("Enter order number...",20);
+    private HintTextField orderNo = new HintTextField("Enter order number...");
     private final JButton modifyOrder = new JButton("Submit");
     private JLabel orderErrorMsg = new JLabel();
 
     private final JPanel accountForm = new JPanel();
-    private JTextField firstName = new JTextField("Enter first name...",20);
-    private JTextField surname = new JTextField("Enter surname...");
-    private JTextField houseNo = new JTextField("Enter house number...");
-    private JTextField postcode = new JTextField("Enter postcode...");
+    private HintTextField firstName = new HintTextField("Enter first name...");
+    private HintTextField surname = new HintTextField("Enter surname...");
+    private HintTextField houseNo = new HintTextField("Enter house number...");
+    private HintTextField postcode = new HintTextField("Enter postcode...");
     private final JButton viewAccount = new JButton("Submit");
     private JLabel customerErrorMsg = new JLabel();
 
@@ -35,11 +36,14 @@ public class CustomerLoginPanel extends JPanel {
 
         // Form to view order by order number
         orderForm.setLayout(new GridLayout(3,1));
+        orderForm.setPreferredSize((new Dimension(250,250)));
         orderForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         orderForm.setBorder(BorderFactory.createTitledBorder("View an Order"));
 
+        orderNo.setSize(new Dimension(100, 30));
         orderForm.add(orderNo);
         orderForm.add(modifyOrder);
+        modifyOrder.setSize(new Dimension(100, 30));
         orderErrorMsg.setForeground(Color.red);
         orderForm.add(orderErrorMsg);
 
@@ -70,6 +74,7 @@ public class CustomerLoginPanel extends JPanel {
 
         // Form to view account details
         accountForm.setLayout(new GridLayout(6,1));
+        accountForm.setPreferredSize((new Dimension(250,250)));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 

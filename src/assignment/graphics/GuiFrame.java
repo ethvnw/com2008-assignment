@@ -22,7 +22,7 @@ public class GuiFrame extends JFrame {
         Toolkit toolkit = Toolkit.getDefaultToolkit();
         Dimension screenSize = toolkit.getScreenSize();
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(screenSize.width / 2, screenSize.height / 2);
+        setSize(screenSize.width, screenSize.height);
         this.setLayout(new BorderLayout(0,10));
 
         // Top navigation panel - always displayed
