@@ -123,7 +123,7 @@ public class Customer {
      * @return List of Customers based on the query
      */
     public static List<Customer> getCustomers(String query) {
-        List<Customer> customers = new ArrayList<>();
+        List<Customer> customers = new ArrayList<Customer>();
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
 

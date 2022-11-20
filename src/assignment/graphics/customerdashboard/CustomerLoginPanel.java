@@ -36,7 +36,7 @@ public class CustomerLoginPanel extends JPanel {
 
         // Form to view order by order number
         orderForm.setLayout(new GridLayout(3,1));
-        orderForm.setPreferredSize((new Dimension(250,250)));
+        orderForm.setPreferredSize((new Dimension(300,300)));
         orderForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         orderForm.setBorder(BorderFactory.createTitledBorder("View an Order"));
 
@@ -74,7 +74,7 @@ public class CustomerLoginPanel extends JPanel {
 
         // Form to view account details
         accountForm.setLayout(new GridLayout(6,1));
-        accountForm.setPreferredSize((new Dimension(250,250)));
+        accountForm.setPreferredSize((new Dimension(300,300)));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 
