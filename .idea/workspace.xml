@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Login &amp; Dashboard Panel Update">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
-    </list>
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Login &amp; Dashboard Panel Update 2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,7 +83,7 @@
       <workItem from="1668615143459" duration="24000" />
       <workItem from="1668615215184" duration="488000" />
       <workItem from="1668637759445" duration="5625000" />
-      <workItem from="1668961122853" duration="2682000" />
+      <workItem from="1668961122853" duration="3040000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -187,7 +183,21 @@
       <option name="project" value="LOCAL" />
       <updated>1668960204347</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Staff Login &amp; Dashboard Panel Update 2.0">
+      <created>1668964016204</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1668964016204</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Staff Login &amp; Dashboard Panel Update 2.0">
+      <created>1668964065528</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1668964065528</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -220,7 +230,8 @@
     <MESSAGE value="Added login buttons" />
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update" />
+    <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
