@@ -52,8 +52,8 @@ public class GuiFrame extends JFrame {
         mainPanel.add(cForm);
         BikeCreationPanel bikeCreation = new BikeCreationPanel();
         mainPanel.add(bikeCreation);
-        StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
-        mainPanel.add(staffDashboard);
+        //StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
+        //mainPanel.add(staffDashboard);
 
         // TESTING /////////////////////////////////////////////////////////////
         JButton testButton = new JButton("Test");

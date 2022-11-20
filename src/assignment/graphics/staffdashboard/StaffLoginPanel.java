@@ -30,7 +30,7 @@ public class StaffLoginPanel extends JPanel {
         this.add(buttonPanel,"buttonPanel");
 
         accountForm.setLayout(new GridLayout(4,1));
-        accountForm.setPreferredSize((new Dimension(250,250)));
+        accountForm.setPreferredSize((new Dimension(300,300)));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 
@@ -57,5 +57,9 @@ public class StaffLoginPanel extends JPanel {
                 throw new RuntimeException(ex);
             }
         });
+
+        buttonPanel.add(accountForm);
+
+        panels.show(this,"buttonPanel");
     }
 }

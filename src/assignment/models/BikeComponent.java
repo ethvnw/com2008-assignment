@@ -22,6 +22,8 @@ public class BikeComponent {
         return brand;
     }
 
+    public int getSerialNo() { return serialNo; }
+
     public void updateQuantity() {
         String query = "UPDATE ";
 
