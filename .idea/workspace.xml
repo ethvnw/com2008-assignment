@@ -1,15 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Customer Panel Update Layout">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Login &amp; Dashboard Panel Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,6 +87,7 @@
       <workItem from="1668615143459" duration="24000" />
       <workItem from="1668615215184" duration="488000" />
       <workItem from="1668637759445" duration="5625000" />
+      <workItem from="1668961122853" duration="2682000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -184,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668871373403</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Staff Login &amp; Dashboard Panel Update">
+      <created>1668960204347</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1668960204347</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -216,7 +219,8 @@
     <MESSAGE value="Login page for customer dashboard added" />
     <MESSAGE value="Added login buttons" />
     <MESSAGE value="Customer Panel Update Layout" />
-    <option name="LAST_COMMIT_MESSAGE" value="Customer Panel Update Layout" />
+    <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

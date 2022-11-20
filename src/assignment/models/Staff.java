@@ -90,38 +90,6 @@ public class Staff {
     }
 
     /**
-     * To get a staff
-     * @param username username
-     * @param password password
-     * @return Staff object
-     * @throws SQLException handles exception from database queries
-     */
-//    public static Staff getStaff(String username, String password) throws SQLException {
-//        String query = "SELECT * FROM team001.staff WHERE this.username = \"" + username +"\" AND "+
-//                "this.password = \"" + password +"\" ";
-//
-//        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-//
-//            Statement stmt = con.createStatement();
-//
-//            ResultSet res = stmt.executeQuery(query);
-//
-//            while (res.next()) {
-//                return new Staff(res.getInt("staffID"),
-//                        res.getString("username"),
-//                        res.getString("password"),
-//                        add);
-//            }
-//
-//            res.close();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
-//
-//        return null;
-//    }
-
-    /**
      * To get all the orders in the database.
      * @return A list of Orders.
      */
@@ -153,5 +121,7 @@ public class Staff {
         return Order.getOrders("SELECT orderId FROM order WHERE status = \"In Progress\"");
     }
 
-
+    public String getUsername() {
+        return username;
+    }
 }
