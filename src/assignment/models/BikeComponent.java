@@ -1,9 +1,11 @@
 package assignment.models;
 
+import assignment.dbconnection.DBDriver;
+
 /** Represents a superclass - BikeComponent.
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 1.0
- * @lastUpdated 14-11-2022 10:40
+ * @lastUpdated 20-11-2022 20:15
  */
 
 public class BikeComponent {
@@ -21,11 +23,15 @@ public class BikeComponent {
     public String getBrand() {
         return brand;
     }
-
     public int getSerialNo() { return serialNo; }
+    public int getQuantity() { return quantity; }
+    public void increaseQuantity(int amount) {quantity = quantity + amount; }
+    public void reduceQuantity(int amount) { quantity = quantity - amount; }
 
     public void updateQuantity() {
-        String query = "UPDATE ";
-
+        String query = "UPDATE " +
+                "SET quantity = \"" + this.quantity + "\", " +
+                "WHERE serialNo = " + this.serialNo + ";";
+        DBDriver.processQuery(query);
     }
 }

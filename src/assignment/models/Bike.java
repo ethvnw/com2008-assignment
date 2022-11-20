@@ -1,9 +1,9 @@
 package assignment.models;
 
 /** Represents a Bike (Assembled Product).
- * @author Vivek V Choradia, Ethan Watts
+ * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
  * @version 1.0
- * @lastUpdated 17-11-2022 12:24
+ * @lastUpdated 18-11-2022 20:18
  */
 
 import assignment.dbconnection.DBDriver;
@@ -58,13 +58,14 @@ public class Bike {
                 "wheelsSerial,  wheelsBrand)" +
                 " VALUES("+this.serialNo+", \""+this.brand+"\"," +
                 "\"" + this.name + "\"," + this.cost + ", " +
-                this.frameSet.serialNo + ", \'" + this.frameSet.brand +"\"," +
-                this.handlebar.serialNo + ", \'" + this.handlebar.brand +"\"," +
-                this.wheels.serialNo + ", \'" + this.wheels.brand +"\"," +");";
+                this.frameSet.getSerialNo() + ", \'" + this.frameSet.getBrand() +"\"," +
+                this.handlebar.getSerialNo() + ", \'" + this.handlebar.getBrand()+"\"," +
+                this.wheels.getSerialNo() + ", \'" + this.wheels.getBrand() +"\"," +");";
 
         DBDriver.processQuery(query);
-
-//        this.frameSet.quantity
+        this.frameSet.reduceQuantity(1);
+        this.handlebar.reduceQuantity(1);
+        this.wheels.reduceQuantity(1);
     }
 
 
