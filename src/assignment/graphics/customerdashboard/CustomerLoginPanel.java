@@ -15,35 +15,34 @@ import java.awt.*;
 import java.sql.SQLException;
 
 public class CustomerLoginPanel extends JPanel {
-    private final JPanel buttonPanel = new JPanel();
+    private final JPanel formPanel = new JPanel();
+
     private final JPanel orderForm = new JPanel();
-    private HintTextField orderNo = new HintTextField("Enter order number...");
+    private final HintTextField orderNo = new HintTextField("Enter order number...");
     private final JButton modifyOrder = new JButton("Submit");
-    private JLabel orderErrorMsg = new JLabel();
+    private JLabel orderErrorMsg = new JLabel(" ");
 
     private final JPanel accountForm = new JPanel();
-    private HintTextField firstName = new HintTextField("Enter first name...");
-    private HintTextField surname = new HintTextField("Enter surname...");
-    private HintTextField houseNo = new HintTextField("Enter house number...");
-    private HintTextField postcode = new HintTextField("Enter postcode...");
+    private final HintTextField firstName = new HintTextField("Enter first name...");
+    private final HintTextField surname = new HintTextField("Enter surname...");
+    private final HintTextField houseNo = new HintTextField("Enter house number...");
+    private final HintTextField postcode = new HintTextField("Enter postcode...");
     private final JButton viewAccount = new JButton("Submit");
-    private JLabel customerErrorMsg = new JLabel();
+    private JLabel customerErrorMsg = new JLabel(" ");
 
     public CustomerLoginPanel() {
-        CardLayout panels = new CardLayout();
-        this.setLayout(panels);
-        this.add(buttonPanel,"buttonPanel");
+        CardLayout card = new CardLayout();
+        this.setLayout(card);
+        this.add(formPanel,"formPanel");
 
         // Form to view order by order number
-        orderForm.setLayout(new GridLayout(3,1));
-        orderForm.setPreferredSize((new Dimension(250,250)));
+        orderForm.setPreferredSize(new Dimension(400,100));
+        orderForm.setLayout(new BoxLayout(orderForm,BoxLayout.Y_AXIS));
         orderForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         orderForm.setBorder(BorderFactory.createTitledBorder("View an Order"));
 
-        orderNo.setSize(new Dimension(100, 30));
         orderForm.add(orderNo);
         orderForm.add(modifyOrder);
-        modifyOrder.setSize(new Dimension(100, 30));
         orderErrorMsg.setForeground(Color.red);
         orderForm.add(orderErrorMsg);
 
@@ -55,7 +54,7 @@ public class CustomerLoginPanel extends JPanel {
                     if (order.getStatus().equals("Pending")) {
                         CustomerOrdersPanel ordersPanel = new CustomerOrdersPanel(order);
                         this.add(ordersPanel,"ordersPanel");
-                        panels.show(this,"ordersPanel");
+                        card.show(this,"ordersPanel");
                     }
                     else {
                         orderErrorMsg.setText("Order is already confirmed");
@@ -70,11 +69,11 @@ public class CustomerLoginPanel extends JPanel {
             }
         });
 
-        buttonPanel.add(orderForm);
+        formPanel.add(orderForm);
 
         // Form to view account details
-        accountForm.setLayout(new GridLayout(6,1));
-        accountForm.setPreferredSize((new Dimension(250,250)));
+        accountForm.setPreferredSize(new Dimension(400,200));
+        accountForm.setLayout(new BoxLayout(accountForm,BoxLayout.Y_AXIS));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 
@@ -93,7 +92,7 @@ public class CustomerLoginPanel extends JPanel {
                 if (customer != null) {
                     CustomerAccountPanel accountPanel = new CustomerAccountPanel(customer);
                     this.add(accountPanel,"accountPanel");
-                    panels.show(this,"accountPanel");
+                    card.show(this,"accountPanel");
                 }
                 else {
                     customerErrorMsg.setText("Details do not match a registered customer");
@@ -103,8 +102,8 @@ public class CustomerLoginPanel extends JPanel {
             }
         });
 
-        buttonPanel.add(accountForm);
+        formPanel.add(accountForm);
 
-        panels.show(this,"buttonPanel");
+        card.show(this,"formPanel");
     }
 }

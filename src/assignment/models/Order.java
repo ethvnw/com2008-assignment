@@ -183,7 +183,7 @@ public class Order {
      */
     public static List<Order> getAllOrderOfACustomer(int customerID) {
 
-        String query = "SELECT * FROM order WHERE customerID = " + customerID + "; ";
+        String query = "SELECT * FROM team001.order WHERE customerID = " + customerID + ";";
 
         return getOrders(query);
     }
