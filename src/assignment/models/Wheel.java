@@ -15,4 +15,9 @@ public class Wheel extends BikeComponent {
     public Wheel(int wheelsSerial, String wheelsBrand) {
         super(wheelsSerial, wheelsBrand);
     }
+
+    public void updateQuantity() {
+        String component = "wheels";
+        this.updateQuantity(component);
+    }
 }

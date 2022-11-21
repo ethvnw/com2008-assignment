@@ -14,4 +14,9 @@ public class Handlebar extends BikeComponent {
     public Handlebar(int handlebarSerial, String handlebarBrand) {
         super(handlebarSerial, handlebarBrand);
     }
+
+    public void updateQuantity() {
+        String component = "handleBar";
+        this.updateQuantity(component);
+    }
 }

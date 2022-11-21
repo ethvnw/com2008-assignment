@@ -13,7 +13,7 @@ public class BikeComponent {
     protected int serialNo;
     protected String brand;
     protected double cost;
-    protected int quantity = 50;
+    protected int quantity;
 
     public BikeComponent(int serialNo, String brand) {
         this.serialNo = serialNo;
@@ -28,9 +28,9 @@ public class BikeComponent {
     public void increaseQuantity(int amount) {quantity = quantity + amount; }
     public void reduceQuantity(int amount) { quantity = quantity - amount; }
 
-    public void updateQuantity() {
-        String query = "UPDATE " +
-                "SET quantity = \"" + this.quantity + "\", " +
+    public void updateQuantity(String component) {
+        String query = "UPDATE " + component +
+                "SET quantity = " + this.quantity + ", " +
                 "WHERE serialNo = " + this.serialNo + ";";
         DBDriver.processQuery(query);
     }

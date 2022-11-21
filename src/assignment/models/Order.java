@@ -66,19 +66,19 @@ public class Order {
         DBDriver.processQuery(query);
     }
 
-//    public void deleteOrder() {
-//        Bike bike = Bike.getBike(this.bikeID);
-//        assert bike != null;
-//        bike.getFrameSet().quantity -=1;
-//        bike.getFrameSet().updateQuantity();
-//        bike.getHandlebar().quantity -=1;
-//        bike.getFrameSet().updateQuantity();
-//        bike.getWheels().quantity -=1;
-//        bike.getFrameSet().updateQuantity();
-//
-//        String query = "DELETE FROM order"
-//
-//    }
+    public void deleteOrder() {
+        Bike bike = Bike.getBike(this.bikeID);
+        assert bike != null;
+        bike.getFrameSet().increaseQuantity(1);
+        bike.getFrameSet().updateQuantity();
+        bike.getHandlebar().increaseQuantity(1);
+        bike.getFrameSet().updateQuantity();
+        bike.getWheels().increaseQuantity(2);
+        bike.getFrameSet().updateQuantity();
+
+        String query = "DELETE FROM order WHERE orderID = " + this.orderID + ";";
+        DBDriver.processQuery(query);
+    }
 
     /**
      * Assigns a staff to complete the order

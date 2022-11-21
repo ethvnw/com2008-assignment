@@ -18,4 +18,9 @@ public class FrameSet extends BikeComponent {
     public FrameSet(int frameSetSerial, String frameSetBrand) {
         super(frameSetSerial, frameSetBrand);
     }
+
+    public void updateQuantity() {
+        String component = "frameSet";
+        this.updateQuantity(component);
+    }
 }
