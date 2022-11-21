@@ -80,7 +80,7 @@ public class Staff {
      * To log out the current staff member
      * @return status whether logout was successful or not
      */
-    public boolean logout() {
+    public static boolean logout() {
         if(loggedInStaff == null) {
             return false;
         } else {

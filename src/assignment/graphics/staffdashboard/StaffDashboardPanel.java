@@ -91,20 +91,19 @@ public class StaffDashboardPanel extends JPanel {
         JButton staffLogOutButton = new JButton("Log Out");
         buttonPanel.add(staffLogOutButton);
 
-//        staffLogOutButton.addActionListener(e -> {
-//            try {
-//                Staff staff = new Staff(staff.getUsername());
-//
-//                if (staff.logout() != null) {
-//                    StaffLoginPanel staffLogin = new StaffLoginPanel(staff);
-//                    this.add(staffLogin,"staffLogin");
-//                    panels.show(this,"staffLogin");
-//                }
-//
-//            } catch (Exception ex) {
-//                throw new RuntimeException(ex);
-//            }
-//        });
+        staffLogOutButton.addActionListener(e -> {
+            try {
+
+                if (Staff.logout()) {
+                    StaffLoginPanel staffLogin = new StaffLoginPanel();
+                    this.add(staffLogin,"staffLogin");
+                    panels.show(this,"staffLogin");
+                }
+
+            } catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
 //        this.add(buttonPanel, BorderLayout.PAGE_START);
 //        this.add(customerScrollPane, BorderLayout.WEST);
