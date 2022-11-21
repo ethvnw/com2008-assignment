@@ -214,10 +214,10 @@ public class Customer {
     /**
      * To update the name of the customer
      */
-    public void updateName() {
+    public void updateName(String fName, String sName) {
         String query = "UPDATE customer " +
-                        "SET forename = \"" + this.forename + "\" ," +
-                        "surname = \"" + this.surname + "\" " +
+                        "SET forename = \"" + fName + "\" ," +
+                        "surname = \"" + sName + "\" " +
                         " WHERE customerId = " + this.customerID +";";
 
         DBDriver.processQuery(query);
