@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated login() and programmed logout()">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="gui changes">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_22__3_05_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_14_11_22__3_05_pm__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_22__10_39_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_22__10_39_pm__Changes_.xml" afterDir="false" />
@@ -11,11 +9,8 @@
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_22__12_17_pm__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_22__12_17_pm__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_22__11_39_am__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_20_11_22__11_39_am__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Customer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +94,6 @@
       <workItem from="1668615215184" duration="488000" />
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
-      <workItem from="1669031593897" duration="1891000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
