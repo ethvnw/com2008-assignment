@@ -20,17 +20,17 @@ public class StaffLoginPanel extends JPanel {
 
     private final JPanel accountForm = new JPanel();
     private HintTextField username = new HintTextField("Enter username...");
-    private HintTextField password = new HintTextField("Enter password...");
+    private JPasswordField password = new JPasswordField();
     private final JButton viewAccount = new JButton("Submit");
     private JLabel staffErrorMsg = new JLabel();
 
     public StaffLoginPanel() {
-        CardLayout panels = new CardLayout();
-        this.setLayout(panels);
+        CardLayout card = new CardLayout();
+        this.setLayout(card);
         this.add(buttonPanel,"buttonPanel");
 
-        accountForm.setLayout(new GridLayout(4,1));
-        accountForm.setPreferredSize((new Dimension(300,300)));
+        accountForm.setPreferredSize((new Dimension(400,200)));
+        accountForm.setLayout(new BoxLayout(accountForm,BoxLayout.Y_AXIS));
         accountForm.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         accountForm.setBorder(BorderFactory.createTitledBorder("View Your Account"));
 
@@ -48,7 +48,7 @@ public class StaffLoginPanel extends JPanel {
 //                    Staff.loggedInStaff
                     StaffDashboardPanel dashboardPanel = new StaffDashboardPanel(staff);
                     this.add(dashboardPanel,"dashboardPanel");
-                    panels.show(this,"dashboardPanel");
+                    card.show(this,"dashboardPanel");
                 }
                 else {
                     staffErrorMsg.setText("Details do not match a registered staff");
@@ -60,6 +60,6 @@ public class StaffLoginPanel extends JPanel {
 
         buttonPanel.add(accountForm);
 
-        panels.show(this,"buttonPanel");
+        card.show(this,"buttonPanel");
     }
 }

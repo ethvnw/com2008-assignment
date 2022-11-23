@@ -6,27 +6,65 @@
 
 package assignment.graphics.staffdashboard;
 
-import assignment.graphics.customerdashboard.CustomerAccountPanel;
+import assignment.graphics.customerdashboard.CustomerOrdersPanel;
 import assignment.models.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.List;
 
 public class StaffDashboardPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();
+    private JPanel orderPanel = new JPanel();
+    private JPanel customerPanel = new JPanel();
     private JTable orderDetails;
     private JTable customerDetails;
     private JScrollPane orderScrollPane;
     private JScrollPane customerScrollPane;
+    private final JButton viewBikeComponents = new JButton("View Bike Components");
 
     protected StaffDashboardPanel(Staff staff) {
-        CardLayout panels = new CardLayout();
-        this.setLayout(panels);
+        CardLayout card = new CardLayout();
+        this.setLayout(card);
         this.add(buttonPanel,"buttonPanel");
+
+        // Welcome text for user
+        JLabel title = new JLabel("Welcome " + String.valueOf(staff.getUsername()));
+        title.setFont(new Font("Sans-Serif", Font.PLAIN, 16));
+        buttonPanel.add(title, BorderLayout.PAGE_START);
+
+        // Log out button
+        JButton staffLogOutButton = new JButton("Log Out");
+        buttonPanel.add(staffLogOutButton, BorderLayout.PAGE_START);
+
+        staffLogOutButton.addActionListener(e -> {
+            try {
+                if (Staff.logout()) {
+                    StaffLoginPanel staffLogin = new StaffLoginPanel();
+                    this.add(staffLogin,"staffLogin");
+                    card.show(this,"staffLogin");
+                }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        // View Bike Components
+        buttonPanel.add(viewBikeComponents);
+        viewBikeComponents.addActionListener(e -> {
+            try{
+                if (staff != null){
+                    StaffBikeComponentPanel bikePanel = new StaffBikeComponentPanel(staff);
+                    this.add(bikePanel,"bikePanel");
+                    card.show(this,"bikePanel");
+                }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
 
         // Customer Table
         String customerQuery = "SELECT * FROM team001.customer;";
@@ -35,23 +73,32 @@ public class StaffDashboardPanel extends JPanel {
                 "City Name", "Postcode"};
         customerDetails = new JTable(new DefaultTableModel(customerColumnNames,0));
         customerScrollPane = new JScrollPane(customerDetails);
-        customerScrollPane.setPreferredSize((new Dimension(1000,300)));
-        customerScrollPane.setBorder(BorderFactory.createTitledBorder("All Customers"));
+        customerPanel.setBorder(BorderFactory.createTitledBorder("All Customers"));
 
-        for (Customer customer : customerList) {
-            String[] customerColumns = new String[7];
+        if (!customerList.isEmpty()) {
+            customerPanel.add(customerScrollPane);
 
-            customerColumns[0] = String.valueOf(customer.getCustomerID());
-            customerColumns[1] = customer.getForename();
-            customerColumns[2] = customer.getSurname();
-            customerColumns[3] = customer.getAddress().getHouseNum();
-            customerColumns[4] = customer.getAddress().getRoad();
-            customerColumns[5] = customer.getAddress().getCity();
-            customerColumns[6] = customer.getAddress().getPostcode();
+            for (Customer customer : customerList) {
+                String[] customerColumns = new String[7];
 
-            DefaultTableModel customerModel = (DefaultTableModel) customerDetails.getModel();
-            customerModel.addRow(customerColumns);
+                customerColumns[0] = String.valueOf(customer.getCustomerID());
+                customerColumns[1] = customer.getForename();
+                customerColumns[2] = customer.getSurname();
+                customerColumns[3] = customer.getAddress().getHouseNum();
+                customerColumns[4] = customer.getAddress().getRoad();
+                customerColumns[5] = customer.getAddress().getCity();
+                customerColumns[6] = customer.getAddress().getPostcode();
+
+                DefaultTableModel customerModel = (DefaultTableModel) customerDetails.getModel();
+                customerModel.addRow(customerColumns);
+            }
         }
+
+        else {
+            customerPanel.add(new JLabel("No customers in the system"));
+        }
+
+        buttonPanel.add(customerPanel, BorderLayout.CENTER);
 
         // Order Table
         String orderQuery = "SELECT * FROM team001.order;";
@@ -60,64 +107,37 @@ public class StaffDashboardPanel extends JPanel {
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
         orderDetails = new JTable(new DefaultTableModel(orderColumnNames,0));
         orderScrollPane = new JScrollPane(orderDetails);
-        orderScrollPane.setPreferredSize((new Dimension(1000,300)));
-        orderScrollPane.setBorder(BorderFactory.createTitledBorder("All Orders"));
+        orderPanel.setBorder(BorderFactory.createTitledBorder("All Orders"));
 
-        for (Order order : orderList) {
-            String[] orderColumns = new String[10];
-            Bike bike = Bike.getBike(order.getBikeID());
+        if (!orderList.isEmpty()) {
+            orderPanel.add(orderScrollPane);
 
-            orderColumns[0] = String.valueOf(order.getOrderID());
-            orderColumns[1] = order.getDate();
-            orderColumns[2] = order.getAssigned_Staff();
-            orderColumns[3] = bike.getBrand();
-            orderColumns[4] = bike.getName();
-            orderColumns[5] = bike.getHandlebar().getBrand();
-            orderColumns[6] = bike.getWheels().getBrand();
-            orderColumns[7] = bike.getFrameSet().getBrand();
-            orderColumns[8] = "£" + bike.getCost();
-            orderColumns[9] = order.getStatus();
+            for (Order order : orderList) {
+                String[] orderColumns = new String[10];
+                Bike bike = Bike.getBike(order.getBikeID());
 
-            DefaultTableModel orderModel = (DefaultTableModel) orderDetails.getModel();
-            orderModel.addRow(orderColumns);
+                orderColumns[0] = String.valueOf(order.getOrderID());
+                orderColumns[1] = order.getDate();
+                orderColumns[2] = order.getAssigned_Staff();
+                orderColumns[3] = bike.getBrand();
+                orderColumns[4] = bike.getName();
+                orderColumns[5] = bike.getHandlebar().getBrand();
+                orderColumns[6] = bike.getWheels().getBrand();
+                orderColumns[7] = bike.getFrameSet().getBrand();
+                orderColumns[8] = "£" + bike.getCost();
+                orderColumns[9] = order.getStatus();
+
+                DefaultTableModel orderModel = (DefaultTableModel) orderDetails.getModel();
+                orderModel.addRow(orderColumns);
+            }
         }
 
-        //JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JLabel title = new JLabel("Welcome " + String.valueOf(staff.getUsername()));
-        title.setFont(new Font("Sans-Serif", Font.PLAIN, 16));
-        buttonPanel.add(title);
+        else {
+            orderPanel.add(new JLabel("No orders have been placed"));
+        }
 
-        //buttonPanel.setBorder(BorderFactory.createMatteBorder(0,0,3,0, Color.gray));
-        JButton staffLogOutButton = new JButton("Log Out");
-        buttonPanel.add(staffLogOutButton);
+        buttonPanel.add(orderPanel, BorderLayout.CENTER);
 
-        staffLogOutButton.addActionListener(e -> {
-            try {
-
-                if (Staff.logout()) {
-                    StaffLoginPanel staffLogin = new StaffLoginPanel();
-                    this.add(staffLogin,"staffLogin");
-                    panels.show(this,"staffLogin");
-                }
-
-            } catch (Exception ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-
-//        this.add(buttonPanel, BorderLayout.PAGE_START);
-//        this.add(customerScrollPane, BorderLayout.WEST);
-//        this.add(orderScrollPane, BorderLayout.EAST);
-
-        buttonPanel.add(customerScrollPane, BorderLayout.WEST);
-        buttonPanel.add(orderScrollPane, BorderLayout.EAST);
-
-        panels.show(this,"buttonPanel");
-
-    }
-
-
-    public StaffDashboardPanel() {
-
+        card.show(this,"buttonPanel");
     }
 }

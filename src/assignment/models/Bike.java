@@ -9,10 +9,13 @@ package assignment.models;
 import assignment.dbconnection.DBDriver;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Bike {
 
     private int serialNo;
+    private int quantity;
     private String brand;
     private String name;
     private double cost;
@@ -111,6 +114,49 @@ public class Bike {
         }
 
         return null;
+    }
+
+//    /**
+//     * To get a list of all bikes
+//     * @return List of Bikes
+//     * @throws SQLException to handle database queries
+//     */
+//    public static List<Bike> getAllBikes() {
+//        List<Bike> bikes = new ArrayList<Bike>();
+//
+//        String query = "SELECT * FROM bike;";
+//
+//        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+//
+//            Statement stmt = con.createStatement();
+//            ResultSet res = stmt.executeQuery(query);
+//
+//            while (res.next()) {
+//                FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
+//                Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
+//                Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
+//
+//                return new Bike(res.getInt("serialNo"),
+//                        res.getString("brand"),
+//                        res.getString("bikeName"),
+//                        frameSet, handlebar, wheels);
+//            }
+//
+//            return null;
+//
+//        } catch (SQLException ex) {
+//            ex.printStackTrace();
+//        }
+//
+//        return null;
+//    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public int getSerialNo() {
+        return serialNo;
     }
 
     public FrameSet getFrameSet() {
