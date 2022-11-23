@@ -2,6 +2,9 @@ package assignment.models;
 
 import assignment.dbconnection.DBDriver;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /** Represents a superclass - BikeComponent.
  * @author Vivek V Choradia, Natalie Roberts
  * @version 1.0
@@ -31,7 +34,17 @@ public class BikeComponent {
     public void updateQuantity(String component) {
         String query = "UPDATE " + component +
                 "SET quantity = " + this.quantity + ", " +
-                "WHERE serialNo = " + this.serialNo + ";";
+                "WHERE serialNo = " + this.serialNo + "" +
+                "AND brand = \"" + this.brand +"\";";
         DBDriver.processQuery(query);
+    }
+
+    public List<BikeComponent> getAllBikeComponents() {
+        List<BikeComponent> components = new ArrayList<>();
+        components.addAll(FrameSet.getAllFrameSets());
+        components.addAll(Handlebar.getAllHandlebars());
+        components.addAll(Wheel.getAllWheel());
+
+        return components;
     }
 }

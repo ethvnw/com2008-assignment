@@ -86,7 +86,6 @@ public class Order {
      */
     public void assignStaff(String assigned_Staff) {
         this.assigned_Staff = assigned_Staff;
-        updateOrder();
     }
 
     /**
@@ -95,7 +94,6 @@ public class Order {
      */
     public void changeStatus(String status) {
         this.status = status;
-        updateOrder();
     }
 
     /**

@@ -89,6 +89,17 @@ public class Staff {
         }
     }
 
+    public boolean confirmOrder(Order order) {
+        try {
+            order.assignStaff(this.username);
+            order.changeStatus("Confirmed");
+            order.updateOrder();
+        } catch (Exception e) {
+            return false;
+        }
+        return true;
+    }
+
     /**
      * To get all the orders in the database.
      * @return A list of Orders.
