@@ -66,18 +66,25 @@ public class Order {
         DBDriver.processQuery(query);
     }
 
-    public void deleteOrder() {
+    public boolean deleteOrder() {
         Bike bike = Bike.getBike(this.bikeID);
-        assert bike != null;
-        bike.getFrameSet().increaseQuantity(1);
-        bike.getFrameSet().updateQuantity();
-        bike.getHandlebar().increaseQuantity(1);
-        bike.getFrameSet().updateQuantity();
-        bike.getWheels().increaseQuantity(2);
-        bike.getFrameSet().updateQuantity();
+        if (status == "Pending") {
+            assert bike != null;
+            bike.getFrameSet().increaseQuantity(1);
+            bike.getFrameSet().updateQuantity();
+            bike.getHandlebar().increaseQuantity(1);
+            bike.getFrameSet().updateQuantity();
+            bike.getWheels().increaseQuantity(2);
+            bike.getFrameSet().updateQuantity();
 
-        String query = "DELETE FROM order WHERE orderID = " + this.orderID + ";";
-        DBDriver.processQuery(query);
+            String query = "DELETE FROM order WHERE orderID = " + this.orderID + ";";
+            DBDriver.processQuery(query);
+
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     /**

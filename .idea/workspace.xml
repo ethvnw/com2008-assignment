@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated files">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_22,_10_39_pm_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_16_11_22__10_39_pm__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_22,_8_06_am_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_11_22__8_06_am__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_22,_12_17_pm_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_19_11_22__12_17_pm__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Wheel.java" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated BikeComponent models">
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +91,7 @@
       <workItem from="1669227851229" duration="1902000" />
       <workItem from="1669402965410" duration="624000" />
       <workItem from="1669479726724" duration="431000" />
-      <workItem from="1669489988915" duration="5753000" />
+      <workItem from="1669489988915" duration="6339000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -238,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669232372827</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Updated BikeComponent models">
+      <created>1669496608271</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669496608271</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -275,7 +270,8 @@
     <MESSAGE value="Staff Panels Update" />
     <MESSAGE value="Added getAllBikes()" />
     <MESSAGE value="Updated files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated files" />
+    <MESSAGE value="Updated BikeComponent models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated BikeComponent models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
