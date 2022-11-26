@@ -17,7 +17,7 @@ import java.util.List;
 public class FrameSet extends BikeComponent {
 
     private double size;
-    private boolean shockAbsorbers;
+    private int shockAbsorbers;
     private int gears;
 
 
@@ -25,11 +25,19 @@ public class FrameSet extends BikeComponent {
         super(frameSetSerial, frameSetBrand);
     }
 
-    public FrameSet(int frameSetSerial, String frameSetBrand, double size, boolean shockAbsorbers, int gears) {
-        super(frameSetSerial, frameSetBrand);
+    public FrameSet(int frameSetSerial, String frameSetBrand, double size, int shockAbsorbers, int gears, int quantity, double cost) {
+        super(frameSetSerial, frameSetBrand, quantity, cost);
         this.size = size;
         this.shockAbsorbers = shockAbsorbers;
         this.gears = gears;
+    }
+
+    private void createFrameSet() {
+        String query = "INSERT INTO frameSet(serialNo, brand, cost, size, shockAbsorbers, gears, quantity) " +
+                "VALUES("+ serialNo +", \"" + brand + "\", " + cost + ", " + size + ", " +
+                shockAbsorbers + ", " + gears + ", " + quantity + ");";
+
+        DBDriver.processQuery(query);
     }
 
     public static FrameSet getFrameSet(int serialNo, String brand) {
@@ -41,12 +49,13 @@ public class FrameSet extends BikeComponent {
 
             while (res.next()) {
 
-
                 return new FrameSet(res.getInt("serialNo"),
                         res.getString("brand"),
                         res.getDouble("size"),
-                        res.getBoolean("shockAbsorbers"),
-                        res.getInt("gears"));
+                        res.getInt("shockAbsorbers"),
+                        res.getInt("gears"),
+                        res.getInt("quantity"),
+                        res.getDouble("cost"));
             }
 
             return null;

@@ -8,8 +8,6 @@ package assignment.models;
 
 import assignment.dbconnection.DBDriver;
 
-// TODO create assembleBike()
-
 import java.sql.*;
 import java.util.List;
 import java.util.Objects;

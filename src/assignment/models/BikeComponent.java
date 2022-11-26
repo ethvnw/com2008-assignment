@@ -22,6 +22,12 @@ public class BikeComponent {
         this.serialNo = serialNo;
         this.brand = brand;
     }
+    public BikeComponent(int serialNo, String brand, int quantity,double cost) {
+        this.serialNo = serialNo;
+        this.brand = brand;
+        this.quantity = quantity;
+        this.cost = cost;
+    }
 
     public String getBrand() {
         return brand;
@@ -43,7 +49,7 @@ public class BikeComponent {
         List<BikeComponent> components = new ArrayList<>();
         components.addAll(FrameSet.getAllFrameSets());
         components.addAll(Handlebar.getAllHandlebars());
-        components.addAll(Wheel.getAllWheel());
+        components.addAll(Wheel.getAllWheels());
 
         return components;
     }
