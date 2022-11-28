@@ -6,8 +6,8 @@
 
 package assignment.graphics;
 
+import assignment.graphics.bikecreation.BikeCreationPanel;
 import assignment.graphics.customerdashboard.CustomerLoginPanel;
-import assignment.graphics.staffdashboard.StaffDashboardPanel;
 import assignment.graphics.staffdashboard.StaffLoginPanel;
 
 import javax.swing.*;
@@ -48,19 +48,8 @@ public class GuiFrame extends JFrame {
         mainPanel.setLayout(panels);
 
         // Panels for each page
-        CustomerFormPanel cForm = new CustomerFormPanel();
-        mainPanel.add(cForm);
         BikeCreationPanel bikeCreation = new BikeCreationPanel();
         mainPanel.add(bikeCreation);
-        //StaffDashboardPanel staffDashboard = new StaffDashboardPanel();
-        //mainPanel.add(staffDashboard);
-
-        // TESTING /////////////////////////////////////////////////////////////
-        JButton testButton = new JButton("Test");
-        buttonPanel.add(testButton);
-
-        testButton.addActionListener(e -> panels.next(mainPanel));
-        ////////////////////////////////////////////////////////////////////////
 
         // Button event listeners
         customerLoginButton.addActionListener(e -> {

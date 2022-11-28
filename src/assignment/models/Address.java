@@ -25,7 +25,12 @@ public class Address {
      * @param city city
      * @param postcode postcode
      */
-    public Address(String houseNum, String road, String city, String postcode){
+    public Address(String houseNum, String road, String city, String postcode) {
+        houseNum = houseNum.toUpperCase();
+        road = road.substring(0,1).toUpperCase() + road.substring(1);
+        city = city.substring(0,1).toUpperCase() + city.substring(1);
+        postcode = postcode.replaceAll("\\s+","").toUpperCase();
+
         this.houseNum = houseNum;
         this.road = road;
         this.city = city;
@@ -55,6 +60,8 @@ public class Address {
      * @throws SQLException throws an SQL exception is an error is found while processing the query.
      */
     public static Address findAddress(String houseNum, String postcode) throws SQLException {
+        houseNum = houseNum.toUpperCase();
+        postcode = postcode.replaceAll("\\s+","").toUpperCase();
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
 
@@ -93,6 +100,10 @@ public class Address {
 
     // TODO check whether such an address already exists or not before updating the address.
     public void updateAddress(String houseNum, String road, String city, String postcode) throws SQLException {
+        houseNum = houseNum.toUpperCase();
+        road = road.substring(0,1).toUpperCase() + road.substring(1);
+        city = city.substring(0,1).toUpperCase() + city.substring(1);
+        postcode = postcode.replaceAll("\\s+","").toUpperCase();
 
         String query = "UPDATE address " +
                 "SET houseNum = \"" + houseNum + "\"," +

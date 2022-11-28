@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated BikeComponent models">
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Order.java" afterDir="false" />
-    </list>
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,11 +85,6 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
-      <workItem from="1669061913737" duration="211000" />
-      <workItem from="1669227851229" duration="1902000" />
-      <workItem from="1669402965410" duration="624000" />
-      <workItem from="1669479726724" duration="431000" />
-      <workItem from="1669489988915" duration="6339000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -205,35 +198,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <task id="LOCAL-00017" summary="Staff Panels Update">
-      <created>1669046334971</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669046334971</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Added getAllBikes()">
-      <created>1669228000315</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1669228000315</updated>
-    </task>
-    <task id="LOCAL-00019" summary="Updated files">
-      <created>1669232372827</created>
-      <option name="number" value="00019" />
-      <option name="presentableId" value="LOCAL-00019" />
-      <option name="project" value="LOCAL" />
-      <updated>1669232372827</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Updated BikeComponent models">
-      <created>1669496608271</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1669496608271</updated>
-    </task>
-    <option name="localTasksCounter" value="21" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,11 +232,7 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <MESSAGE value="Staff Panels Update" />
-    <MESSAGE value="Added getAllBikes()" />
-    <MESSAGE value="Updated files" />
-    <MESSAGE value="Updated BikeComponent models" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated BikeComponent models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

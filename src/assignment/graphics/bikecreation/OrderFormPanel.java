@@ -3,12 +3,14 @@
  * @version 1.1
  * @lastUpdated 14-11-2022 16:39
  */
-package assignment.graphics;
+package assignment.graphics.bikecreation;
+import assignment.models.Order;
+
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.border.TitledBorder;
 
-public class CustomerFormPanel extends JPanel {
+public class OrderFormPanel extends JPanel {
     private final JTextField tfForename;
     private final JTextField tfSurname;
     private final JTextField tfHouseNo;
@@ -17,7 +19,7 @@ public class CustomerFormPanel extends JPanel {
     private final JTextField tfPostcode;
     private final JTextField tfOrderDetails;
 
-    public CustomerFormPanel (){
+    public OrderFormPanel (Order order){
         BorderLayout bl = new BorderLayout();
         this.setLayout(bl);
 
