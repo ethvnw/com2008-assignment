@@ -67,8 +67,7 @@ public class StaffDashboardPanel extends JPanel {
         });
 
         // Customer Table
-        String customerQuery = "SELECT * FROM team001.customer;";
-        List<Customer> customerList = Customer.getCustomers(customerQuery);
+        List<Customer> customerList = Customer.getAllCustomers();
         String[] customerColumnNames = {"Customer ID", "Forename", "Surname", "House No", "Road Name",
                 "City Name", "Postcode"};
         customerDetails = new JTable(new DefaultTableModel(customerColumnNames,0));

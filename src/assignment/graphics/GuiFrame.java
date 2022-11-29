@@ -20,6 +20,7 @@ public class GuiFrame extends JFrame {
 
     private final JLabel title = new JLabel("Build a Bike");
     private final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+    private final JButton homeButton = new JButton("Home");
     private final JButton customerLoginButton = new JButton("Customer Login");
     private final JButton staffLoginButton = new JButton("Staff Login");
 
@@ -40,6 +41,7 @@ public class GuiFrame extends JFrame {
         buttonPanel.setOpaque(true);
         buttonPanel.setBackground(Color.white);
         buttonPanel.add(title);
+        buttonPanel.add(homeButton);
         buttonPanel.add(customerLoginButton);
         buttonPanel.add(staffLoginButton);
 
@@ -49,9 +51,12 @@ public class GuiFrame extends JFrame {
 
         // Panels for each page
         BikeCreationPanel bikeCreation = new BikeCreationPanel();
-        mainPanel.add(bikeCreation);
+        mainPanel.add(bikeCreation,"bikeCreation");
 
         // Button event listeners
+        homeButton.addActionListener(e-> {
+            panels.show(mainPanel,"bikeCreation");
+        });
         customerLoginButton.addActionListener(e -> {
             CustomerLoginPanel customerLogin = new CustomerLoginPanel();
             mainPanel.add(customerLogin,"customerLogin");

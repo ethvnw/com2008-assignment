@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Bike creation panel started, some data sanitising too">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assignment/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/assignment/models/Address.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,6 +90,11 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
+      <workItem from="1669647535073" duration="17000" />
+      <workItem from="1669650944430" duration="49000" />
+      <workItem from="1669653739863" duration="30000" />
+      <workItem from="1669653838168" duration="991000" />
+      <workItem from="1669727128943" duration="1415000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -198,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Bike creation panel started, some data sanitising too">
+      <created>1669643547287</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669643547288</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,7 +249,8 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
+    <MESSAGE value="Bike creation panel started, some data sanitising too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bike creation panel started, some data sanitising too" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
