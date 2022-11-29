@@ -3,8 +3,8 @@
  * @version 1.1
  * @lastUpdated 14-11-2022 16:39
  */
-package graphics.bikecreation;
-import models.Order;
+package COM2008_team01.graphics.bikecreation;
+import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import java.awt.*;

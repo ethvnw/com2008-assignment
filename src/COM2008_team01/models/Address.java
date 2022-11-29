@@ -1,4 +1,4 @@
-package models;
+package COM2008_team01.models;
 
 /**
  * Represents an address.
@@ -7,7 +7,7 @@ package models;
  * @lastUpdated 16-11-2022 18:45
  */
 
-import utilities.DBDriver;
+import COM2008_team01.utilities.DBDriver;
 
 import java.sql.*;
 

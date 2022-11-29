@@ -1,6 +1,6 @@
-package models.bikeComponents;
+package COM2008_team01.models.bikeComponents;
 
-import utilities.DBDriver;
+import COM2008_team01.utilities.DBDriver;
 
 import java.util.ArrayList;
 import java.util.List;

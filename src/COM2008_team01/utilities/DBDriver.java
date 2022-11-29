@@ -1,6 +1,6 @@
-package utilities;
+package COM2008_team01.utilities;
 
-/** For enabling connection between database and models.
+/** For enabling connection between database and COM2008_team01.models.
  * @author Vivek V Choradia
  * @version 2.0
  * @lastUpdated 14-11-2022 14:45

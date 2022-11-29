@@ -1,4 +1,4 @@
-package models;
+package COM2008_team01.models;
 
 /** Represents an order.
  * @author Vivek V Choradia
@@ -6,7 +6,7 @@ package models;
  * @lastUpdated 14-11-2022 15:33
  */
 
-import utilities.DBDriver;
+import COM2008_team01.utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;

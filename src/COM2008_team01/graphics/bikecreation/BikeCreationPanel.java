@@ -4,9 +4,9 @@
  * @lastUpdated
  */
 
-package graphics.bikecreation;
+package COM2008_team01.graphics.bikecreation;
 
-import models.Order;
+import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

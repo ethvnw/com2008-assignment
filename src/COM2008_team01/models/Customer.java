@@ -1,4 +1,4 @@
-package models;
+package COM2008_team01.models;
 
 /** Represents a Customer/Shopper.
  * @author Vivek V Choradia
@@ -6,8 +6,7 @@ package models;
  * @lastUpdated 16-11-2022 19:39
  */
 
-import utilities.DBDriver;
-import utilities.Cookies;
+import COM2008_team01.utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;

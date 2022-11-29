@@ -5,9 +5,9 @@
  */
 
 
-package graphics.staffdashboard;
+package COM2008_team01.graphics.staffdashboard;
 
-import models.*;
+import COM2008_team01.models.*;
 
 import javax.swing.*;
 

@@ -4,11 +4,11 @@
  * @lastUpdated 21/11/22 15:24
  */
 
-package graphics.customerdashboard;
+package COM2008_team01.graphics.customerdashboard;
 
-import models.Bike;
-import models.Customer;
-import models.Order;
+import COM2008_team01.models.Bike;
+import COM2008_team01.models.Customer;
+import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

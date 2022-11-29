@@ -4,12 +4,12 @@
  * @lastUpdated 14-11-2022 10:37
  */
 
-package models;
+package COM2008_team01.models;
 
-import utilities.DBDriver;
-import utilities.Encryption;
+import COM2008_team01.utilities.DBDriver;
+import COM2008_team01.utilities.Encryption;
 
-import utilities.Cookies;
+import COM2008_team01.utilities.Cookies;
 
 import java.sql.*;
 import java.util.List;

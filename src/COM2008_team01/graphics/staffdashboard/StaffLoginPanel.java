@@ -6,10 +6,10 @@
  * @lastUpdated 19/11/22 16:00
  */
 
-package graphics.staffdashboard;
+package COM2008_team01.graphics.staffdashboard;
 
-import graphics.HintTextField;
-import models.Staff;
+import COM2008_team01.graphics.HintTextField;
+import COM2008_team01.models.Staff;
 
 import javax.swing.*;
 import java.awt.*;

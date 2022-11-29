@@ -1,4 +1,4 @@
-package models;
+package COM2008_team01.models;
 
 /** Represents a Bike (Assembled Product).
  * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
@@ -6,10 +6,10 @@ package models;
  * @lastUpdated 18-11-2022 20:18
  */
 
-import utilities.DBDriver;
-import models.bikeComponents.FrameSet;
-import models.bikeComponents.Handlebar;
-import models.bikeComponents.Wheel;
+import COM2008_team01.utilities.DBDriver;
+import COM2008_team01.models.bikeComponents.FrameSet;
+import COM2008_team01.models.bikeComponents.Handlebar;
+import COM2008_team01.models.bikeComponents.Wheel;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -27,18 +27,19 @@ public class Bike {
     private Handlebar handlebar;
     private Wheel wheels;
 
-    public Bike(int serialNo, String brand, String name,
+    public Bike(int serialNo, String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
                 int wheelsSerial, String wheelsBrand) {
 
         this.serialNo = serialNo;
-        this.brand = brand;
         this.name = name;
 
         this.frameSet = new FrameSet(frameSetSerial, frameSetBrand);
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
+
+        this.brand = frameSetBrand + " " + wheels.getTyre();
 
         this.cost = calculateCost();
     }
@@ -119,11 +120,11 @@ public class Bike {
         return null;
     }
 
-//    /**
-//     * To get a list of all bikes
-//     * @return List of Bikes
-//     * @throws SQLException to handle database queries
-//     */
+    /**
+     * To get a list of all bikes
+     * @return List of Bikes
+     * @throws SQLException to handle database queries
+     */
     public static List<Bike> getAllBikes() {
         List<Bike> bikes = new ArrayList<>();
 

@@ -4,10 +4,10 @@
  * @lastUpdated 18-11-2022 15:58
  */
 
-package graphics.customerdashboard;
+package COM2008_team01.graphics.customerdashboard;
 
-import models.Bike;
-import models.Order;
+import COM2008_team01.models.Bike;
+import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import java.awt.*;

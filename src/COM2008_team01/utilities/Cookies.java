@@ -1,7 +1,6 @@
-package utilities;
+package COM2008_team01.utilities;
 
-import models.Customer;
-import models.Staff;
+import COM2008_team01.models.Staff;
 
 public class Cookies {
     public static Staff loggedInStaff = null;

@@ -5,7 +5,7 @@
  * ref from https://stackoverflow.com/questions/1738966/java-jtextfield-with-input-hint
  */
 
-package graphics;
+package COM2008_team01.graphics;
 
 import javax.swing.*;
 import javax.swing.text.JTextComponent;

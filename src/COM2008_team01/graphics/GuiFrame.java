@@ -4,13 +4,13 @@
  * @lastUpdated 14-11-2022 16:39
  */
 
-package graphics;
+package COM2008_team01.graphics;
 
-import graphics.bikecreation.BikeCreationPanel;
-import graphics.customerdashboard.CustomerLoginPanel;
-import graphics.staffdashboard.StaffDashboardPanel;
-import graphics.staffdashboard.StaffLoginPanel;
-import utilities.Cookies;
+import COM2008_team01.graphics.bikecreation.BikeCreationPanel;
+import COM2008_team01.graphics.customerdashboard.CustomerLoginPanel;
+import COM2008_team01.graphics.staffdashboard.StaffDashboardPanel;
+import COM2008_team01.graphics.staffdashboard.StaffLoginPanel;
+import COM2008_team01.utilities.Cookies;
 
 import javax.swing.*;
 import java.awt.*;

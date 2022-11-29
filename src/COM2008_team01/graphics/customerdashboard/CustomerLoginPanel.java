@@ -4,12 +4,11 @@
  * @lastUpdated 17/11/22 14:54
  */
 
-package graphics.customerdashboard;
+package COM2008_team01.graphics.customerdashboard;
 
-import graphics.HintTextField;
-import models.Customer;
-import models.Order;
-import utilities.Cookies;
+import COM2008_team01.graphics.HintTextField;
+import COM2008_team01.models.Customer;
+import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import java.awt.*;

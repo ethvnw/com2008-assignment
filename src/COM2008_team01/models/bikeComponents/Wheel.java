@@ -1,6 +1,6 @@
-package models.bikeComponents;
+package COM2008_team01.models.bikeComponents;
 
-import utilities.DBDriver;
+import COM2008_team01.utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -90,5 +90,9 @@ public class Wheel extends BikeComponent {
     public void updateQuantity() {
         String component = "wheels";
         this.updateQuantity(component);
+    }
+
+    public String getTyre() {
+        return tyre;
     }
 }

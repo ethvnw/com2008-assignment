@@ -1,4 +1,4 @@
-package utilities;
+package COM2008_team01.utilities;
 
 /** To process Encryption/Decryption for staff login.
  * @author Vivek V Choradia

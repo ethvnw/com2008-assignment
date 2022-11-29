@@ -4,10 +4,10 @@
  * @lastUpdated 19/11/22 16:00
  */
 
-package graphics.staffdashboard;
+package COM2008_team01.graphics.staffdashboard;
 
-import models.*;
-import utilities.Cookies;
+import COM2008_team01.models.*;
+import COM2008_team01.utilities.Cookies;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
