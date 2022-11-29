@@ -8,7 +8,9 @@ package graphics;
 
 import graphics.bikecreation.BikeCreationPanel;
 import graphics.customerdashboard.CustomerLoginPanel;
+import graphics.staffdashboard.StaffDashboardPanel;
 import graphics.staffdashboard.StaffLoginPanel;
+import utilities.Cookies;
 
 import javax.swing.*;
 import java.awt.*;
@@ -63,9 +65,15 @@ public class GuiFrame extends JFrame {
             panels.show(mainPanel,"customerLogin");
         });
         staffLoginButton.addActionListener(e -> {
-            StaffLoginPanel staffLogin = new StaffLoginPanel();
-            mainPanel.add(staffLogin,"staffLogin");
-            panels.show(mainPanel,"staffLogin");
+            if (Cookies.loggedInStaff == null) {
+                StaffLoginPanel staffLogin = new StaffLoginPanel();
+                mainPanel.add(staffLogin,"staffLogin");
+                panels.show(mainPanel,"staffLogin");
+            } else {
+                StaffDashboardPanel staffDashboardPanel = new StaffDashboardPanel(Cookies.loggedInStaff);
+                mainPanel.add(staffDashboardPanel, "staffDashboardPanel");
+                panels.show(mainPanel,"staffDashboardPanel");
+            }
         });
 
         GridBagConstraints constraints = new GridBagConstraints();

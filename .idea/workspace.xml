@@ -1,34 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update">
-      <change afterPath="$PROJECT_DIR$/src/utilities/Cookies.java" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="added home button">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/dbconnection/CreateTables.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/dbconnection/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/GuiFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/HintTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/HintTextField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/bikecreation/BikeCreationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/bikecreation/BikeCreationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/bikecreation/OrderFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/bikecreation/OrderFormPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/customerdashboard/CustomerOrdersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerOrdersPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffBikeComponentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffBikeComponentPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/graphics/staffdashboard/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bikeComponents/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilities/Encryption.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bikeComponents/FrameSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bikeComponents/Handlebar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/assignment/models/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/bikeComponents/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/GuiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Staff.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +92,12 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
+      <workItem from="1669647535073" duration="17000" />
+      <workItem from="1669650944430" duration="49000" />
+      <workItem from="1669653739863" duration="30000" />
+      <workItem from="1669653838168" duration="991000" />
+      <workItem from="1669727128943" duration="1415000" />
+      <workItem from="1669745903841" duration="1451000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -226,7 +211,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Bike creation panel started, some data sanitising too">
+      <created>1669643547287</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1669643547288</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,7 +252,8 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
+    <MESSAGE value="Bike creation panel started, some data sanitising too" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bike creation panel started, some data sanitising too" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

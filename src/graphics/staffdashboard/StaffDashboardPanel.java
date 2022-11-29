@@ -7,6 +7,7 @@
 package graphics.staffdashboard;
 
 import models.*;
+import utilities.Cookies;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -14,6 +15,7 @@ import java.awt.*;
 import java.util.List;
 
 public class StaffDashboardPanel extends JPanel {
+    private final JPanel homePanel = new JPanel();
     private final JPanel buttonPanel = new JPanel();
     private JPanel orderPanel = new JPanel();
     private JPanel customerPanel = new JPanel();
@@ -23,19 +25,21 @@ public class StaffDashboardPanel extends JPanel {
     private JScrollPane customerScrollPane;
     private final JButton viewBikeComponents = new JButton("View Bike Components");
 
-    protected StaffDashboardPanel(Staff staff) {
+    public StaffDashboardPanel(Staff staff) {
         CardLayout card = new CardLayout();
         this.setLayout(card);
-        this.add(buttonPanel,"buttonPanel");
+        this.add(homePanel,"homePanel");
+        buttonPanel.setLayout(new BoxLayout(buttonPanel,BoxLayout.Y_AXIS));
+        homePanel.add(buttonPanel);
 
         // Welcome text for user
         JLabel title = new JLabel("Welcome " + String.valueOf(staff.getUsername()));
         title.setFont(new Font("Sans-Serif", Font.PLAIN, 16));
-        buttonPanel.add(title, BorderLayout.PAGE_START);
+        buttonPanel.add(title);
 
         // Log out button
         JButton staffLogOutButton = new JButton("Log Out");
-        buttonPanel.add(staffLogOutButton, BorderLayout.PAGE_START);
+        buttonPanel.add(staffLogOutButton);
 
         staffLogOutButton.addActionListener(e -> {
             try {
@@ -43,6 +47,7 @@ public class StaffDashboardPanel extends JPanel {
                     StaffLoginPanel staffLogin = new StaffLoginPanel();
                     this.add(staffLogin,"staffLogin");
                     card.show(this,"staffLogin");
+                    Cookies.loggedInStaff = null;
                 }
             }
             catch (Exception ex) {
@@ -96,7 +101,7 @@ public class StaffDashboardPanel extends JPanel {
             customerPanel.add(new JLabel("No customers in the system"));
         }
 
-        buttonPanel.add(customerPanel, BorderLayout.CENTER);
+        homePanel.add(customerPanel, BorderLayout.CENTER);
 
         // Order Table
         String orderQuery = "SELECT * FROM team001.order;";
@@ -134,8 +139,8 @@ public class StaffDashboardPanel extends JPanel {
             orderPanel.add(new JLabel("No orders have been placed"));
         }
 
-        buttonPanel.add(orderPanel, BorderLayout.CENTER);
+        homePanel.add(orderPanel);
 
-        card.show(this,"buttonPanel");
+        card.show(this,"homePanel");
     }
 }

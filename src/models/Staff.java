@@ -1,11 +1,10 @@
-package models;
-
 /** Represents a Staff.
  * @author Vivek V Choradia
  * @version 1.0
  * @lastUpdated 14-11-2022 10:37
  */
 
+package models;
 
 import utilities.DBDriver;
 import utilities.Encryption;
@@ -19,8 +18,6 @@ import java.util.Objects;
 public class Staff {
     private String username;
     private String password;
-
-
 
     //Constructor
     public Staff(String username, String password) {
