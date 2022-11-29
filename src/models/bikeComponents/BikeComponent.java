@@ -19,10 +19,14 @@ public class BikeComponent {
     protected int quantity;
 
     public BikeComponent(int serialNo, String brand) {
+        brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
+
         this.serialNo = serialNo;
         this.brand = brand;
     }
-    public BikeComponent(int serialNo, String brand, int quantity,double cost) {
+    public BikeComponent(int serialNo, String brand, int quantity, double cost) {
+        brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
+
         this.serialNo = serialNo;
         this.brand = brand;
         this.quantity = quantity;

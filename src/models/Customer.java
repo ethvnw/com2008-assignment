@@ -20,13 +20,19 @@ public class Customer {
     Address address;
 
 
-    public Customer(String forename, String surname, Address address) throws SQLException {
+    public Customer(String forename, String surname, Address address) {
+        forename = forename.substring(0,1).toUpperCase() + forename.substring(1);
+        surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
+
         this.forename = forename;
         this.surname = surname;
         this.address = address;
     }
 
     public Customer(int customerID, String forename, String surname, Address address) throws SQLException {
+        forename = forename.substring(0,1).toUpperCase() + forename.substring(1);
+        surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
+
         this.customerID = customerID;
         this.forename = forename;
         this.surname = surname;
@@ -89,6 +95,11 @@ public class Customer {
      * @throws SQLException handles exception from database queries
      */
     public static Customer getCustomer(String forename, String surname, String houseNum, String postcode) throws SQLException {
+        forename = forename.substring(0,1).toUpperCase() + forename.substring(1);
+        surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
+        houseNum = houseNum.toUpperCase();
+        postcode = postcode.replaceAll("\\s+","").toUpperCase();
+
         Address add = Address.findAddress(houseNum, postcode);
         if (add == null)
             return null;
@@ -216,6 +227,8 @@ public class Customer {
      * To update the name of the customer
      */
     public void updateName(String fName, String sName) {
+        fName = fName.substring(0,1).toUpperCase() + fName.substring(1);
+        sName = sName.substring(0,1).toUpperCase() + sName.substring(1);
         String query = "UPDATE customer " +
                         "SET forename = \"" + fName + "\" ," +
                         "surname = \"" + sName + "\" " +
@@ -232,6 +245,11 @@ public class Customer {
      * @param postcode postcode
      */
     public void updateAddress(String houseNum, String road, String city, String postcode) throws SQLException {
+        houseNum = houseNum.toUpperCase();
+        road = road.substring(0,1).toUpperCase() + road.substring(1);
+        city = city.substring(0,1).toUpperCase() + city.substring(1);
+        postcode = postcode.replaceAll("\\s+","").toUpperCase();
+
         String query = "UPDATE customer " +
                 "SET houseNum = \"" + houseNum + "\" ," +
                 "postcode = \"" + postcode + "\" " +

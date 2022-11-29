@@ -39,6 +39,7 @@ public class FrameSet extends BikeComponent {
     }
 
     public static FrameSet getFrameSet(int serialNo, String brand) {
+        brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM frameSet WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {

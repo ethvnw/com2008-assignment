@@ -21,6 +21,7 @@ public class Handlebar extends BikeComponent {
 
     public Handlebar(int handlebarSerial, String handlebarBrand, String type, int quantity, double cost) {
         super(handlebarSerial, handlebarBrand,quantity, cost);
+        type = type.substring(0,1).toUpperCase() + type.substring(1);
         this.type = type;
     }
 
@@ -30,6 +31,8 @@ public class Handlebar extends BikeComponent {
         DBDriver.processQuery(query);
     }
     public static Handlebar getHandlebar(int serialNo, String brand) {
+        brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
+
         String query = "SELECT * FROM handleBar WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();

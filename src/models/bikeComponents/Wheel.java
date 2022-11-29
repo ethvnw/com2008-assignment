@@ -23,6 +23,9 @@ public class Wheel extends BikeComponent {
 
     public Wheel(int wheelsSerial, String wheelsBrand, double cost, String tyre, String brakes, int quantity) {
         super(wheelsSerial, wheelsBrand, quantity, cost);
+        tyre = tyre.substring(0,1).toUpperCase() + tyre.substring(1);
+        brakes = brakes.substring(0,1).toUpperCase() + brakes.substring(1);
+
         this.tyre = tyre;
         this.brakes = brakes;
     }
@@ -35,6 +38,8 @@ public class Wheel extends BikeComponent {
     }
 
     public static Wheel getWheel(int serialNo, String brand) {
+        brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
+
         String query = "SELECT * FROM wheels WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
