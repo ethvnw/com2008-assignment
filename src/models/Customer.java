@@ -1,4 +1,4 @@
-package assignment.models;
+package models;
 
 /** Represents a Customer/Shopper.
  * @author Vivek V Choradia
@@ -6,7 +6,8 @@ package assignment.models;
  * @lastUpdated 16-11-2022 19:39
  */
 
-import assignment.dbconnection.DBDriver;
+import utilities.DBDriver;
+import utilities.Cookies;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -256,4 +257,5 @@ public class Customer {
     public String getSurname() {
         return surname;
     }
+
 }

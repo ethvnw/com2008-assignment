@@ -1,4 +1,4 @@
-package assignment.models;
+package models;
 
 /**
  * Represents an address.
@@ -7,7 +7,7 @@ package assignment.models;
  * @lastUpdated 16-11-2022 18:45
  */
 
-import assignment.dbconnection.DBDriver;
+import utilities.DBDriver;
 
 import java.sql.*;
 

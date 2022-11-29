@@ -1,4 +1,4 @@
-package assignment.models;
+package models;
 
 /** Represents a Staff.
  * @author Vivek V Choradia
@@ -6,7 +6,11 @@ package assignment.models;
  * @lastUpdated 14-11-2022 10:37
  */
 
-import assignment.dbconnection.DBDriver;
+
+import utilities.DBDriver;
+import utilities.Encryption;
+
+import utilities.Cookies;
 
 import java.sql.*;
 import java.util.List;
@@ -15,7 +19,7 @@ import java.util.Objects;
 public class Staff {
     private String username;
     private String password;
-    public static String loggedInStaff = null;
+
 
 
     //Constructor
@@ -44,7 +48,7 @@ public class Staff {
      */
     public String login() throws Exception {
 
-        if (loggedInStaff != null) {
+        if (Cookies.loggedInStaff != null) {
             return null;
         }
 
@@ -64,7 +68,7 @@ public class Staff {
             while(res.next()) {
                 String password = encryption.decrypt(res.getString("password"));
                 if(Objects.equals(password, this.password)) {
-                    loggedInStaff = this.username;
+                    Cookies.loggedInStaff = this;
                     return this.username;
                 }
             }
@@ -79,10 +83,10 @@ public class Staff {
      * @return status whether logout was successful or not
      */
     public static boolean logout() {
-        if(loggedInStaff == null) {
+        if(Cookies.loggedInStaff == null) {
             return false;
         } else {
-            loggedInStaff = null;
+            Cookies.loggedInStaff = null;
             return true;
         }
     }

@@ -5,14 +5,11 @@
  */
 
 
-package assignment.graphics.staffdashboard;
+package graphics.staffdashboard;
 
-import assignment.models.*;
+import models.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-import java.awt.*;
-import java.util.List;
 
 public class StaffBikeComponentPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();

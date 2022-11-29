@@ -3,8 +3,8 @@
  * @version 1.1
  * @lastUpdated 14-11-2022 16:39
  */
-package assignment.graphics.bikecreation;
-import assignment.models.Order;
+package graphics.bikecreation;
+import models.Order;
 
 import javax.swing.*;
 import java.awt.*;

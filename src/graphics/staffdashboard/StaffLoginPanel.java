@@ -6,14 +6,13 @@
  * @lastUpdated 19/11/22 16:00
  */
 
-package assignment.graphics.staffdashboard;
+package graphics.staffdashboard;
 
-import assignment.graphics.HintTextField;
-import assignment.models.Staff;
+import graphics.HintTextField;
+import models.Staff;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
 
 public class StaffLoginPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();

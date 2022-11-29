@@ -4,11 +4,11 @@
  * @lastUpdated 14-11-2022 16:39
  */
 
-package assignment.graphics;
+package graphics;
 
-import assignment.graphics.bikecreation.BikeCreationPanel;
-import assignment.graphics.customerdashboard.CustomerLoginPanel;
-import assignment.graphics.staffdashboard.StaffLoginPanel;
+import graphics.bikecreation.BikeCreationPanel;
+import graphics.customerdashboard.CustomerLoginPanel;
+import graphics.staffdashboard.StaffLoginPanel;
 
 import javax.swing.*;
 import java.awt.*;

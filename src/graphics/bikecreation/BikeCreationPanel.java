@@ -4,9 +4,9 @@
  * @lastUpdated
  */
 
-package assignment.graphics.bikecreation;
+package graphics.bikecreation;
 
-import assignment.models.Order;
+import models.Order;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

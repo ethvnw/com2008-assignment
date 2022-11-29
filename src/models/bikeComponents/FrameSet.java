@@ -1,11 +1,9 @@
-package assignment.models;
+package models.bikeComponents;
 
-import assignment.dbconnection.DBDriver;
-import assignment.models.BikeComponent;
+import utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 /** Represents a FrameSet component (inherited from BikeComponent).

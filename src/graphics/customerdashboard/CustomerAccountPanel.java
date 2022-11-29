@@ -4,11 +4,11 @@
  * @lastUpdated 21/11/22 15:24
  */
 
-package assignment.graphics.customerdashboard;
+package graphics.customerdashboard;
 
-import assignment.models.Bike;
-import assignment.models.Customer;
-import assignment.models.Order;
+import models.Bike;
+import models.Customer;
+import models.Order;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

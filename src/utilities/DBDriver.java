@@ -1,4 +1,4 @@
-package assignment.dbconnection;
+package utilities;
 
 /** For enabling connection between database and models.
  * @author Vivek V Choradia

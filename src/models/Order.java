@@ -1,4 +1,4 @@
-package assignment.models;
+package models;
 
 /** Represents an order.
  * @author Vivek V Choradia
@@ -6,7 +6,7 @@ package assignment.models;
  * @lastUpdated 14-11-2022 15:33
  */
 
-import assignment.dbconnection.DBDriver;
+import utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;

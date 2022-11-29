@@ -4,10 +4,10 @@
  * @lastUpdated 18-11-2022 15:58
  */
 
-package assignment.graphics.customerdashboard;
+package graphics.customerdashboard;
 
-import assignment.models.Bike;
-import assignment.models.Order;
+import models.Bike;
+import models.Order;
 
 import javax.swing.*;
 import java.awt.*;

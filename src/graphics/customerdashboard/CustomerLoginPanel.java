@@ -4,11 +4,12 @@
  * @lastUpdated 17/11/22 14:54
  */
 
-package assignment.graphics.customerdashboard;
+package graphics.customerdashboard;
 
-import assignment.graphics.HintTextField;
-import assignment.models.Customer;
-import assignment.models.Order;
+import graphics.HintTextField;
+import models.Customer;
+import models.Order;
+import utilities.Cookies;
 
 import javax.swing.*;
 import java.awt.*;

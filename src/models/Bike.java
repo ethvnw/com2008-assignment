@@ -1,4 +1,4 @@
-package assignment.models;
+package models;
 
 /** Represents a Bike (Assembled Product).
  * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
@@ -6,7 +6,10 @@ package assignment.models;
  * @lastUpdated 18-11-2022 20:18
  */
 
-import assignment.dbconnection.DBDriver;
+import utilities.DBDriver;
+import models.bikeComponents.FrameSet;
+import models.bikeComponents.Handlebar;
+import models.bikeComponents.Wheel;
 
 import java.sql.*;
 import java.util.ArrayList;

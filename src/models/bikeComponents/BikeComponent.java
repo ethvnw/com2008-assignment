@@ -1,6 +1,6 @@
-package assignment.models;
+package models.bikeComponents;
 
-import assignment.dbconnection.DBDriver;
+import utilities.DBDriver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ public class BikeComponent {
 
     protected int serialNo;
     protected String brand;
-    protected double cost;
+    public double cost;
     protected int quantity;
 
     public BikeComponent(int serialNo, String brand) {

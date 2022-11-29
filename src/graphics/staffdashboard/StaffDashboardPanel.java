@@ -4,10 +4,9 @@
  * @lastUpdated 19/11/22 16:00
  */
 
-package assignment.graphics.staffdashboard;
+package graphics.staffdashboard;
 
-import assignment.graphics.customerdashboard.CustomerOrdersPanel;
-import assignment.models.*;
+import models.*;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
