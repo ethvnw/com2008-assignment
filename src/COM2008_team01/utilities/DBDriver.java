@@ -1,10 +1,10 @@
-package COM2008_team01.utilities;
-
 /** For enabling connection between database and COM2008_team01.models.
  * @author Vivek V Choradia
  * @version 2.0
  * @lastUpdated 14-11-2022 14:45
  */
+
+package COM2008_team01.utilities;
 
 import java.sql.*;
 

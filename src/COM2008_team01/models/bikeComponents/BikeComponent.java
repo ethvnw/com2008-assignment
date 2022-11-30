@@ -42,9 +42,9 @@ public class BikeComponent {
     public void reduceQuantity(int amount) { quantity = quantity - amount; }
 
     public void updateQuantity(String component) {
-        String query = "UPDATE " + component +
-                "SET quantity = " + this.quantity + ", " +
-                "WHERE serialNo = " + this.serialNo + "" +
+        String query = "UPDATE " + "team001." + component +
+                " SET quantity = " + this.quantity + " " +
+                "WHERE serialNo = " + this.serialNo + " " +
                 "AND brand = \"" + this.brand +"\";";
         DBDriver.processQuery(query);
     }

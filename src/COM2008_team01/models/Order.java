@@ -68,7 +68,7 @@ public class Order {
 
     public boolean deleteOrder() {
         Bike bike = Bike.getBike(this.bikeID);
-        if (status == "Pending") {
+        if (status.equals("Pending")) {
             assert bike != null;
             bike.getFrameSet().increaseQuantity(1);
             bike.getFrameSet().updateQuantity();
@@ -77,7 +77,7 @@ public class Order {
             bike.getWheels().increaseQuantity(2);
             bike.getFrameSet().updateQuantity();
 
-            String query = "DELETE FROM order WHERE orderID = " + this.orderID + ";";
+            String query = "DELETE FROM team001.order WHERE orderID = " + this.orderID + ";";
             DBDriver.processQuery(query);
 
             return true;

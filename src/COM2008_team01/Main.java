@@ -1,8 +1,10 @@
-package COM2008_team01; /** COM2008_team01.Main driver class
+/** COM2008_team01.Main driver class
  * @author Vivek Choradia, Ethan Watts
  * @version 1.2
- * @lastUpdated 14-11-2022 20:11
+ * @lastUpdated 30-11-2022 15:02
  */
+
+package COM2008_team01;
 
 import COM2008_team01.graphics.GuiFrame;
 

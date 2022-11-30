@@ -1,7 +1,7 @@
-/** Panel that shows recent orders of a customer.
+/** Panel that shows recent orders of a customer
  * @author Ethan Watts
- * @version 1.2
- * @lastUpdated 18-11-2022 15:58
+ * @version 1.4
+ * @lastUpdated 30/11/22 15:58
  */
 
 package COM2008_team01.graphics.customerdashboard;
@@ -18,7 +18,12 @@ public class CustomerOrdersPanel extends JPanel {
     private JScrollPane orderScrollPane;
     private JScrollPane bikeScrollPane;
 
+    /**
+     * Creates the panel showing the details of an order
+     * @param order - the order to view the details of
+     */
     protected CustomerOrdersPanel(Order order) {
+        // Creating table to show order
         String[] orderColumnNames = {"Order ID", "Date", "Status"};
         String[] orderInfo = {String.valueOf(order.getOrderID()), String.valueOf(order.getDate()), String.valueOf(order.getStatus())};
         String[][] orderTableData = {orderInfo};
@@ -37,9 +42,10 @@ public class CustomerOrdersPanel extends JPanel {
         bikeScrollPane = new JScrollPane(bikeDetails);
         bikeScrollPane.setBorder(BorderFactory.createTitledBorder("Bike Details"));
 
+        // Deleting order and returning to CustomerLoginPanel
         JButton deleteOrder = new JButton("Delete Order");
         deleteOrder.addActionListener(e -> {
-//            order.delete();
+            order.deleteOrder();
             this.setVisible(false);
         });
 

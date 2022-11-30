@@ -1,7 +1,7 @@
-/** Customer login panel
+/** Customer account panel - shows all details of customer, along with all orders they've made
  * @author Ethan Watts
  * @version 1.3
- * @lastUpdated 21/11/22 15:24
+ * @lastUpdated 30/11/22 14:05
  */
 
 package COM2008_team01.graphics.customerdashboard;
@@ -17,12 +17,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class CustomerAccountPanel extends JPanel {
+    private Customer customer;
+
     private JPanel orderPanel = new JPanel();
     private JPanel orderDeletionPanel = new JPanel();
-    private JLabel orderSelected = new JLabel("Selected order number:  ");
     private JTable orderDetails;
     private JScrollPane orderScrollPane;
+    private JLabel orderSelected = new JLabel("Selected order number:  ");
     private final JButton deleteOrder = new JButton("Delete Order");
+    private JLabel deletionErrorMsg = new JLabel("");
 
     private JPanel customerDetails = new JPanel();
     private JTextField firstName;
@@ -34,14 +37,22 @@ public class CustomerAccountPanel extends JPanel {
     private final JButton updateDetails = new JButton("Submit");
     private JLabel formStatus = new JLabel(" ");
 
+
+    /**
+     * Creates the JPanel showing the details of a customer
+     * @param customer - the customer to view details of
+     */
     protected CustomerAccountPanel(Customer customer) {
+        this.customer = customer;
+
+        // Sets up form that displays name and address
         customerDetails.setLayout(new GridLayout(7,2));
-        firstName = new JTextField(customer.getForename());
-        surname = new JTextField(customer.getSurname());
-        houseNo = new JTextField(customer.getAddress().getHouseNum());
-        road = new JTextField(customer.getAddress().getRoad());
-        city = new JTextField(customer.getAddress().getCity());
-        postcode = new JTextField(customer.getAddress().getPostcode());
+        firstName = new JTextField(this.customer.getForename());
+        surname = new JTextField(this.customer.getSurname());
+        houseNo = new JTextField(this.customer.getAddress().getHouseNum());
+        road = new JTextField(this.customer.getAddress().getRoad());
+        city = new JTextField(this.customer.getAddress().getCity());
+        postcode = new JTextField(this.customer.getAddress().getPostcode());
 
         customerDetails.add(new JLabel("First Name", SwingConstants.LEFT));
         customerDetails.add(firstName);
@@ -58,9 +69,10 @@ public class CustomerAccountPanel extends JPanel {
         customerDetails.add(updateDetails);
         customerDetails.add(formStatus);
 
+        // Updating details in database
         updateDetails.addActionListener(e -> {
             try {
-                customer.updateAddress(
+                this.customer.updateAddress(
                         houseNo.getText(),
                         road.getText(),
                         city.getText(),
@@ -70,25 +82,62 @@ public class CustomerAccountPanel extends JPanel {
                 throw new RuntimeException(ex);
             }
 
-            customer.updateName(
+            this.customer.updateName(
                     firstName.getText(),
                     surname.getText()
             );
             formStatus.setText("Changes saved");
         });
 
+        // Setting up table of customer's orders
+        buildOrdersTable();
+        orderPanel.setBorder(BorderFactory.createTitledBorder("Your Orders"));
 
-        List<Order> orderList = Order.getAllOrderOfACustomer(customer.getCustomerID());
+        // Setting up sidebar, allowing deletion of an order
+        orderDeletionPanel.setLayout(new BoxLayout(orderDeletionPanel,BoxLayout.Y_AXIS));
+        orderDeletionPanel.add(orderSelected);
+        orderDeletionPanel.add(deleteOrder);
+        deletionErrorMsg.setForeground(Color.red);
+        orderDeletionPanel.add(deletionErrorMsg);
+
+
+        // Displays selected order number in sidebar
+        orderDetails.getSelectionModel().addListSelectionListener(e -> {
+            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
+            orderSelected.setText("Selected order number:  " + orderID);
+        });
+
+        // Deletes selected order
+        deleteOrder.addActionListener(e -> {
+            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
+            Order order = Order.getOrder(orderID);
+            boolean orderDeleted = order.deleteOrder();
+
+            if (orderDeleted) {
+                deletionErrorMsg.setText("Order deleted");
+                orderPanel.remove(orderScrollPane);
+                orderPanel.remove(orderDeletionPanel);
+                buildOrdersTable();
+                repaint();
+            } else {
+                deletionErrorMsg.setText("Order already confirmed");
+            }
+        });
+
+        this.add(customerDetails);
+        this.add(orderPanel);
+    }
+
+    /**
+     * Creates table of orders
+     */
+    private void buildOrdersTable() {
+        List<Order> orderList = Order.getAllOrderOfACustomer(this.customer.getCustomerID());
         String[] columnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
         orderDetails = new JTable(new DefaultTableModel(columnNames,0));
         orderScrollPane = new JScrollPane(orderDetails);
         orderScrollPane.setPreferredSize((new Dimension(1000,600)));
-        orderPanel.setBorder(BorderFactory.createTitledBorder("Your Orders"));
-
-        orderDeletionPanel.setLayout(new BoxLayout(orderDeletionPanel,BoxLayout.Y_AXIS));
-        orderDeletionPanel.add(orderSelected);
-        orderDeletionPanel.add(deleteOrder);
 
         if (!orderList.isEmpty()) {
             orderPanel.add(orderScrollPane);
@@ -116,18 +165,5 @@ public class CustomerAccountPanel extends JPanel {
         else {
             orderPanel.add(new JLabel("No orders have been placed"));
         }
-
-        orderDetails.getSelectionModel().addListSelectionListener(e -> {
-            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
-            orderSelected.setText("Selected order number:  " + orderID);
-        });
-        deleteOrder.addActionListener(e -> {
-            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
-            Order order = Order.getOrder(orderID);
-            order.deleteOrder();
-        });
-
-        this.add(customerDetails);
-        this.add(orderPanel);
     }
 }

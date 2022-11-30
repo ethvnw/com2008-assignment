@@ -1,5 +1,3 @@
-package COM2008_team01.utilities;
-
 /** To process Encryption/Decryption for staff login.
  * @author Vivek V Choradia
  * @version 1.0
@@ -7,6 +5,7 @@ package COM2008_team01.utilities;
  * @reference
  */
 
+package COM2008_team01.utilities;
 
 import java.util.Base64;
 import java.security.spec.KeySpec;
