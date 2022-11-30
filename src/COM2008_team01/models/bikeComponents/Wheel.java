@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Represents a Wheel component (inherited from BikeComponent).
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 1.0
- * @lastUpdated 14-11-2022 10:44
+ * @lastUpdated 30-11-2022 18:03
  */
 
 public class Wheel extends BikeComponent {
@@ -95,4 +95,6 @@ public class Wheel extends BikeComponent {
     public String getTyre() {
         return tyre;
     }
+
+    public String getBrakes() { return brakes; }
 }

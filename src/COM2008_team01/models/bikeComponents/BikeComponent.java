@@ -38,6 +38,7 @@ public class BikeComponent {
     }
     public int getSerialNo() { return serialNo; }
     public int getQuantity() { return quantity; }
+    public double getCost() { return cost; }
     public void increaseQuantity(int amount) {quantity = quantity + amount; }
     public void reduceQuantity(int amount) { quantity = quantity - amount; }
 

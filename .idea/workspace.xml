@@ -2,30 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Readme.md">
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextFieldUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffLoginPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Address.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Cookies.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +64,7 @@
   </component>
   <component name="RunManager">
     <configuration name="COM2008" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="COM2008_team1_assignment.graphics.Main" />
+      <option name="MAIN_CLASS_NAME" value="COM2008_team01.Main" />
       <module name="assignment" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -112,6 +96,7 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
+      <workItem from="1669824743809" duration="9251000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>

@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Represents a FrameSet component (inherited from BikeComponent).
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 1.0
- * @lastUpdated 14-11-2022 10:44
+ * @lastUpdated 30-11-2022 18:03
  */
 
 public class FrameSet extends BikeComponent {
@@ -88,6 +88,12 @@ public class FrameSet extends BikeComponent {
 
         return null;
     }
+
+    public double getSize() { return size; }
+
+    public int getShockAbsorbers() { return shockAbsorbers; }
+
+    public int getGears() { return gears; }
 
     public void updateQuantity() {
         String component = "frameSet";
