@@ -1,7 +1,7 @@
-/** Customer login panel
+/** Customer login panel - shows forms for getting specific order and viewing all details
  * @author Ethan Watts
- * @version 1.3
- * @lastUpdated 17/11/22 14:54
+ * @version 1.5
+ * @lastUpdated 30/11/22 14:56
  */
 
 package COM2008_team01.graphics.customerdashboard;
@@ -30,7 +30,11 @@ public class CustomerLoginPanel extends JPanel {
     private final JButton viewAccount = new JButton("Submit");
     private JLabel customerErrorMsg = new JLabel(" ");
 
+    /**
+     * Creates the JPanel showing the forms to view details
+     */
     public CustomerLoginPanel() {
+        // Setting up cards for other panels called
         CardLayout card = new CardLayout();
         this.setLayout(card);
         this.add(formPanel,"formPanel");
@@ -46,6 +50,7 @@ public class CustomerLoginPanel extends JPanel {
         orderErrorMsg.setForeground(Color.red);
         orderForm.add(orderErrorMsg);
 
+        // Calling CustomerOrdersPanel
         modifyOrder.addActionListener(e -> {
             Order order = null;
             try {
@@ -66,6 +71,8 @@ public class CustomerLoginPanel extends JPanel {
             } catch (NumberFormatException exception) {
                 orderErrorMsg.setText("Enter only numbers");
                 exception.printStackTrace();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
             }
         });
 
@@ -85,6 +92,7 @@ public class CustomerLoginPanel extends JPanel {
         customerErrorMsg.setForeground(Color.red);
         accountForm.add(customerErrorMsg);
 
+        // Calling CustomerAccountPanel
         viewAccount.addActionListener(e -> {
             Customer customer = null;
             try {

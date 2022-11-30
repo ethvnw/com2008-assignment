@@ -1,13 +1,5 @@
 package COM2008_team01.utilities;
 
-/** To process Encryption/Decryption for staff login.
- * @author Vivek V Choradia
- * @version 1.0
- * @lastUpdated 16-11-2022 20:22
- * @reference
- */
-
-
 import java.util.Base64;
 import java.security.spec.KeySpec;
 import javax.crypto.Cipher;
@@ -15,6 +7,12 @@ import javax.crypto.SecretKey;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.DESedeKeySpec;
 
+/** To process Encryption/Decryption for staff login.
+ * @author Vivek V Choradia
+ * @version 1.0
+ * @lastUpdated 16-11-2022 20:22
+ * @reference
+ */
 public class Encryption {
     private static final String UNICODE_FORMAT = "UTF8";
     public static final String ENCRYPTION_SCHEME = "DESede";

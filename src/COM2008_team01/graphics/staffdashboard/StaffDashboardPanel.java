@@ -12,6 +12,7 @@ import COM2008_team01.utilities.Cookies;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StaffDashboardPanel extends JPanel {
@@ -30,7 +31,7 @@ public class StaffDashboardPanel extends JPanel {
 
     private final JButton viewBikeComponents = new JButton("View Bike Components");
 
-    public StaffDashboardPanel(Staff staff) {
+    public StaffDashboardPanel(Staff staff) throws SQLException {
         CardLayout card = new CardLayout();
         this.setLayout(card);
         homePanel.setLayout(new BorderLayout());
