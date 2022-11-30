@@ -1,10 +1,10 @@
-package COM2008_team01.models;
-
 /** Represents a Customer/Shopper.
  * @author Vivek V Choradia
  * @version 1.1
  * @lastUpdated 16-11-2022 19:39
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 
@@ -18,7 +18,12 @@ public class Customer {
     private String surname;
     Address address;
 
-
+    /**
+     * Creates a customer
+     * @param forename forename of customer
+     * @param surname surname of customer
+     * @param address address of customer
+     */
     public Customer(String forename, String surname, Address address) {
         forename = forename.substring(0,1).toUpperCase() + forename.substring(1);
         surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
@@ -28,7 +33,14 @@ public class Customer {
         this.address = address;
     }
 
-    public Customer(int customerID, String forename, String surname, Address address) throws SQLException {
+    /**
+     * Creates a customer
+     * @param customerID ID of customer
+     * @param forename forename of customer
+     * @param surname surname of customer
+     * @param address address of customer
+     */
+    public Customer(int customerID, String forename, String surname, Address address) {
         forename = forename.substring(0,1).toUpperCase() + forename.substring(1);
         surname = surname.substring(0,1).toUpperCase() + surname.substring(1);
 
@@ -198,26 +210,21 @@ public class Customer {
      * @param orderID OrderID of an order of the wanted customer
      * @return Customer of that orderID
      */
-    public static Customer getCustomerFromOrderID (int orderID) {
+    public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
         String query = "SELECT customerId from order where orderID = \"" + orderID + "\";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
 
-            Statement stmt = con.createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            ResultSet res = stmt.executeQuery(query);
+        while (res.next()) {
 
-            while (res.next()) {
+            int customerID = res.getInt("customerId");
 
-                int customerID = res.getInt("customerId");
-
-                return getCustomer(customerID);
-            }
-
-            res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return getCustomer(customerID);
         }
+
+        res.close();
 
         return null;
     }

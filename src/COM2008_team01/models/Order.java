@@ -1,10 +1,10 @@
-package COM2008_team01.models;
-
 /** Represents an order.
  * @author Vivek V Choradia
  * @version 2.0
  * @lastUpdated 14-11-2022 15:33
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 
@@ -15,7 +15,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Order {
-
     private int orderID;
     private String date;
     private String status;
@@ -66,7 +65,11 @@ public class Order {
         DBDriver.processQuery(query);
     }
 
-    public boolean deleteOrder() {
+    /**
+     * Deletes order from database
+     * @return whether deletion was successful
+     */
+    public boolean deleteOrder() throws SQLException {
         Bike bike = Bike.getBike(this.bikeID);
         if (status.equals("Pending")) {
             assert bike != null;
@@ -146,7 +149,7 @@ public class Order {
      */
     public static List<Order> getOrders(String query) {
 
-        List<Order> orders = new ArrayList<Order>();
+        List<Order> orders = new ArrayList<>();
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
 

@@ -1,10 +1,10 @@
-package COM2008_team01.models;
-
 /** Represents a Bike (Assembled Product).
  * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
  * @version 1.0
  * @lastUpdated 18-11-2022 20:18
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 import COM2008_team01.models.bikeComponents.FrameSet;
@@ -27,6 +27,17 @@ public class Bike {
     private Handlebar handlebar;
     private Wheel wheels;
 
+    /**
+     * Creates a bike
+     * @param serialNo serial number of bike
+     * @param name name of bike
+     * @param frameSetSerial serial number of frameset
+     * @param frameSetBrand brand of frameset
+     * @param handlebarSerial serial number of handlebar
+     * @param handlebarBrand brand of handlebar
+     * @param wheelsSerial serial number of wheel
+     * @param wheelsBrand brand of wheel
+     */
     public Bike(int serialNo, String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
@@ -44,6 +55,15 @@ public class Bike {
         this.cost = calculateCost();
     }
 
+    /**
+     * Creates a bike - the object returned from get methods
+     * @param serialNo serial number of bike
+     * @param brand brand of bike
+     * @param name name of bike
+     * @param fs frameset of bike
+     * @param hb handlebar of bike
+     * @param ws wheel of bike
+     */
     public Bike(int serialNo, String brand, String name,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
@@ -82,7 +102,7 @@ public class Bike {
      * @return total cost of the bike
      */
     public double calculateCost() {
-        this.cost = (this.frameSet.cost + this.handlebar.cost + this.wheels.cost);
+        this.cost = (this.frameSet.cost + this.handlebar.cost + this.wheels.cost) + 10;
         return this.cost;
     }
 
@@ -93,30 +113,22 @@ public class Bike {
      * @return A Bike Object
      * @throws SQLException to handle database queries
      */
-    public static Bike getBike(int bikeID) {
+    public static Bike getBike(int bikeID) throws SQLException {
         String query = "SELECT * FROM team001.bike where bikeId = " + bikeID + ";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
-                Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
-                Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
+        while (res.next()) {
+            FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
+            Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
+            Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
 
-                return new Bike(res.getInt("serialNo"),
-                        res.getString("brand"),
-                        res.getString("bikeName"),
-                        frameSet, handlebar, wheels);
-            }
-
-            return null;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return new Bike(res.getInt("serialNo"),
+                    res.getString("brand"),
+                    res.getString("bikeName"),
+                    frameSet, handlebar, wheels);
         }
-
         return null;
     }
 
@@ -125,27 +137,21 @@ public class Bike {
      * @return List of Bikes
      * @throws SQLException to handle database queries
      */
-    public static List<Bike> getAllBikes() {
+    public static List<Bike> getAllBikes() throws SQLException {
         List<Bike> bikes = new ArrayList<>();
 
         String query = "SELECT bikeID FROM bike;";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while (res.next()) {
-                bikes.add(Bike.getBike(res.getInt("bikeID")));
-            }
-
-            return bikes;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            bikes.add(Bike.getBike(res.getInt("bikeID")));
         }
 
-        return null;
+        res.close();
+
+        return bikes;
     }
 
     public int getQuantity() {

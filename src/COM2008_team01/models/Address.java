@@ -1,11 +1,11 @@
-package COM2008_team01.models;
-
 /**
  * Represents an address.
  * @author Vivek V Choradia
  * @version 1.1
  * @lastUpdated 16-11-2022 18:45
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 
@@ -37,7 +37,6 @@ public class Address {
         this.postcode = postcode;
     }
 
-
     /**
      * To insert an address in the database
      * @throws SQLException throws an SQL exception is an error is found while processing the query.
@@ -63,29 +62,20 @@ public class Address {
         houseNum = houseNum.toUpperCase();
         postcode = postcode.replaceAll("\\s+","").toUpperCase();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
 
-            Statement stmt = con.createStatement();
+        String query = "SELECT * FROM address WHERE houseNum  = \"" + houseNum + "\" AND postcode = \"" + postcode + "\";";
 
-            String query = "SELECT * FROM address WHERE houseNum  = \"" + houseNum + "\" AND postcode = \"" + postcode + "\";";
+        ResultSet res = stmt.executeQuery(query);
 
-            ResultSet res = stmt.executeQuery(query);
-
-            Address add;
-
-            while (res.next()) {
-                add = new Address(res.getString("houseNum"),
-                        res.getString("road"),
-                        res.getString("city"),
-                        res.getString("postcode"));
-                return add;
-            }
-
-            res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            return new Address(res.getString("houseNum"),
+                    res.getString("road"),
+                    res.getString("city"),
+                    res.getString("postcode"));
         }
 
+        res.close();
 
         return null;
     }
@@ -97,8 +87,6 @@ public class Address {
      * @param city city
      * @param postcode postcode
      */
-
-    // TODO check whether such an address already exists or not before updating the address.
     public void updateAddress(String houseNum, String road, String city, String postcode) throws SQLException {
         houseNum = houseNum.toUpperCase();
         road = road.substring(0,1).toUpperCase() + road.substring(1);

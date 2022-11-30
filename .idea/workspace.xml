@@ -10,6 +10,11 @@
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +30,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -210,14 +216,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <task id="LOCAL-00017" summary="Updated Readme.md">
-      <created>1669822280466</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669822280466</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -228,7 +227,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -251,8 +262,7 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <MESSAGE value="Updated Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Readme.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
