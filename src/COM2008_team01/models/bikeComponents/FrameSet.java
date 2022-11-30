@@ -125,8 +125,5 @@ public class FrameSet extends BikeComponent {
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}
     public String getBrand() {return brand;}
-    public double getSize() {return size;}
-    public int getShockAbsorbers() {return shockAbsorbers;}
-    public int getGears() {return gears;}
     public double getCost() {return cost;}
 }

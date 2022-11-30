@@ -106,6 +106,5 @@ public class Handlebar extends BikeComponent {
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}
     public String getBrand() {return brand;}
-    public String getType() {return type;}
     public double getCost() {return cost;}
 }

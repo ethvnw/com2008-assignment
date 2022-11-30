@@ -118,7 +118,6 @@ public class Wheel extends BikeComponent {
     }
 
     public String getTyre() { return tyre; }
-
     public String getBrakes() { return brakes; }
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}

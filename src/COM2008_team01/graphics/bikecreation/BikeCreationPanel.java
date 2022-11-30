@@ -16,6 +16,7 @@ import COM2008_team01.models.bikeComponents.Wheel;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class BikeCreationPanel extends JPanel {
@@ -47,22 +48,34 @@ public class BikeCreationPanel extends JPanel {
         container.setLayout(new BorderLayout());
 
         String[] frameColumnNames = {"Brand", "Size (cm)", "Has Shock-absorbers?", "No. Gears", "Cost"};
-        List<FrameSet> framePartList = FrameSet.getAllFrameSets();
-        Object[] frameObjects = buildPartsTable("frame", frameColumnNames, framePartList);
-        frameParts = (JTable) frameObjects[0];
-        frameSelectionPanel = (JPanel) frameObjects[1];
+        try {
+            List<FrameSet> framePartList = FrameSet.getAllFrameSets();
+            Object[] frameObjects = buildPartsTable("frame", frameColumnNames, framePartList);
+            frameParts = (JTable) frameObjects[0];
+            frameSelectionPanel = (JPanel) frameObjects[1];
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         String[] handlebarColumnNames = {"Brand", "Type", "Cost"};
-        List<Handlebar> handlebarPartList = Handlebar.getAllHandlebars();
-        Object[] handlebarObjects = buildPartsTable("handlebar", handlebarColumnNames, handlebarPartList);
-        handlebarParts = (JTable) handlebarObjects[0];
-        handlebarSelectionPanel = (JPanel) handlebarObjects[1];
+        try {
+            List<Handlebar> handlebarPartList = Handlebar.getAllHandlebars();
+            Object[] handlebarObjects = buildPartsTable("handlebar", handlebarColumnNames, handlebarPartList);
+            handlebarParts = (JTable) handlebarObjects[0];
+            handlebarSelectionPanel = (JPanel) handlebarObjects[1];
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         String[] wheelColumnNames = {"Brand", "Tyre Type", "Brake Type", "Cost"};
-        List<Wheel> wheelPartList = Wheel.getAllWheels();
-        Object[] wheelObjects = buildPartsTable("wheel", wheelColumnNames, wheelPartList);
-        wheelParts = (JTable) wheelObjects[0];
-        wheelSelectionPanel = (JPanel) wheelObjects[1];
+        try {
+            List<Wheel> wheelPartList = Wheel.getAllWheels();
+            Object[] wheelObjects = buildPartsTable("wheel", wheelColumnNames, wheelPartList);
+            wheelParts = (JTable) wheelObjects[0];
+            wheelSelectionPanel = (JPanel) wheelObjects[1];
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         partSelectionPanes.addTab("Frames", frameSelectionPanel);
         partSelectionPanes.addTab("Handlebars", handlebarSelectionPanel);
@@ -103,6 +116,8 @@ public class BikeCreationPanel extends JPanel {
         summaryPanel.add(chosenHandlebarCost);
         summaryPanel.add(chosenWheel);
         summaryPanel.add(chosenWheelCost);
+        summaryPanel.add(new JLabel("Assembly Fee"));
+        summaryPanel.add(new JLabel("10.0"));
         summaryPanel.add(new JLabel("Total Cost"));
         summaryPanel.add(totalCost);
         summaryPanel.add(confirmOrder);
@@ -117,20 +132,19 @@ public class BikeCreationPanel extends JPanel {
         double total = 0.0;
         try {
             frameCost = Double.parseDouble(frameParts.getValueAt(frameParts.getSelectedRow(), 4).toString());
-        } finally {total += frameCost;}
+        } catch (Exception e) { } finally {total += frameCost;}
         try {
             handlebarCost = Double.parseDouble(handlebarParts.getValueAt(handlebarParts.getSelectedRow(),2).toString());
-        } finally {total += handlebarCost;}
+        } catch (Exception e) { } finally {total += handlebarCost;}
         try {
             wheelCost = Double.parseDouble(wheelParts.getValueAt(wheelParts.getSelectedRow(),3).toString());
-        } finally {total += wheelCost;}
-        return total;
+        } catch (Exception e) { } finally {total += wheelCost;}
+        return total + 10;
     }
     private Object[] buildPartsTable(String partType, String[] columnNames, List<? extends BikeComponent> partList) {
         JPanel selectionPanel = new JPanel();
         JScrollPane scrollpane;
         JTable parts;
-
 
         parts = new JTable(new DefaultTableModel(columnNames,0));
         scrollpane = new JScrollPane(parts);
