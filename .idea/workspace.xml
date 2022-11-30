@@ -1,18 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="input sanitising added">
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update">
+      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Cookies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/HintTextField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/bikecreation/BikeCreationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/bikecreation/OrderFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/customerdashboard/CustomerOrdersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffBikeComponentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/graphics/staffdashboard/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bikeComponents/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/bikeComponents/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Cookies.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utilities/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,32 +57,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH": "187",
-    "UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH": "319",
-    "WebServerToolWindowFactoryState": "false",
-    "codeWithMe.voiceChat.enabledByDefault": "false",
-    "last_opened_file_path": "C:/Users/Natal/Documents/GitHub/COM2008",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editor.preferences.import"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH&quot;: &quot;187&quot;,
+    &quot;UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH&quot;: &quot;319&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Natal/Documents/GitHub/COM2008&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.import&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team01" />
+      <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team1_assignment\graphics" />
       <recent name="C:\Users\Natal\Documents\GitHub\COM2008\src\assignment" />
     </key>
   </component>
   <component name="RunManager">
     <configuration name="COM2008" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="COM2008_team01.Main" />
+      <option name="MAIN_CLASS_NAME" value="COM2008_team1_assignment.graphics.Main" />
       <module name="assignment" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -98,13 +115,6 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
-      <workItem from="1669647535073" duration="17000" />
-      <workItem from="1669650944430" duration="49000" />
-      <workItem from="1669653739863" duration="30000" />
-      <workItem from="1669653838168" duration="991000" />
-      <workItem from="1669727128943" duration="1415000" />
-      <workItem from="1669745903841" duration="7385000" />
-      <workItem from="1669813209217" duration="6187000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -218,21 +228,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <task id="LOCAL-00017" summary="Bike creation panel started, some data sanitising too">
-      <created>1669643547287</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669643547288</updated>
-    </task>
-    <task id="LOCAL-00018" summary="staff cookies added">
-      <created>1669747440020</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1669747440020</updated>
-    </task>
-    <option name="localTasksCounter" value="19" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -266,9 +262,7 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <MESSAGE value="Bike creation panel started, some data sanitising too" />
-    <MESSAGE value="staff cookies added" />
-    <option name="LAST_COMMIT_MESSAGE" value="staff cookies added" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
