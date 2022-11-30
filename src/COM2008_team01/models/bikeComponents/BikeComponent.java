@@ -49,7 +49,7 @@ public class BikeComponent {
         DBDriver.processQuery(query);
     }
 
-    public List<BikeComponent> getAllBikeComponents() {
+    public static List<BikeComponent> getAllBikeComponents() {
         List<BikeComponent> components = new ArrayList<>();
         components.addAll(FrameSet.getAllFrameSets());
         components.addAll(Handlebar.getAllHandlebars());

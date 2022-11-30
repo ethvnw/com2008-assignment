@@ -106,7 +106,7 @@ public class CustomerAccountPanel extends JPanel {
                 details[5] = bike.getHandlebar().getBrand();
                 details[6] = bike.getWheels().getBrand();
                 details[7] = bike.getFrameSet().getBrand();
-                details[8] = "£" + bike.getCost();
+                details[8] = "$" + bike.getCost();
                 details[9] = order.getStatus();
 
                 DefaultTableModel model = (DefaultTableModel) orderDetails.getModel();

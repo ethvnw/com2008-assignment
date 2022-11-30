@@ -92,7 +92,10 @@ public class Wheel extends BikeComponent {
         this.updateQuantity(component);
     }
 
-    public String getTyre() {
-        return tyre;
-    }
+    public int getQuantity() {return quantity;}
+    public int getSerialNo() {return serialNo;}
+    public String getBrand() {return brand;}
+    public String getTyre() {return tyre;}
+    public String getBrakes() {return brakes;}
+    public double getCost() {return cost;}
 }

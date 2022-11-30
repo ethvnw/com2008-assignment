@@ -66,9 +66,8 @@ public class FrameSet extends BikeComponent {
         return null;
     }
     public static List<FrameSet> getAllFrameSets() {
+        String query = "SELECT * FROM frameSet";
         List<FrameSet> fms = new ArrayList<>();
-
-        String query = "SELECT serialNo, brand FROM frameSet";
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
             Statement stmt = con.createStatement();
@@ -93,4 +92,12 @@ public class FrameSet extends BikeComponent {
         String component = "frameSet";
         this.updateQuantity(component);
     }
+
+    public int getQuantity() {return quantity;}
+    public int getSerialNo() {return serialNo;}
+    public String getBrand() {return brand;}
+    public double getSize() {return size;}
+    public int getShockAbsorbers() {return shockAbsorbers;}
+    public int getGears() {return gears;}
+    public double getCost() {return cost;}
 }

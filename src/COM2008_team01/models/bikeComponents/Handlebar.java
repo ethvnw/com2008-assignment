@@ -59,8 +59,7 @@ public class Handlebar extends BikeComponent {
     }
 
     public static List<Handlebar> getAllHandlebars() {
-
-        String query = "SELECT * FROM handleBar;";
+        String query = "SELECT * FROM handleBar";
         List<Handlebar> handlebars = new ArrayList<>();
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
@@ -84,4 +83,10 @@ public class Handlebar extends BikeComponent {
         String component = "handleBar";
         this.updateQuantity(component);
     }
+
+    public int getQuantity() {return quantity;}
+    public int getSerialNo() {return serialNo;}
+    public String getBrand() {return brand;}
+    public String getType() {return type;}
+    public double getCost() {return cost;}
 }
