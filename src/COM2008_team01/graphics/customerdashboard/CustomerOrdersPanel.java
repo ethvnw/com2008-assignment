@@ -20,7 +20,7 @@ public class CustomerOrdersPanel extends JPanel {
 
     /**
      * Creates the panel showing the details of an order
-     * @param order - the order to view the details of
+     * @param order the order to view the details of
      */
     protected CustomerOrdersPanel(Order order) {
         // Creating table to show order

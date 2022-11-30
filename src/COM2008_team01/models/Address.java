@@ -1,11 +1,11 @@
-package COM2008_team01.models;
-
 /**
  * Represents an address.
  * @author Vivek V Choradia
  * @version 1.1
  * @lastUpdated 16-11-2022 18:45
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 
@@ -36,7 +36,6 @@ public class Address {
         this.city = city;
         this.postcode = postcode;
     }
-
 
     /**
      * To insert an address in the database
@@ -80,13 +79,10 @@ public class Address {
                         res.getString("postcode"));
                 return add;
             }
-
             res.close();
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-
-
         return null;
     }
 
@@ -97,8 +93,6 @@ public class Address {
      * @param city city
      * @param postcode postcode
      */
-
-    // TODO check whether such an address already exists or not before updating the address.
     public void updateAddress(String houseNum, String road, String city, String postcode) throws SQLException {
         houseNum = houseNum.toUpperCase();
         road = road.substring(0,1).toUpperCase() + road.substring(1);

@@ -40,7 +40,7 @@ public class CustomerAccountPanel extends JPanel {
 
     /**
      * Creates the JPanel showing the details of a customer
-     * @param customer - the customer to view details of
+     * @param customer the customer to view details of
      */
     protected CustomerAccountPanel(Customer customer) {
         this.customer = customer;

@@ -14,7 +14,6 @@ public class DBDriver {
     public static final String USER = "team001";
     public static final String PASSWORD = "3314b4b3";
 
-
     /**
      * Takes a string query to execute only for queries which returns nothing.
      * Example - INSERT, UPDATE

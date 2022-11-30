@@ -17,9 +17,6 @@ import java.awt.*;
 import java.io.Serial;
 
 public class GuiFrame extends JFrame {
-    @Serial
-    private static final long serialVersionUID = 1L;
-
     private final JLabel title = new JLabel("Build a Bike");
     private final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
     private final JButton homeButton = new JButton("Home");
@@ -91,6 +88,5 @@ public class GuiFrame extends JFrame {
         constraints.fill = GridBagConstraints.NONE;
         constraints.anchor = GridBagConstraints.CENTER;
         getContentPane().add(mainPanel,constraints);
-        ////////////////////////////////////////////////////////////////////////////
     }
 }

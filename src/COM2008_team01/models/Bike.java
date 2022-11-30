@@ -1,10 +1,10 @@
-package COM2008_team01.models;
-
 /** Represents a Bike (Assembled Product).
  * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
  * @version 1.0
  * @lastUpdated 18-11-2022 20:18
  */
+
+package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
 import COM2008_team01.models.bikeComponents.FrameSet;
@@ -27,6 +27,17 @@ public class Bike {
     private Handlebar handlebar;
     private Wheel wheels;
 
+    /**
+     * Creates a bike
+     * @param serialNo serial number of bike
+     * @param name name of bike
+     * @param frameSetSerial serial number of frameset
+     * @param frameSetBrand brand of frameset
+     * @param handlebarSerial serial number of handlebar
+     * @param handlebarBrand brand of handlebar
+     * @param wheelsSerial serial number of wheel
+     * @param wheelsBrand brand of wheel
+     */
     public Bike(int serialNo, String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
@@ -44,6 +55,15 @@ public class Bike {
         this.cost = calculateCost();
     }
 
+    /**
+     * Creates a bike - the object returned from get methods
+     * @param serialNo serial number of bike
+     * @param brand brand of bike
+     * @param name name of bike
+     * @param fs frameset of bike
+     * @param hb handlebar of bike
+     * @param ws wheel of bike
+     */
     public Bike(int serialNo, String brand, String name,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
@@ -82,7 +102,7 @@ public class Bike {
      * @return total cost of the bike
      */
     public double calculateCost() {
-        this.cost = (this.frameSet.cost + this.handlebar.cost + this.wheels.cost);
+        this.cost = (this.frameSet.cost + this.handlebar.cost + this.wheels.cost) + 10;
         return this.cost;
     }
 

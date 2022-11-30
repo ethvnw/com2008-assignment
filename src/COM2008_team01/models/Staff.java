@@ -19,7 +19,11 @@ public class Staff {
     private String username;
     private String password;
 
-    //Constructor
+    /**
+     * Creates a staff
+     * @param username username of staff
+     * @param password password of staff
+     */
     public Staff(String username, String password) {
         this.username = username;
         this.password = password;
@@ -88,6 +92,11 @@ public class Staff {
         }
     }
 
+    /**
+     * Update status of order
+     * @param order order to change status of
+     * @return whether the status change was successful
+     */
     public boolean confirmOrder(Order order) {
         try {
             order.assignStaff(this.username);
