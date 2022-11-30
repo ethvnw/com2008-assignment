@@ -41,12 +41,19 @@ public class FrameSet extends BikeComponent {
     /**
      * Pushes frameset to database
      */
-    private void createFrameSet() {
+    public boolean createFrameSet() {
         String query = "INSERT INTO frameSet(serialNo, brand, cost, size, shockAbsorbers, gears, quantity) " +
                 "VALUES("+ serialNo +", \"" + brand + "\", " + cost + ", " + size + ", " +
                 shockAbsorbers + ", " + gears + ", " + quantity + ");";
+        try {
 
-        DBDriver.processQuery(query);
+            Statement stmt = DBDriver.getConnection().createStatement();
+            stmt.execute(query);
+            return true;
+
+        } catch (SQLException ex) {
+            return false;
+        }
     }
 
     /**

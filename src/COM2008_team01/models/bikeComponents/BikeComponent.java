@@ -66,12 +66,4 @@ public class BikeComponent {
         DBDriver.processQuery(query);
     }
 
-    public List<BikeComponent> getAllBikeComponents() {
-        List<BikeComponent> components = new ArrayList<>();
-        components.addAll(FrameSet.getAllFrameSets());
-        components.addAll(Handlebar.getAllHandlebars());
-        components.addAll(Wheel.getAllWheels());
-
-        return components;
-    }
 }
