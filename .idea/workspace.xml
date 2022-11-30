@@ -1,31 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Readme.md">
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextFieldUI.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffLoginPanel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Address.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Cookies.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.class" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Removed recurring DB Connections">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerOrdersPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Address.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,6 +66,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\COM2008_SDS\COM2008" />
       <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team01" />
       <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team1_assignment\graphics" />
       <recent name="C:\Users\Natal\Documents\GitHub\COM2008\src\assignment" />
@@ -232,7 +226,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669822280466</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Updated Readme location">
+      <created>1669822522635</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669822522635</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -267,7 +268,9 @@
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
     <MESSAGE value="Updated Readme.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Readme.md" />
+    <MESSAGE value="Updated Readme location" />
+    <MESSAGE value="Removed recurring DB Connections" />
+    <option name="LAST_COMMIT_MESSAGE" value="Removed recurring DB Connections" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -276,6 +279,11 @@
           <properties class="java.lang.ClassCastException" package="java.lang" />
           <option name="timeStamp" value="1" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/COM2008_team01/models/Staff.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

@@ -1,19 +1,19 @@
+package COM2008_team01.utilities;
+
+import java.sql.*;
+
 /** For enabling connection between database and COM2008_team01.models.
  * @author Vivek V Choradia
  * @version 2.0
  * @lastUpdated 14-11-2022 14:45
  */
-
-package COM2008_team01.utilities;
-
-import java.sql.*;
-
 public class DBDriver {
     public static final String URL = "jdbc:mysql://stusql.dcs.shef.ac.uk/";
     public static final String DBNAME = "team001";
     public static final String USER = "team001";
     public static final String PASSWORD = "3314b4b3";
 
+    public static Connection con;
 
     /**
      * Takes a string query to execute only for queries which returns nothing.
@@ -21,9 +21,9 @@ public class DBDriver {
      * @param query Query to be executed.
      */
     public static void processQuery(String query) {
-        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+        try {
 
-            Statement stmt = con.createStatement();
+            Statement stmt = DBDriver.getConnection().createStatement();
             stmt.execute(query);
 
         } catch (SQLException ex) {
@@ -31,18 +31,21 @@ public class DBDriver {
         }
     }
 
-    public static ResultSet processGetOutput(String query) {
-        try (Connection con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD)) {
+    /**
+     * To get the current connection
+     * @return Connection object
+     */
+    public static Connection getConnection() {
+        if (DBDriver.con == null) {
+            try  {
+                DBDriver.con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD);
 
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            return res;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
         }
-        return null;
+
+        return DBDriver.con;
     }
 
 

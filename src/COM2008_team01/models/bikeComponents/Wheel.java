@@ -66,25 +66,18 @@ public class Wheel extends BikeComponent {
         return null;
     }
 
-    public static List<Wheel> getAllWheels() {
+    public static List<Wheel> getAllWheels() throws SQLException {
         String query = "SELECT * FROM wheels;";
         List<Wheel> wheels = new ArrayList<>();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                wheels.add(getWheel(res.getInt("serialNo"), res.getString("brand")));
-            }
-
-            return wheels;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            wheels.add(getWheel(res.getInt("serialNo"), res.getString("brand")));
         }
 
-        return null;
+        return wheels;
     }
 
     public void updateQuantity() {

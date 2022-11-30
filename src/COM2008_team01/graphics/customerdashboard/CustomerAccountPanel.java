@@ -42,7 +42,7 @@ public class CustomerAccountPanel extends JPanel {
      * Creates the JPanel showing the details of a customer
      * @param customer - the customer to view details of
      */
-    protected CustomerAccountPanel(Customer customer) {
+    protected CustomerAccountPanel(Customer customer) throws SQLException {
         this.customer = customer;
 
         // Sets up form that displays name and address
@@ -111,13 +111,24 @@ public class CustomerAccountPanel extends JPanel {
         deleteOrder.addActionListener(e -> {
             int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
             Order order = Order.getOrder(orderID);
-            boolean orderDeleted = order.deleteOrder();
+            boolean orderDeleted = false;
+            try {
+                if (order != null) {
+                    orderDeleted = order.deleteOrder();
+                }
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
 
             if (orderDeleted) {
                 deletionErrorMsg.setText("Order deleted");
                 orderPanel.remove(orderScrollPane);
                 orderPanel.remove(orderDeletionPanel);
-                buildOrdersTable();
+                try {
+                    buildOrdersTable();
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
                 repaint();
             } else {
                 deletionErrorMsg.setText("Order already confirmed");
@@ -131,7 +142,7 @@ public class CustomerAccountPanel extends JPanel {
     /**
      * Creates table of orders
      */
-    private void buildOrdersTable() {
+    private void buildOrdersTable() throws SQLException {
         List<Order> orderList = Order.getAllOrderOfACustomer(this.customer.getCustomerID());
         String[] columnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};

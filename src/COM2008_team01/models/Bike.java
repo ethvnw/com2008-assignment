@@ -1,11 +1,5 @@
 package COM2008_team01.models;
 
-/** Represents a Bike (Assembled Product).
- * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
- * @version 1.0
- * @lastUpdated 18-11-2022 20:18
- */
-
 import COM2008_team01.utilities.DBDriver;
 import COM2008_team01.models.bikeComponents.FrameSet;
 import COM2008_team01.models.bikeComponents.Handlebar;
@@ -15,6 +9,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a Bike (Assembled Product).
+ * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
+ * @version 1.0
+ * @lastUpdated 18-11-2022 20:18
+ */
 public class Bike {
 
     private int serialNo;
@@ -93,29 +92,23 @@ public class Bike {
      * @return A Bike Object
      * @throws SQLException to handle database queries
      */
-    public static Bike getBike(int bikeID) {
+    public static Bike getBike(int bikeID) throws SQLException {
         String query = "SELECT * FROM team001.bike where bikeId = " + bikeID + ";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
-                Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
-                Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
+        while (res.next()) {
+            FrameSet frameSet = new FrameSet(res.getInt("frameSetSerial"), res.getString("frameSetBrand"));
+            Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
+            Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
 
-                return new Bike(res.getInt("serialNo"),
-                        res.getString("brand"),
-                        res.getString("bikeName"),
-                        frameSet, handlebar, wheels);
-            }
-
-            return null;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return new Bike(res.getInt("serialNo"),
+                    res.getString("brand"),
+                    res.getString("bikeName"),
+                    frameSet, handlebar, wheels);
         }
+
 
         return null;
     }
@@ -125,27 +118,21 @@ public class Bike {
      * @return List of Bikes
      * @throws SQLException to handle database queries
      */
-    public static List<Bike> getAllBikes() {
+    public static List<Bike> getAllBikes() throws SQLException {
         List<Bike> bikes = new ArrayList<>();
 
         String query = "SELECT bikeID FROM bike;";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while (res.next()) {
-                bikes.add(Bike.getBike(res.getInt("bikeID")));
-            }
-
-            return bikes;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            bikes.add(Bike.getBike(res.getInt("bikeID")));
         }
 
-        return null;
+        res.close();
+
+        return bikes;
     }
 
     public int getQuantity() {

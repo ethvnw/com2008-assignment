@@ -38,55 +38,41 @@ public class FrameSet extends BikeComponent {
         DBDriver.processQuery(query);
     }
 
-    public static FrameSet getFrameSet(int serialNo, String brand) {
+    public static FrameSet getFrameSet(int serialNo, String brand) throws SQLException {
         brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM frameSet WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
+        while (res.next()) {
 
-                return new FrameSet(res.getInt("serialNo"),
-                        res.getString("brand"),
-                        res.getDouble("size"),
-                        res.getInt("shockAbsorbers"),
-                        res.getInt("gears"),
-                        res.getInt("quantity"),
-                        res.getDouble("cost"));
-            }
-
-            return null;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return new FrameSet(res.getInt("serialNo"),
+                    res.getString("brand"),
+                    res.getDouble("size"),
+                    res.getInt("shockAbsorbers"),
+                    res.getInt("gears"),
+                    res.getInt("quantity"),
+                    res.getDouble("cost"));
         }
 
         return null;
     }
-    public static List<FrameSet> getAllFrameSets() {
+    public static List<FrameSet> getAllFrameSets() throws SQLException {
         List<FrameSet> fms = new ArrayList<>();
 
         String query = "SELECT serialNo, brand FROM frameSet";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                FrameSet fm = getFrameSet(res.getInt("serialNo"),
-                                            res.getString("brand"));
-                fms.add(fm);
-            }
-
-            return fms;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            FrameSet fm = getFrameSet(res.getInt("serialNo"),
+                                        res.getString("brand"));
+            fms.add(fm);
         }
 
-        return null;
+        return fms;
     }
 
     public void updateQuantity() {

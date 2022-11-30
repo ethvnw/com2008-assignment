@@ -30,54 +30,40 @@ public class Handlebar extends BikeComponent {
                 + "VALUES(" + serialNo +", \"" + brand + "\", " + type + ", " + quantity + ", " + cost + ") ;";
         DBDriver.processQuery(query);
     }
-    public static Handlebar getHandlebar(int serialNo, String brand) {
+    public static Handlebar getHandlebar(int serialNo, String brand) throws SQLException {
         brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM handleBar WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
+        while (res.next()) {
 
-                return new Handlebar(
-                        res.getInt("serialNo"),
-                        res.getString("brand"),
-                        res.getString("type"),
-                        res.getInt("quantity"),
-                        res.getDouble("cost")
-                );
-            }
-
-            return null;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return new Handlebar(
+                    res.getInt("serialNo"),
+                    res.getString("brand"),
+                    res.getString("type"),
+                    res.getInt("quantity"),
+                    res.getDouble("cost")
+            );
         }
 
         return null;
     }
 
-    public static List<Handlebar> getAllHandlebars() {
+    public static List<Handlebar> getAllHandlebars() throws SQLException {
 
         String query = "SELECT * FROM handleBar;";
         List<Handlebar> handlebars = new ArrayList<>();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                handlebars.add(getHandlebar(res.getInt("serialNo"), res.getString("brand")));
-            }
-
-            return handlebars;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            handlebars.add(getHandlebar(res.getInt("serialNo"), res.getString("brand")));
         }
 
-        return null;
+        return handlebars;
     }
 
     public void updateQuantity() {

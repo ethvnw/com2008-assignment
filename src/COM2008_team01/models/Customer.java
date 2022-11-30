@@ -1,17 +1,16 @@
 package COM2008_team01.models;
 
-/** Represents a Customer/Shopper.
- * @author Vivek V Choradia
- * @version 1.1
- * @lastUpdated 16-11-2022 19:39
- */
-
 import COM2008_team01.utilities.DBDriver;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a Customer/Shopper.
+ * @author Vivek V Choradia
+ * @version 1.1
+ * @lastUpdated 16-11-2022 19:39
+ */
 public class Customer {
     private int customerID;
     private String forename;
@@ -198,26 +197,21 @@ public class Customer {
      * @param orderID OrderID of an order of the wanted customer
      * @return Customer of that orderID
      */
-    public static Customer getCustomerFromOrderID (int orderID) {
+    public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
         String query = "SELECT customerId from order where orderID = \"" + orderID + "\";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
 
-            Statement stmt = con.createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            ResultSet res = stmt.executeQuery(query);
+        while (res.next()) {
 
-            while (res.next()) {
+            int customerID = res.getInt("customerId");
 
-                int customerID = res.getInt("customerId");
-
-                return getCustomer(customerID);
-            }
-
-            res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+            return getCustomer(customerID);
         }
+
+        res.close();
 
         return null;
     }

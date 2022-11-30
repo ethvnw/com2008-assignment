@@ -2,6 +2,7 @@ package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,14 +48,5 @@ public class BikeComponent {
                 "WHERE serialNo = " + this.serialNo + " " +
                 "AND brand = \"" + this.brand +"\";";
         DBDriver.processQuery(query);
-    }
-
-    public List<BikeComponent> getAllBikeComponents() {
-        List<BikeComponent> components = new ArrayList<>();
-        components.addAll(FrameSet.getAllFrameSets());
-        components.addAll(Handlebar.getAllHandlebars());
-        components.addAll(Wheel.getAllWheels());
-
-        return components;
     }
 }
