@@ -15,6 +15,8 @@ import COM2008_team01.utilities.Cookies;
 import javax.swing.*;
 import java.awt.*;
 import java.io.Serial;
+import java.sql.Connection;
+import java.sql.SQLException;
 
 public class GuiFrame extends JFrame {
     private final JLabel title = new JLabel("Build a Bike");
@@ -67,7 +69,12 @@ public class GuiFrame extends JFrame {
                 mainPanel.add(staffLogin,"staffLogin");
                 panels.show(mainPanel,"staffLogin");
             } else {
-                StaffDashboardPanel staffDashboardPanel = new StaffDashboardPanel(Cookies.loggedInStaff);
+                StaffDashboardPanel staffDashboardPanel = null;
+                try {
+                    staffDashboardPanel = new StaffDashboardPanel(Cookies.loggedInStaff);
+                } catch (SQLException ex) {
+                    throw new RuntimeException(ex);
+                }
                 mainPanel.add(staffDashboardPanel, "staffDashboardPanel");
                 panels.show(mainPanel,"staffDashboardPanel");
             }

@@ -58,36 +58,33 @@ public class Handlebar extends BikeComponent {
         brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM handleBar WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                return new Handlebar(
-                        res.getInt("serialNo"),
-                        res.getString("brand"),
-                        res.getString("type"),
-                        res.getInt("quantity"),
-                        res.getDouble("cost")
-                );
-            }
-            return null;
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+
+            return new Handlebar(
+                    res.getInt("serialNo"),
+                    res.getString("brand"),
+                    res.getString("type"),
+                    res.getInt("quantity"),
+                    res.getDouble("cost")
+            );
         }
+
         return null;
     }
 
-    /**
-     * Generates list of handlebars in database
-     * @return list of all handlebars
-     */
-    public static List<Handlebar> getAllHandlebars() {
-        String query = "SELECT * FROM handleBar;";
-        List<Handlebar> handlebars = new ArrayList<>();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-            Statement stmt = con.createStatement();
+        /**
+         * Generates list of handlebars in database
+         * @return list of all handlebars
+         */
+        public static List<Handlebar> getAllHandlebars() throws SQLException {
+            String query = "SELECT * FROM handleBar;";
+            List<Handlebar> handlebars = new ArrayList<>();
+
+            Statement stmt = DBDriver.getConnection().createStatement();
             ResultSet res = stmt.executeQuery(query);
 
             while (res.next()) {
@@ -95,18 +92,13 @@ public class Handlebar extends BikeComponent {
             }
 
             return handlebars;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
         }
-        return null;
-    }
 
     /**
      * Updates quantity of handlebar in database
      */
-    public void updateQuantity() {
-        String component = "handleBar";
-        this.updateQuantity(component);
+        public void updateQuantity() {
+            String component = "handleBar";
+            this.updateQuantity(component);
+        }
     }
-}

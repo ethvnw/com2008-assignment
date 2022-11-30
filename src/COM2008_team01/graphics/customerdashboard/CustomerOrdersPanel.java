@@ -11,6 +11,7 @@ import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 
 public class CustomerOrdersPanel extends JPanel {
     private JTable orderDetails;
@@ -22,7 +23,7 @@ public class CustomerOrdersPanel extends JPanel {
      * Creates the panel showing the details of an order
      * @param order the order to view the details of
      */
-    protected CustomerOrdersPanel(Order order) {
+    protected CustomerOrdersPanel(Order order) throws SQLException {
         // Creating table to show order
         String[] orderColumnNames = {"Order ID", "Date", "Status"};
         String[] orderInfo = {String.valueOf(order.getOrderID()), String.valueOf(order.getDate()), String.valueOf(order.getStatus())};
@@ -45,7 +46,11 @@ public class CustomerOrdersPanel extends JPanel {
         // Deleting order and returning to CustomerLoginPanel
         JButton deleteOrder = new JButton("Delete Order");
         deleteOrder.addActionListener(e -> {
-            order.deleteOrder();
+            try {
+                order.deleteOrder();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
             this.setVisible(false);
         });
 

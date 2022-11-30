@@ -62,27 +62,21 @@ public class Address {
         houseNum = houseNum.toUpperCase();
         postcode = postcode.replaceAll("\\s+","").toUpperCase();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
 
-            Statement stmt = con.createStatement();
+        String query = "SELECT * FROM address WHERE houseNum  = \"" + houseNum + "\" AND postcode = \"" + postcode + "\";";
 
-            String query = "SELECT * FROM address WHERE houseNum  = \"" + houseNum + "\" AND postcode = \"" + postcode + "\";";
+        ResultSet res = stmt.executeQuery(query);
 
-            ResultSet res = stmt.executeQuery(query);
-
-            Address add;
-
-            while (res.next()) {
-                add = new Address(res.getString("houseNum"),
-                        res.getString("road"),
-                        res.getString("city"),
-                        res.getString("postcode"));
-                return add;
-            }
-            res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            return new Address(res.getString("houseNum"),
+                    res.getString("road"),
+                    res.getString("city"),
+                    res.getString("postcode"));
         }
+
+        res.close();
+
         return null;
     }
 

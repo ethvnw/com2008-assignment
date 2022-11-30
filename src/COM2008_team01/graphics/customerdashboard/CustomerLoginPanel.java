@@ -71,6 +71,8 @@ public class CustomerLoginPanel extends JPanel {
             } catch (NumberFormatException exception) {
                 orderErrorMsg.setText("Enter only numbers");
                 exception.printStackTrace();
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
             }
         });
 

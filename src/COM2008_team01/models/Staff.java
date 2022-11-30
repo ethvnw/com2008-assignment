@@ -1,9 +1,3 @@
-/** Represents a Staff.
- * @author Vivek V Choradia
- * @version 1.0
- * @lastUpdated 14-11-2022 10:37
- */
-
 package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
@@ -15,6 +9,11 @@ import java.sql.*;
 import java.util.List;
 import java.util.Objects;
 
+/** Represents a Staff.
+ * @author Vivek V Choradia, Han Weixiang
+ * @version 1.0
+ * @lastUpdated 14-11-2022 10:37
+ */
 public class Staff {
     private String username;
     private String password;
@@ -57,24 +56,19 @@ public class Staff {
 
         String query = "SELECT * FROM staff WHERE username = \"" + this.username + "\";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        if (res == null) {
+            return null;
+        }
 
-            if (res == null) {
-                return null;
+        while(res.next()) {
+            String password = encryption.decrypt(res.getString("password"));
+            if(Objects.equals(password, this.password)) {
+                Cookies.loggedInStaff = this;
+                return this.username;
             }
-
-            while(res.next()) {
-                String password = encryption.decrypt(res.getString("password"));
-                if(Objects.equals(password, this.password)) {
-                    Cookies.loggedInStaff = this;
-                    return this.username;
-                }
-            }
-        } catch (SQLException ex) {
-            ex.printStackTrace();
         }
         return null;
     }

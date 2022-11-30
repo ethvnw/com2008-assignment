@@ -69,7 +69,7 @@ public class Order {
      * Deletes order from database
      * @return whether deletion was successful
      */
-    public boolean deleteOrder() {
+    public boolean deleteOrder() throws SQLException {
         Bike bike = Bike.getBike(this.bikeID);
         if (status.equals("Pending")) {
             assert bike != null;
@@ -149,7 +149,7 @@ public class Order {
      */
     public static List<Order> getOrders(String query) {
 
-        List<Order> orders = new ArrayList<Order>();
+        List<Order> orders = new ArrayList<>();
 
         try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
 
