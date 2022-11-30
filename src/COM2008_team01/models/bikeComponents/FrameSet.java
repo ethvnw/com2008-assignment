@@ -61,7 +61,7 @@ public class FrameSet extends BikeComponent {
      * @param brand brand name of frameset
      * @return matching frameset, null if none found
      */
-    public static FrameSet getFrameSet(int serialNo, String brand) {
+    public static FrameSet getFrameSet(int serialNo, String brand) throws SQLException{
         brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM frameSet WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
@@ -86,7 +86,7 @@ public class FrameSet extends BikeComponent {
      * Generates list of frame-sets in database
      * @return list of all frame-sets
      */
-    public static List<FrameSet> getAllFrameSets() {
+    public static List<FrameSet> getAllFrameSets() throws SQLException {
         List<FrameSet> fms = new ArrayList<>();
         String query = "SELECT serialNo, brand FROM frameSet";
 

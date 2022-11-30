@@ -54,7 +54,7 @@ public class Handlebar extends BikeComponent {
      * @param brand brand of handlebar
      * @return matching handlebar, null if none found
      */
-    public static Handlebar getHandlebar(int serialNo, String brand) {
+    public static Handlebar getHandlebar(int serialNo, String brand) throws SQLException {
         brand = brand.substring(0,1).toUpperCase() + brand.substring(1);
 
         String query = "SELECT * FROM handleBar WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\";";
