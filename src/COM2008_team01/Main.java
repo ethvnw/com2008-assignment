@@ -20,6 +20,7 @@ public class Main {
         DBDriver.getConnection();
         System.out.println("Connected");
 
+
         // Run the application
         JFrame guiFrame = new GuiFrame();
         SwingUtilities.invokeLater(() -> guiFrame.setVisible(true));

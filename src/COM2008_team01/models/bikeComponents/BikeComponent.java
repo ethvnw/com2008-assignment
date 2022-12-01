@@ -1,9 +1,3 @@
-/** Represents a superclass - BikeComponent.
- * @author Vivek V Choradia, Natalie Roberts
- * @version 1.2
- * @lastUpdated 30/11/2022 20:15
- */
-
 package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
@@ -12,7 +6,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/** Represents a superclass - BikeComponent.
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.2
+ * @lastUpdated 30/11/2022 20:15
+ */
 public class BikeComponent {
     protected int serialNo;
     protected String brand;
@@ -52,6 +50,7 @@ public class BikeComponent {
     }
     public int getSerialNo() { return serialNo; }
     public int getQuantity() { return quantity; }
+    public double getCost() { return cost; }
     public void increaseQuantity(int amount) {quantity = quantity + amount; }
     public void reduceQuantity(int amount) { quantity = quantity - amount; }
 
@@ -67,4 +66,5 @@ public class BikeComponent {
                 "AND brand = \"" + this.brand +"\";";
         DBDriver.processQuery(query);
     }
+
 }

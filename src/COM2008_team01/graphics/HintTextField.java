@@ -1,10 +1,3 @@
-/** Text Prompt for JTextField.
- * @author Weixiang Han
- * @version 1.1
- * @lastUpdated 19-11-2022 15:15
- * ref from https://stackoverflow.com/questions/1738966/java-jtextfield-with-input-hint
- */
-
 package COM2008_team01.graphics;
 
 import javax.swing.*;
@@ -13,7 +6,12 @@ import java.awt.*;
 import java.awt.event.FocusEvent;
 import java.awt.event.FocusListener;
 
-
+/** Text Prompt for JTextField.
+ * @author Weixiang Han
+ * @version 1.1
+ * @lastUpdated 19-11-2022 15:15
+ * @reference https://stackoverflow.com/questions/1738966/java-jtextfield-with-input-hint
+ */
 public class HintTextField extends JTextField implements FocusListener
 {
     private String hint;

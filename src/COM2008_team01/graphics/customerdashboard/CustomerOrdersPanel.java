@@ -36,7 +36,7 @@ public class CustomerOrdersPanel extends JPanel {
         Bike bike = Bike.getBike(order.getBikeID());
         String[] bikeColumnNames = {"Brand", "Bike Name", "Frameset", "Wheels", "Handlebar", "Cost"};
         String[] bikeInfo = {bike.getBrand(), bike.getName(), bike.getFrameSet().getBrand(),
-                bike.getWheels().getBrand(), bike.getHandlebar().getBrand(), "£" + String.valueOf(bike.getCost())};
+                bike.getWheels().getBrand(), bike.getHandlebar().getBrand(), "$" + String.valueOf(bike.getCost())};
         String[][] bikeTableData = {bikeInfo};
 
         bikeDetails = new JTable(bikeTableData, bikeColumnNames);

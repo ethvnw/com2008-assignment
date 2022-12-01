@@ -32,3 +32,4 @@ bin/
 /**/.idea/**/tasks.xml
 /**/.idea/**/discord.xml
 /**/*.class
+.idea/workspace.xml

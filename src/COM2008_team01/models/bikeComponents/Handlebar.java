@@ -1,9 +1,3 @@
-/** Represents a Handlebar component (inherited from BikeComponent).
- * @author Vivek V Choradia
- * @version 1.2
- * @lastUpdated 30-11-2022 16:31
- */
-
 package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
@@ -12,6 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a Handlebar component (inherited from BikeComponent).
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.0
+ * @lastUpdated 30-11-2022 18:03
+ */
 
 public class Handlebar extends BikeComponent {
     private String type;
@@ -76,29 +75,36 @@ public class Handlebar extends BikeComponent {
     }
 
 
-        /**
-         * Generates list of handlebars in database
-         * @return list of all handlebars
-         */
-        public static List<Handlebar> getAllHandlebars() throws SQLException {
-            String query = "SELECT * FROM handleBar;";
-            List<Handlebar> handlebars = new ArrayList<>();
+    /**
+     * Generates list of handlebars in database
+     * @return list of all handlebars
+     */
+    public static List<Handlebar> getAllHandlebars() throws SQLException {
+        String query = "SELECT * FROM handleBar;";
+        List<Handlebar> handlebars = new ArrayList<>();
 
-            Statement stmt = DBDriver.getConnection().createStatement();
-            ResultSet res = stmt.executeQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
-                handlebars.add(getHandlebar(res.getInt("serialNo"), res.getString("brand")));
-            }
-
-            return handlebars;
+        while (res.next()) {
+            handlebars.add(getHandlebar(res.getInt("serialNo"), res.getString("brand")));
         }
+
+        return handlebars;
+    }
+
+    public String getType() { return type; }
 
     /**
      * Updates quantity of handlebar in database
      */
-        public void updateQuantity() {
-            String component = "handleBar";
-            this.updateQuantity(component);
-        }
+    public void updateQuantity() {
+        String component = "handleBar";
+        this.updateQuantity(component);
     }
+
+    public int getQuantity() {return quantity;}
+    public int getSerialNo() {return serialNo;}
+    public String getBrand() {return brand;}
+    public double getCost() {return cost;}
+}

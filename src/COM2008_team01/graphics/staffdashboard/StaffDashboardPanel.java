@@ -12,36 +12,42 @@ import COM2008_team01.utilities.Cookies;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.List;
 
 public class StaffDashboardPanel extends JPanel {
     private final JPanel homePanel = new JPanel();
     private final JPanel buttonPanel = new JPanel();
+    private JTabbedPane tabbedPane = new JTabbedPane();
+
     private JPanel orderPanel = new JPanel();
     private JPanel customerPanel = new JPanel();
+
+    private JPanel changeStatusPanel = new JPanel();
+
     private JTable orderDetails;
     private JTable customerDetails;
+
     private JScrollPane orderScrollPane;
     private JScrollPane customerScrollPane;
+
+    private JLabel orderSelected = new JLabel("Selected order number:  ");
+
     private final JButton viewBikeComponents = new JButton("View Bike Components");
 
     public StaffDashboardPanel(Staff staff) throws SQLException {
         CardLayout card = new CardLayout();
         this.setLayout(card);
-        this.add(homePanel,"homePanel");
-        buttonPanel.setLayout(new BoxLayout(buttonPanel,BoxLayout.Y_AXIS));
-        homePanel.add(buttonPanel);
+        homePanel.setLayout(new BorderLayout());
 
         // Welcome text for user
         JLabel title = new JLabel("Welcome " + String.valueOf(staff.getUsername()));
         title.setFont(new Font("Sans-Serif", Font.PLAIN, 16));
-        buttonPanel.add(title);
 
         // Log out button
         JButton staffLogOutButton = new JButton("Log Out");
-        buttonPanel.add(staffLogOutButton);
-
         staffLogOutButton.addActionListener(e -> {
             try {
                 if (Staff.logout()) {
@@ -57,7 +63,6 @@ public class StaffDashboardPanel extends JPanel {
         });
 
         // View Bike Components
-        buttonPanel.add(viewBikeComponents);
         viewBikeComponents.addActionListener(e -> {
             try{
                 if (staff != null){
@@ -71,13 +76,23 @@ public class StaffDashboardPanel extends JPanel {
             }
         });
 
+        buttonPanel.add(title);
+        buttonPanel.add(staffLogOutButton);
+        buttonPanel.add(viewBikeComponents);
+        homePanel.add(buttonPanel, BorderLayout.NORTH);
+
+        // Adding customer and order tables in a tabbed pane
+        tabbedPane.addTab("All Customers", customerPanel);
+        tabbedPane.addTab("All Orders", orderPanel);
+        homePanel.add(tabbedPane, BorderLayout.SOUTH);
+
         // Customer Table
         List<Customer> customerList = Customer.getAllCustomers();
         String[] customerColumnNames = {"Customer ID", "Forename", "Surname", "House No", "Road Name",
                 "City Name", "Postcode"};
         customerDetails = new JTable(new DefaultTableModel(customerColumnNames,0));
         customerScrollPane = new JScrollPane(customerDetails);
-        customerPanel.setBorder(BorderFactory.createTitledBorder("All Customers"));
+        customerPanel.setLayout(new BorderLayout());
 
         if (!customerList.isEmpty()) {
             customerPanel.add(customerScrollPane);
@@ -102,7 +117,7 @@ public class StaffDashboardPanel extends JPanel {
             customerPanel.add(new JLabel("No customers in the system"));
         }
 
-        homePanel.add(customerPanel, BorderLayout.CENTER);
+        customerPanel.add(customerScrollPane, BorderLayout.CENTER);
 
         // Order Table
         String orderQuery = "SELECT * FROM team001.order;";
@@ -111,7 +126,7 @@ public class StaffDashboardPanel extends JPanel {
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
         orderDetails = new JTable(new DefaultTableModel(orderColumnNames,0));
         orderScrollPane = new JScrollPane(orderDetails);
-        orderPanel.setBorder(BorderFactory.createTitledBorder("All Orders"));
+        orderPanel.setLayout(new BorderLayout());
 
         if (!orderList.isEmpty()) {
             orderPanel.add(orderScrollPane);
@@ -128,7 +143,7 @@ public class StaffDashboardPanel extends JPanel {
                 orderColumns[5] = bike.getHandlebar().getBrand();
                 orderColumns[6] = bike.getWheels().getBrand();
                 orderColumns[7] = bike.getFrameSet().getBrand();
-                orderColumns[8] = "£" + bike.getCost();
+                orderColumns[8] = "$" + bike.getCost();
                 orderColumns[9] = order.getStatus();
 
                 DefaultTableModel orderModel = (DefaultTableModel) orderDetails.getModel();
@@ -140,8 +155,20 @@ public class StaffDashboardPanel extends JPanel {
             orderPanel.add(new JLabel("No orders have been placed"));
         }
 
-        homePanel.add(orderPanel);
+        orderPanel.add(orderScrollPane);
 
+        changeStatusPanel.setLayout(new BoxLayout(changeStatusPanel,BoxLayout.Y_AXIS));
+        changeStatusPanel.add(orderSelected);
+
+        // Displays selected order number in sidebar
+        orderDetails.getSelectionModel().addListSelectionListener(e -> {
+            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
+            orderSelected.setText("Selected order number:  " + orderID);
+        });
+
+        this.add(homePanel,"homePanel");
         card.show(this,"homePanel");
-    }
+
+        }
+
 }

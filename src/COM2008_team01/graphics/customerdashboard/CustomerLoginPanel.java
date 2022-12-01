@@ -18,15 +18,15 @@ public class CustomerLoginPanel extends JPanel {
     private final JPanel formPanel = new JPanel();
 
     private final JPanel orderForm = new JPanel();
-    private final HintTextField orderNo = new HintTextField("Enter order number...");
+    private final HintTextField orderNo = new HintTextField(" Enter order number...");
     private final JButton modifyOrder = new JButton("Submit");
     private JLabel orderErrorMsg = new JLabel(" ");
 
     private final JPanel accountForm = new JPanel();
-    private final HintTextField firstName = new HintTextField("Enter first name...");
-    private final HintTextField surname = new HintTextField("Enter surname...");
-    private final HintTextField houseNo = new HintTextField("Enter house number...");
-    private final HintTextField postcode = new HintTextField("Enter postcode...");
+    private final HintTextField firstName = new HintTextField(" Enter first name...");
+    private final HintTextField surname = new HintTextField(" Enter surname...");
+    private final HintTextField houseNo = new HintTextField(" Enter house number...");
+    private final HintTextField postcode = new HintTextField(" Enter postcode...");
     private final JButton viewAccount = new JButton("Submit");
     private JLabel customerErrorMsg = new JLabel(" ");
 
