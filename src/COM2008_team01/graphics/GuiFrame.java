@@ -21,9 +21,9 @@ import java.sql.SQLException;
 public class GuiFrame extends JFrame {
     private final JLabel title = new JLabel("Build a Bike");
     private final JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-    private final JButton homeButton = new JButton("Home");
+    private final JButton homeButton = new JButton("Build A Bike");
     private final JButton customerLoginButton = new JButton("Customer Login");
-    private final JButton staffLoginButton = new JButton("Staff Login");
+    private final JButton staffLoginButton = new JButton("Staff Dashboard");
 
     private final JPanel mainPanel = new JPanel();
 
@@ -90,9 +90,10 @@ public class GuiFrame extends JFrame {
         constraints.gridy = 0;
         getContentPane().add(buttonPanel,constraints);
 
+        constraints.insets = new Insets(15,15,15,15);
         constraints.gridx = 0;
         constraints.gridy = 0;
-        constraints.fill = GridBagConstraints.NONE;
+        constraints.fill = GridBagConstraints.HORIZONTAL;
         constraints.anchor = GridBagConstraints.CENTER;
         getContentPane().add(mainPanel,constraints);
     }

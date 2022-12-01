@@ -32,11 +32,12 @@ public class BikeCreationPanel extends JPanel {
     private JTable wheelParts;
 
     private JPanel summaryPanel = new JPanel();
-    private JLabel chosenFrame = new JLabel();
+    private JPanel chosenPartsPanel = new JPanel();
+    private JLabel chosenFrame = new JLabel("Frame: ",SwingConstants.RIGHT);
     private JLabel chosenFrameCost = new JLabel();
-    private JLabel chosenHandlebar = new JLabel();
+    private JLabel chosenHandlebar = new JLabel("Handlebar: ",SwingConstants.RIGHT);
     private JLabel chosenHandlebarCost = new JLabel();
-    private JLabel chosenWheel = new JLabel();
+    private JLabel chosenWheel = new JLabel("Wheel: ",SwingConstants.RIGHT);
     private JLabel chosenWheelCost = new JLabel();
 
     private JLabel totalCost = new JLabel();
@@ -84,19 +85,19 @@ public class BikeCreationPanel extends JPanel {
         container.add(partSelectionPanes, BorderLayout.NORTH);
 
         frameParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenFrame.setText(frameParts.getValueAt(frameParts.getSelectedRow(),0).toString());
+            chosenFrame.setText("Frame: " + frameParts.getValueAt(frameParts.getSelectedRow(),0).toString());
             chosenFrameCost.setText(frameParts.getValueAt(frameParts.getSelectedRow(), 4).toString());
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
         handlebarParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenHandlebar.setText(handlebarParts.getValueAt(handlebarParts.getSelectedRow(),0).toString());
+            chosenHandlebar.setText("Handlebar: " + handlebarParts.getValueAt(handlebarParts.getSelectedRow(),0).toString());
             chosenHandlebarCost.setText(handlebarParts.getValueAt(handlebarParts.getSelectedRow(),2).toString());
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
         wheelParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenWheel.setText(wheelParts.getValueAt(wheelParts.getSelectedRow(),0).toString());
+            chosenWheel.setText("Wheel: " + wheelParts.getValueAt(wheelParts.getSelectedRow(),0).toString());
             chosenWheelCost.setText(wheelParts.getValueAt(wheelParts.getSelectedRow(),3).toString());
             totalCost.setText(String.valueOf(calculateTotal()));
         });
@@ -109,18 +110,21 @@ public class BikeCreationPanel extends JPanel {
             card.show(this,"orderFormPanel");
         });
 
-        summaryPanel.setLayout(new GridLayout(0, 2));
-        summaryPanel.add(chosenFrame);
-        summaryPanel.add(chosenFrameCost);
-        summaryPanel.add(chosenHandlebar);
-        summaryPanel.add(chosenHandlebarCost);
-        summaryPanel.add(chosenWheel);
-        summaryPanel.add(chosenWheelCost);
-        summaryPanel.add(new JLabel("Assembly Fee"));
-        summaryPanel.add(new JLabel("10.0"));
-        summaryPanel.add(new JLabel("Total Cost"));
-        summaryPanel.add(totalCost);
+        summaryPanel.setLayout(new GridLayout(0, 1,0,15));
+        summaryPanel.add(chosenPartsPanel);
         summaryPanel.add(confirmOrder);
+
+        chosenPartsPanel.setLayout(new GridLayout(0,2,15,0));
+        chosenPartsPanel.add(chosenFrame);
+        chosenPartsPanel.add(chosenFrameCost);
+        chosenPartsPanel.add(chosenHandlebar);
+        chosenPartsPanel.add(chosenHandlebarCost);
+        chosenPartsPanel.add(chosenWheel);
+        chosenPartsPanel.add(chosenWheelCost);
+        chosenPartsPanel.add(new JLabel("Assembly Fee",SwingConstants.RIGHT));
+        chosenPartsPanel.add(new JLabel("10.0"));
+        chosenPartsPanel.add(new JLabel("Total Cost",SwingConstants.RIGHT));
+        chosenPartsPanel.add(totalCost);
 
         container.add(summaryPanel, BorderLayout.SOUTH);
         this.add(container,"container");

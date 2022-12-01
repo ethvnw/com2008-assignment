@@ -96,7 +96,7 @@ public class StaffDashboardPanel extends JPanel {
         tabbedPane.addTab("All Orders", orderPanel);
         tabbedPane.addTab("Pending Orders", pendingOrderPanel);
         tabbedPane.addTab("Confirmed Orders", confirmedOrderPanel);
-        homePanel.add(tabbedPane, BorderLayout.SOUTH);
+        homePanel.add(tabbedPane, BorderLayout.CENTER);
 
         // Customer Table
         List<Customer> customerList = Customer.getAllCustomers();
@@ -199,7 +199,7 @@ public class StaffDashboardPanel extends JPanel {
         // Order Table
         String orderQuery = "SELECT * FROM team001.order;";
         List<Order> orderList = Order.getOrders(orderQuery);
-        String[] orderColumnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
+        String[] orderColumnNames = {"Order ID", "Customer ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
         orderDetails = new JTable(new DefaultTableModel(orderColumnNames, 0));
         orderScrollPane = new JScrollPane(orderDetails);
@@ -209,19 +209,20 @@ public class StaffDashboardPanel extends JPanel {
             orderPanel.add(orderScrollPane);
 
             for (Order order : orderList) {
-                String[] orderColumns = new String[10];
+                String[] orderColumns = new String[11];
                 Bike bike = Bike.getBike(order.getBikeID());
 
                 orderColumns[0] = String.valueOf(order.getOrderID());
-                orderColumns[1] = order.getDate();
-                orderColumns[2] = order.getAssigned_Staff();
-                orderColumns[3] = bike.getBrand();
-                orderColumns[4] = bike.getName();
-                orderColumns[5] = bike.getHandlebar().getBrand();
-                orderColumns[6] = bike.getWheels().getBrand();
-                orderColumns[7] = bike.getFrameSet().getBrand();
-                orderColumns[8] = "$" + bike.getCost();
-                orderColumns[9] = order.getStatus();
+                orderColumns[1] = String.valueOf(Customer.getCustomerFromOrderID(order.getOrderID()).getCustomerID());
+                orderColumns[2] = order.getDate();
+                orderColumns[3] = order.getAssigned_Staff();
+                orderColumns[4] = bike.getBrand();
+                orderColumns[5] = bike.getName();
+                orderColumns[6] = bike.getHandlebar().getBrand();
+                orderColumns[7] = bike.getWheels().getBrand();
+                orderColumns[8] = bike.getFrameSet().getBrand();
+                orderColumns[9] = "$" + bike.getCost();
+                orderColumns[10] = order.getStatus();
 
                 DefaultTableModel orderModel = (DefaultTableModel) orderDetails.getModel();
                 orderModel.addRow(orderColumns);
@@ -239,26 +240,27 @@ public class StaffDashboardPanel extends JPanel {
 
     private DefaultTableModel buildTable(String status) throws SQLException {
         List<Order> orderList = Order.getOrdersOfStatus(status);
-        String[] columnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
+        String[] columnNames = {"Order ID", "Customer ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
 
         DefaultTableModel orderModel = new DefaultTableModel(columnNames,0);
 
         if (!orderList.isEmpty()) {
             for (Order order : orderList) {
-                String[] orderColumns = new String[10];
+                String[] orderColumns = new String[11];
                 Bike bike = Bike.getBike(order.getBikeID());
 
                 orderColumns[0] = String.valueOf(order.getOrderID());
-                orderColumns[1] = order.getDate();
-                orderColumns[2] = order.getAssigned_Staff();
-                orderColumns[3] = bike.getBrand();
-                orderColumns[4] = bike.getName();
-                orderColumns[5] = bike.getHandlebar().getBrand();
-                orderColumns[6] = bike.getWheels().getBrand();
-                orderColumns[7] = bike.getFrameSet().getBrand();
-                orderColumns[8] = "$" + bike.getCost();
-                orderColumns[9] = order.getStatus();
+                orderColumns[1] = String.valueOf(Customer.getCustomerFromOrderID(order.getOrderID()).getCustomerID());
+                orderColumns[2] = order.getDate();
+                orderColumns[3] = order.getAssigned_Staff();
+                orderColumns[4] = bike.getBrand();
+                orderColumns[5] = bike.getName();
+                orderColumns[6] = bike.getHandlebar().getBrand();
+                orderColumns[7] = bike.getWheels().getBrand();
+                orderColumns[8] = bike.getFrameSet().getBrand();
+                orderColumns[9] = "$" + bike.getCost();
+                orderColumns[10] = order.getStatus();
 
                 orderModel.addRow(orderColumns);
             }

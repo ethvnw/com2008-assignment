@@ -211,7 +211,7 @@ public class Customer {
      * @return Customer of that orderID
      */
     public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
-        String query = "SELECT customerId from order where orderID = \"" + orderID + "\";";
+        String query = "SELECT customerId from team001.order where orderID = " + orderID + ";";
 
         Statement stmt = DBDriver.getConnection().createStatement();
 
