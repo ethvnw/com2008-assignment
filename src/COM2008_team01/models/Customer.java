@@ -54,22 +54,23 @@ public class Customer {
      * To insert a customer in the database.
      * @return if adding the customer was successful then true otherwise  false
      */
-    public boolean createCustomer() throws SQLException {
+    public int createCustomer() throws SQLException {
 
         String query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
                         "VALUES (\""+ this.forename +"\", \""+
                                 this.surname +"\", \"" + this.address.houseNum + "\", \"" +
                                 this.address.postcode + "\");";
 
-        DBDriver.processQuery(query);
         Statement stmt = DBDriver.getConnection().createStatement();
-        ResultSet res = stmt.executeQuery("SELECT SCOPE_IDENTITY();");
+        stmt.execute(query);
+        query = "SELECT @@identity as current;";
+        ResultSet res = stmt.executeQuery(query);
 
-        while(res.next()) {
-            System.out.println(res.getInt(1));
+        if(res.next()) {
+            return (res.getInt(1));
         }
 
-        return false;
+        return 0;
     }
 
     /**

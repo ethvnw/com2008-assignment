@@ -91,6 +91,7 @@ public class StaffBikeComponentPanel extends JPanel {
         frameSetDetails = new JTable(new DefaultTableModel(frameColumnNames,0));
         frameSetScrollPane = new JScrollPane(frameSetDetails);
         frameSetPanel.setLayout(new BorderLayout());
+        frameSetDetails.setDefaultEditor(Object.class, null);
 
         if (!frameSetList.isEmpty()) {
             frameSetPanel.add(frameSetScrollPane);
@@ -102,7 +103,12 @@ public class StaffBikeComponentPanel extends JPanel {
                 frameColumns[1] = String.valueOf(frameSet.getSerialNo());
                 frameColumns[2] = frameSet.getBrand();
                 frameColumns[3] = String.valueOf(frameSet.getSize());
-                frameColumns[4] = String.valueOf(frameSet.getShockAbsorbers());
+                if (frameSet.getShockAbsorbers() == 0) {
+                    frameColumns[4] = "No";
+                }
+                if (frameSet.getShockAbsorbers() == 1) {
+                    frameColumns[4] = "Yes";
+                }
                 frameColumns[5] = String.valueOf(frameSet.getGears());
                 frameColumns[6] = String.valueOf(frameSet.getCost());
 
@@ -185,6 +191,7 @@ public class StaffBikeComponentPanel extends JPanel {
         handleBarDetails = new JTable(new DefaultTableModel(handlebarColumnNames,0));
         handleBarScrollPane = new JScrollPane(handleBarDetails);
         handleBarPanel.setLayout(new BorderLayout());
+        handleBarDetails.setDefaultEditor(Object.class, null);
 
         if (!handleBarList.isEmpty()) {
             handleBarPanel.add(handleBarScrollPane);
@@ -267,6 +274,7 @@ public class StaffBikeComponentPanel extends JPanel {
         wheelDetails = new JTable(new DefaultTableModel(wheelColumnNames,0));
         wheelScrollPane = new JScrollPane(wheelDetails);
         wheelPanel.setLayout(new BorderLayout());
+        wheelDetails.setDefaultEditor(Object.class, null);
 
         if (!wheelList.isEmpty()) {
             wheelPanel.add(wheelScrollPane);

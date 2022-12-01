@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Order model">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Models">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Handlebar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -220,7 +222,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669855101476</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Updated Models">
+      <created>1669901981619</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669901981619</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -255,7 +264,8 @@
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
     <MESSAGE value="Updated Order model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Order model" />
+    <MESSAGE value="Updated Models" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated Models" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

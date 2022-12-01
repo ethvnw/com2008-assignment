@@ -76,7 +76,7 @@ public class Bike {
         this.cost = calculateCost();
     }
 
-    public void createBike() {
+    public int createBike() throws SQLException {
 
         String query = "INSERT INTO bike(serialNo, brand, name, cost" +
                 "frameSetSerial, frameSetBrand," +
@@ -88,10 +88,20 @@ public class Bike {
                 this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand()+"\"," +
                 this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() +"\"" +");";
 
-        DBDriver.processQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        stmt.execute(query);
+        query = "SELECT @@identity as current;";
+        ResultSet res = stmt.executeQuery(query);
+
+        if(res.next()) {
+            return (res.getInt(1));
+        }
+
         this.frameSet.reduceQuantity(1);
         this.handlebar.reduceQuantity(1);
         this.wheels.reduceQuantity(1);
+
+        return 0;
     }
 
 

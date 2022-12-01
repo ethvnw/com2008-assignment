@@ -180,7 +180,7 @@ public class Order {
      * To update the order in the database.
      */
     public void updateOrder() {
-        String query = "UPDATE order" +
+        String query = "UPDATE order " +
                         "SET date = \"" + this.date + "\", " +
                         "status = \"" + this.status + "\", " +
                         "customerID = \"" + this.customerID +"\", " +
