@@ -26,12 +26,10 @@ public class Order {
     /**
      * To create an order object
      * @param bikeID Bike ID
-     * @param date current date
      */
-    public Order(int bikeID, String date) {
+    public Order(int bikeID) {
         this.bikeID = bikeID;
         this.status = "Pending";
-        this.date = date;
     }
 
     /**
