@@ -29,7 +29,6 @@ public class Bike {
 
     /**
      * Creates a bike
-     * @param serialNo serial number of bike
      * @param name name of bike
      * @param frameSetSerial serial number of frameset
      * @param frameSetBrand brand of frameset
@@ -38,12 +37,11 @@ public class Bike {
      * @param wheelsSerial serial number of wheel
      * @param wheelsBrand brand of wheel
      */
-    public Bike(int serialNo, String name,
+    public Bike(String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
                 int wheelsSerial, String wheelsBrand) {
 
-        this.serialNo = serialNo;
         this.name = name;
 
         this.frameSet = new FrameSet(frameSetSerial, frameSetBrand);
@@ -79,15 +77,16 @@ public class Bike {
     }
 
     public void createBike() {
+
         String query = "INSERT INTO bike(serialNo, brand, name, cost" +
                 "frameSetSerial, frameSetBrand," +
                 " handlebarSerial,  handlebarBrand, " +
                 "wheelsSerial,  wheelsBrand)" +
                 " VALUES("+this.serialNo+", \""+this.brand+"\"," +
                 "\"" + this.name + "\"," + this.cost + ", " +
-                this.frameSet.getSerialNo() + ", \'" + this.frameSet.getBrand() +"\"," +
-                this.handlebar.getSerialNo() + ", \'" + this.handlebar.getBrand()+"\"," +
-                this.wheels.getSerialNo() + ", \'" + this.wheels.getBrand() +"\"," +");";
+                this.frameSet.getSerialNo() + ", \"" + this.frameSet.getBrand() +"\"," +
+                this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand()+"\"," +
+                this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() +"\"" +");";
 
         DBDriver.processQuery(query);
         this.frameSet.reduceQuantity(1);

@@ -54,9 +54,9 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
+        SimpleDateFormat formatter = new SimpleDateFormat("DD/MM/YYYY");
         Date date = new Date();
-        this.date = formatter.format(date);
+        this.date = (formatter.format(date));
         String query = "INSERT INTO order (date, customerID, bikeID, status)" +
                 " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
 
@@ -251,5 +251,16 @@ public class Order {
 
     public String getAssigned_Staff() {
         return this.assigned_Staff;
+    }
+
+    public static List<Order> getPendingOrders() throws SQLException {
+        List<Order> orders = new ArrayList<>();
+        String query = "SELECT orderID FROM order WHERE status = Pending; ";
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+        while(res.next()) {
+            orders.add(getOrder(res.getInt("orderID")));
+        }
+        return orders;
     }
 }
