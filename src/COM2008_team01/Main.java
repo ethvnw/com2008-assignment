@@ -17,6 +17,7 @@ public class Main {
         //Running the static function to establish connection with database
         DBDriver.getConnection();
 
+
         // Run the application
         JFrame guiFrame = new GuiFrame();
         SwingUtilities.invokeLater(() -> guiFrame.setVisible(true));

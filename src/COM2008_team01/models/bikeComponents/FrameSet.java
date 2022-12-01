@@ -6,6 +6,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a FrameSet component (inherited from BikeComponent).
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.0
+ * @lastUpdated 30-11-2022 18:03
+ */
 
 public class FrameSet extends BikeComponent {
     private double size;
@@ -102,6 +107,12 @@ public class FrameSet extends BikeComponent {
         return fms;
     }
 
+    public double getSize() { return size; }
+
+    public int getShockAbsorbers() { return shockAbsorbers; }
+
+    public int getGears() { return gears; }
+
     /**
      * Updates quantity of frameset in database
      */
@@ -113,8 +124,5 @@ public class FrameSet extends BikeComponent {
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}
     public String getBrand() {return brand;}
-    public double getSize() {return size;}
-    public int getShockAbsorbers() {return shockAbsorbers;}
-    public int getGears() {return gears;}
     public double getCost() {return cost;}
 }

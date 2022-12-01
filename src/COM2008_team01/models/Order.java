@@ -25,11 +25,9 @@ public class Order {
 
     /**
      * To create an order object
-     * @param customerID Customer ID
      * @param bikeID Bike ID
      */
-    public Order( int customerID, int bikeID) {
-        this.customerID = customerID;
+    public Order(int bikeID) {
         this.bikeID = bikeID;
         this.status = "Pending";
     }
@@ -88,6 +86,14 @@ public class Order {
         else {
             return false;
         }
+    }
+
+    /**
+     * To set the customer of the order
+     * @param customerID customer ID
+     */
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     /**
