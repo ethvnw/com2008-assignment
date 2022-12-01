@@ -53,9 +53,9 @@ public class Wheel extends BikeComponent {
      * Pushes wheel to database
      */
     public boolean createWheel() {
-        String query = "INSERT INTO wheel(serialNo, brand, cost, tyre, brakes, quantity)"
-                + "VALUES(" + serialNo +", \"" + brand + "\", " + cost + ", " + tyre + ", " + brakes +
-                ", " + quantity + ");";
+        String query = "INSERT INTO wheels(serialNo, brand, cost, tyre, brakes, quantity)"
+                + "VALUES(" + serialNo +", \"" + brand + "\", " + cost + ", \"" + tyre + "\", \"" + brakes +
+                "\", " + quantity + ");";
         try {
             Statement stmt = DBDriver.getConnection().createStatement();
             stmt.execute(query);
