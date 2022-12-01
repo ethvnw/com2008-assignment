@@ -40,9 +40,10 @@ public class DBDriver {
         if (DBDriver.con == null) {
             try  {
                 DBDriver.con = DriverManager.getConnection(URL + DBNAME, USER, PASSWORD);
+                System.out.println("Connected");
 
             } catch (SQLException ex) {
-                ex.printStackTrace();
+                System.out.println("Connection failed");
             }
         }
 

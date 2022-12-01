@@ -1,14 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Order model">
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.class" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="merge">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/GuiFrame.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/HintTextField.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerLoginPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/Wheel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +53,7 @@
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;codeWithMe.voiceChat.enabledByDefault&quot;: &quot;false&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Natal/Documents/GitHub/COM2008&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
@@ -56,8 +62,6 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team01" />
-      <recent name="D:\COM2008_SDS\COM2008\src\COM2008_team1_assignment\graphics" />
       <recent name="C:\Users\Natal\Documents\GitHub\COM2008\src\assignment" />
     </key>
   </component>
@@ -95,6 +99,14 @@
       <workItem from="1668637759445" duration="5625000" />
       <workItem from="1668961122853" duration="3040000" />
       <workItem from="1669031593897" duration="1891000" />
+      <workItem from="1669647535073" duration="17000" />
+      <workItem from="1669650944430" duration="49000" />
+      <workItem from="1669653739863" duration="30000" />
+      <workItem from="1669653838168" duration="991000" />
+      <workItem from="1669727128943" duration="1415000" />
+      <workItem from="1669745903841" duration="7385000" />
+      <workItem from="1669813209217" duration="6226000" />
+      <workItem from="1669822754801" duration="5572000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup">
       <created>1667230806701</created>
@@ -208,14 +220,35 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <task id="LOCAL-00017" summary="Updated Order model">
-      <created>1669855101476</created>
+    <task id="LOCAL-00017" summary="Bike creation panel started, some data sanitising too">
+      <created>1669643547287</created>
       <option name="number" value="00017" />
       <option name="presentableId" value="LOCAL-00017" />
       <option name="project" value="LOCAL" />
-      <updated>1669855101476</updated>
+      <updated>1669643547288</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="staff cookies added">
+      <created>1669747440020</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669747440020</updated>
+    </task>
+    <task id="LOCAL-00019" summary="added javadoc">
+      <created>1669821296483</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1669821296483</updated>
+    </task>
+    <task id="LOCAL-00020" summary="merge">
+      <created>1669835452083</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1669835452083</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,8 +282,11 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <MESSAGE value="Updated Order model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Order model" />
+    <MESSAGE value="Bike creation panel started, some data sanitising too" />
+    <MESSAGE value="staff cookies added" />
+    <MESSAGE value="added javadoc" />
+    <MESSAGE value="merge" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

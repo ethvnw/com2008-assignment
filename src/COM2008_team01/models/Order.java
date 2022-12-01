@@ -54,9 +54,10 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/mm/yyyy");
-        Date date = new Date();
-        this.date = formatter.format(date);
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
+//        Date date = new Date();
+//        this.date = formatter.format(date);
+        this.date = "13/12/13";
         String query = "INSERT INTO order (date, customerID, bikeID, status)" +
                 " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
 
@@ -180,8 +181,9 @@ public class Order {
      * To update the order in the database.
      */
     public void updateOrder() {
-        String query = "UPDATE order" +
-                        "SET date = \"" + this.date + "\", " +
+        System.out.println(this.date);
+        String query = "UPDATE team001.order " +
+                        "SET date = \"" + this.date + "\"," +
                         "status = \"" + this.status + "\", " +
                         "customerID = \"" + this.customerID +"\", " +
                         "assigned_Staff = \"" + this.assigned_Staff +"\", " +
@@ -247,6 +249,17 @@ public class Order {
         }
 
         return null;
+    }
+
+    public static List<Order> getOrdersOfStatus(String status) throws SQLException {
+        List<Order> orders = new ArrayList<>();
+        String query = "SELECT orderID FROM team001.order WHERE status = \"" + status + "\";";
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+        while(res.next()) {
+            orders.add(getOrder(res.getInt("orderID")));
+        }
+        return orders;
     }
 
     public String getAssigned_Staff() {

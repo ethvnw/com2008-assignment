@@ -10,6 +10,8 @@ import COM2008_team01.models.*;
 import COM2008_team01.utilities.Cookies;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.MouseEvent;
@@ -23,17 +25,27 @@ public class StaffDashboardPanel extends JPanel {
     private JTabbedPane tabbedPane = new JTabbedPane();
 
     private JPanel orderPanel = new JPanel();
+    private JPanel pendingOrderPanel = new JPanel();
+    private JPanel confirmedOrderPanel = new JPanel();
     private JPanel customerPanel = new JPanel();
-
-    private JPanel changeStatusPanel = new JPanel();
 
     private JTable orderDetails;
     private JTable customerDetails;
+    private JTable pendingOrderDetails;
+    private JTable confirmedOrderDetails;
 
     private JScrollPane orderScrollPane;
+    private JScrollPane pendingOrderScrollPane;
+    private JScrollPane confirmedOrderScrollPane;
     private JScrollPane customerScrollPane;
 
-    private JLabel orderSelected = new JLabel("Selected order number:  ");
+    private JPanel pendingOrderSelection = new JPanel();
+    private JLabel selectedPendingOrder = new JLabel("Selected Order Number: ");
+    private final JButton confirmOrder = new JButton("Confirm Order");
+
+    private JPanel confirmedOrderSelection = new JPanel();
+    private JLabel selectedConfirmedOrder = new JLabel("Selected Order Number: ");
+    private final JButton fulfillOrder = new JButton("Complete Order");
 
     private final JButton viewBikeComponents = new JButton("View Bike Components");
 
@@ -52,26 +64,24 @@ public class StaffDashboardPanel extends JPanel {
             try {
                 if (Staff.logout()) {
                     StaffLoginPanel staffLogin = new StaffLoginPanel();
-                    this.add(staffLogin,"staffLogin");
-                    card.show(this,"staffLogin");
+                    this.add(staffLogin, "staffLogin");
+                    card.show(this, "staffLogin");
                     Cookies.loggedInStaff = null;
                 }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
 
         // View Bike Components
         viewBikeComponents.addActionListener(e -> {
-            try{
-                if (staff != null){
+            try {
+                if (staff != null) {
                     StaffBikeComponentPanel bikePanel = new StaffBikeComponentPanel(staff);
-                    this.add(bikePanel,"bikePanel");
-                    card.show(this,"bikePanel");
+                    this.add(bikePanel, "bikePanel");
+                    card.show(this, "bikePanel");
                 }
-            }
-            catch (Exception ex) {
+            } catch (Exception ex) {
                 throw new RuntimeException(ex);
             }
         });
@@ -84,13 +94,15 @@ public class StaffDashboardPanel extends JPanel {
         // Adding customer and order tables in a tabbed pane
         tabbedPane.addTab("All Customers", customerPanel);
         tabbedPane.addTab("All Orders", orderPanel);
+        tabbedPane.addTab("Pending Orders", pendingOrderPanel);
+        tabbedPane.addTab("Confirmed Orders", confirmedOrderPanel);
         homePanel.add(tabbedPane, BorderLayout.SOUTH);
 
         // Customer Table
         List<Customer> customerList = Customer.getAllCustomers();
         String[] customerColumnNames = {"Customer ID", "Forename", "Surname", "House No", "Road Name",
                 "City Name", "Postcode"};
-        customerDetails = new JTable(new DefaultTableModel(customerColumnNames,0));
+        customerDetails = new JTable(new DefaultTableModel(customerColumnNames, 0));
         customerScrollPane = new JScrollPane(customerDetails);
         customerPanel.setLayout(new BorderLayout());
 
@@ -111,20 +123,85 @@ public class StaffDashboardPanel extends JPanel {
                 DefaultTableModel customerModel = (DefaultTableModel) customerDetails.getModel();
                 customerModel.addRow(customerColumns);
             }
-        }
-
-        else {
+        } else {
             customerPanel.add(new JLabel("No customers in the system"));
         }
 
         customerPanel.add(customerScrollPane, BorderLayout.CENTER);
+
+        // Pending Order Table
+        pendingOrderDetails = new JTable(buildTable("Pending"));
+
+        pendingOrderScrollPane = new JScrollPane(pendingOrderDetails);
+        pendingOrderPanel.setLayout(new BorderLayout());
+        pendingOrderPanel.add(pendingOrderScrollPane, BorderLayout.CENTER);
+        pendingOrderPanel.add(pendingOrderSelection, BorderLayout.SOUTH);
+
+        pendingOrderSelection.add(selectedPendingOrder);
+        pendingOrderSelection.add(confirmOrder);
+
+        pendingOrderDetails.getSelectionModel().addListSelectionListener(e -> {
+            int orderID = Integer.parseInt(pendingOrderDetails.getValueAt(pendingOrderDetails.getSelectedRow(),0).toString());
+            selectedPendingOrder.setText("Selected order number:  " + orderID);
+        });
+
+        confirmOrder.addActionListener(e -> {
+            int orderID = Integer.parseInt(pendingOrderDetails.getValueAt(pendingOrderDetails.getSelectedRow(),0).toString());
+            Order order = Order.getOrder(orderID);
+            assert order != null;
+            order.changeStatus("Confirmed");
+            order.assignStaff(staff.getUsername());
+            order.updateOrder();
+
+            StaffDashboardPanel dashboardPanel;
+            try {
+                dashboardPanel = new StaffDashboardPanel(staff);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            this.add(dashboardPanel, "dashboardPanel");
+            card.show(this, "dashboardPanel");
+        });
+
+        // Confirmed Order Table
+        confirmedOrderDetails = new JTable(buildTable("Confirmed"));
+
+        confirmedOrderScrollPane = new JScrollPane(confirmedOrderDetails);
+        confirmedOrderPanel.setLayout(new BorderLayout());
+        confirmedOrderPanel.add(confirmedOrderScrollPane, BorderLayout.CENTER);
+        confirmedOrderPanel.add(confirmedOrderSelection, BorderLayout.SOUTH);
+
+        confirmedOrderSelection.add(selectedConfirmedOrder);
+        confirmedOrderSelection.add(fulfillOrder);
+
+        confirmedOrderDetails.getSelectionModel().addListSelectionListener(e -> {
+            int orderID = Integer.parseInt(confirmedOrderDetails.getValueAt(confirmedOrderDetails.getSelectedRow(),0).toString());
+            selectedConfirmedOrder.setText("Selected order number:  " + orderID);
+        });
+
+        fulfillOrder.addActionListener(e -> {
+            int orderID = Integer.parseInt(confirmedOrderDetails.getValueAt(confirmedOrderDetails.getSelectedRow(), 0).toString());
+            Order order = Order.getOrder(orderID);
+            order.changeStatus("Fulfilled");
+            order.updateOrder();
+
+            StaffDashboardPanel dashboardPanel;
+            try {
+                dashboardPanel = new StaffDashboardPanel(staff);
+            } catch (SQLException ex) {
+                throw new RuntimeException(ex);
+            }
+            this.add(dashboardPanel, "dashboardPanel");
+            card.show(this, "dashboardPanel");
+        });
+
 
         // Order Table
         String orderQuery = "SELECT * FROM team001.order;";
         List<Order> orderList = Order.getOrders(orderQuery);
         String[] orderColumnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
                 "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
-        orderDetails = new JTable(new DefaultTableModel(orderColumnNames,0));
+        orderDetails = new JTable(new DefaultTableModel(orderColumnNames, 0));
         orderScrollPane = new JScrollPane(orderDetails);
         orderPanel.setLayout(new BorderLayout());
 
@@ -149,26 +226,43 @@ public class StaffDashboardPanel extends JPanel {
                 DefaultTableModel orderModel = (DefaultTableModel) orderDetails.getModel();
                 orderModel.addRow(orderColumns);
             }
-        }
-
-        else {
+        } else {
             orderPanel.add(new JLabel("No orders have been placed"));
         }
 
         orderPanel.add(orderScrollPane);
 
-        changeStatusPanel.setLayout(new BoxLayout(changeStatusPanel,BoxLayout.Y_AXIS));
-        changeStatusPanel.add(orderSelected);
+        this.add(homePanel, "homePanel");
+        card.show(this, "homePanel");
+    }
 
-        // Displays selected order number in sidebar
-        orderDetails.getSelectionModel().addListSelectionListener(e -> {
-            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
-            orderSelected.setText("Selected order number:  " + orderID);
-        });
 
-        this.add(homePanel,"homePanel");
-        card.show(this,"homePanel");
+    private DefaultTableModel buildTable(String status) throws SQLException {
+        List<Order> orderList = Order.getOrdersOfStatus(status);
+        String[] columnNames = {"Order ID", "Date", "Assigned Staff", "Bike Brand", "Bike Name",
+                "Handlebar Brand", "Wheel Brand", "Frameset Brand", "Bike Cost", "Order Status"};
 
+        DefaultTableModel orderModel = new DefaultTableModel(columnNames,0);
+
+        if (!orderList.isEmpty()) {
+            for (Order order : orderList) {
+                String[] orderColumns = new String[10];
+                Bike bike = Bike.getBike(order.getBikeID());
+
+                orderColumns[0] = String.valueOf(order.getOrderID());
+                orderColumns[1] = order.getDate();
+                orderColumns[2] = order.getAssigned_Staff();
+                orderColumns[3] = bike.getBrand();
+                orderColumns[4] = bike.getName();
+                orderColumns[5] = bike.getHandlebar().getBrand();
+                orderColumns[6] = bike.getWheels().getBrand();
+                orderColumns[7] = bike.getFrameSet().getBrand();
+                orderColumns[8] = "$" + bike.getCost();
+                orderColumns[9] = order.getStatus();
+
+                orderModel.addRow(orderColumns);
+            }
         }
-
+        return orderModel;
+    }
 }

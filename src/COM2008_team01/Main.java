@@ -18,8 +18,6 @@ public class Main {
         //Running the static function to establish connection with database
         System.out.println("Attempting connection to database before opening app...");
         DBDriver.getConnection();
-        System.out.println("Connected");
-
 
         // Run the application
         JFrame guiFrame = new GuiFrame();
