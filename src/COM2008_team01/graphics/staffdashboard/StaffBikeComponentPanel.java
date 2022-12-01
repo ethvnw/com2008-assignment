@@ -56,7 +56,7 @@ public class StaffBikeComponentPanel extends JPanel {
     private JButton backButton = new JButton("Back");
     private JButton saveFrameSetButton = new JButton("Save");
 
-    protected StaffBikeComponentPanel(Staff staff) {
+    protected StaffBikeComponentPanel(Staff staff) throws SQLException {
         CardLayout card = new CardLayout();
         this.setLayout(card);
         container.setLayout(new BorderLayout());

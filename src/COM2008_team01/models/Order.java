@@ -25,13 +25,13 @@ public class Order {
 
     /**
      * To create an order object
-     * @param customerID Customer ID
      * @param bikeID Bike ID
+     * @param date current date
      */
-    public Order( int customerID, int bikeID) {
-        this.customerID = customerID;
+    public Order(int bikeID, String date) {
         this.bikeID = bikeID;
         this.status = "Pending";
+        this.date = date;
     }
 
     /**
@@ -88,6 +88,14 @@ public class Order {
         else {
             return false;
         }
+    }
+
+    /**
+     * To set the customer of the order
+     * @param customerID customer ID
+     */
+    public void setCustomerID(int customerID) {
+        this.customerID = customerID;
     }
 
     /**
