@@ -10,6 +10,10 @@ Once the connection is established successfully, follow the below instructions.
 ### 2. Compile and run the files from the terminal
  Enter the following in the terminal:
 
+```console
+cd src
+```
+
 To compile:
 ```console
  javac ./COM2008_Assignment1/Main.java
@@ -38,6 +42,7 @@ When the application starts, you are directed to the home page of the applicatio
   * Vivek &emsp; &emsp; &ensp; Choradia &emsp; &emsp;B7A &emsp; &emsp; &emsp; &emsp;&emsp; S37LG
   * ray &emsp; &emsp; &emsp; &nbsp; han &emsp; &emsp; &ensp;&emsp; 15 &emsp; &emsp; &emsp; &emsp;&emsp;&emsp; S37LG
   * siya &emsp;&emsp;&emsp; &ensp; pradhan &emsp;&emsp; 106 &emsp;&emsp;&emsp;&emsp;&emsp;&emsp; S102TN
+* As a customer, you can see all your old orders till date and 
 
 ##### As a staff
 * Click on staff login button from the navigation bar.

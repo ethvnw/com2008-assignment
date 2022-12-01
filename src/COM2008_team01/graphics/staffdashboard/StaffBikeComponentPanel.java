@@ -15,6 +15,7 @@ import COM2008_team01.models.bikeComponents.Wheel;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.sql.SQLException;
 import java.util.List;
 
 public class StaffBikeComponentPanel extends JPanel {
@@ -37,7 +38,7 @@ public class StaffBikeComponentPanel extends JPanel {
 
     private JButton backButton = new JButton("Back");
 
-    protected StaffBikeComponentPanel(Staff staff) {
+    protected StaffBikeComponentPanel(Staff staff) throws SQLException {
         CardLayout card = new CardLayout();
         this.setLayout(card);
         container.setLayout(new BorderLayout());

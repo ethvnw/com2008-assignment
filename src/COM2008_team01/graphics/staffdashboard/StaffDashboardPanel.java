@@ -12,6 +12,8 @@ import COM2008_team01.utilities.Cookies;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -23,11 +25,15 @@ public class StaffDashboardPanel extends JPanel {
     private JPanel orderPanel = new JPanel();
     private JPanel customerPanel = new JPanel();
 
+    private JPanel changeStatusPanel = new JPanel();
+
     private JTable orderDetails;
     private JTable customerDetails;
 
     private JScrollPane orderScrollPane;
     private JScrollPane customerScrollPane;
+
+    private JLabel orderSelected = new JLabel("Selected order number:  ");
 
     private final JButton viewBikeComponents = new JButton("View Bike Components");
 
@@ -151,7 +157,18 @@ public class StaffDashboardPanel extends JPanel {
 
         orderPanel.add(orderScrollPane);
 
+        changeStatusPanel.setLayout(new BoxLayout(changeStatusPanel,BoxLayout.Y_AXIS));
+        changeStatusPanel.add(orderSelected);
+
+        // Displays selected order number in sidebar
+        orderDetails.getSelectionModel().addListSelectionListener(e -> {
+            int orderID = Integer.parseInt(orderDetails.getValueAt(orderDetails.getSelectedRow(),0).toString());
+            orderSelected.setText("Selected order number:  " + orderID);
+        });
+
         this.add(homePanel,"homePanel");
         card.show(this,"homePanel");
-    }
+
+        }
+
 }
