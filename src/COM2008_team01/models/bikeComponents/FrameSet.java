@@ -46,12 +46,11 @@ public class FrameSet extends BikeComponent {
                 "VALUES("+ serialNo +", \"" + brand + "\", " + cost + ", " + size + ", " +
                 shockAbsorbers + ", " + gears + ", " + quantity + ");";
         try {
-
             Statement stmt = DBDriver.getConnection().createStatement();
             stmt.execute(query);
             return true;
-
-        } catch (SQLException ex) {
+        }
+        catch (SQLException ex) {
             return false;
         }
     }

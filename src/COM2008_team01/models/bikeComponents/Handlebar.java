@@ -41,10 +41,17 @@ public class Handlebar extends BikeComponent {
     /**
      * Pushes handlebar to database
      */
-    private void createHandleBar() {
-        String query = "INSERT INTO handleBar"
+    public boolean createHandleBar() {
+        String query = "INSERT INTO handleBar(serialNo, brand, type, quantity, cost)"
                 + "VALUES(" + serialNo +", \"" + brand + "\", " + type + ", " + quantity + ", " + cost + ") ;";
-        DBDriver.processQuery(query);
+        try {
+            Statement stmt = DBDriver.getConnection().createStatement();
+            stmt.execute(query);
+            return true;
+        }
+        catch (SQLException ex) {
+            return false;
+        }
     }
 
     /**

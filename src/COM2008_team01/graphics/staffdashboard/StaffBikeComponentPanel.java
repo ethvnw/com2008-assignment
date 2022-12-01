@@ -30,6 +30,8 @@ public class StaffBikeComponentPanel extends JPanel {
     private JPanel buttonPanel = new JPanel();
 
     private JPanel addFrameSetPanel = new JPanel();
+    private JPanel addHandleBarPanel = new JPanel();
+    private JPanel addWheelPanel = new JPanel();
 
     private JTable frameSetDetails;
     private JTable handleBarDetails;
@@ -44,6 +46,8 @@ public class StaffBikeComponentPanel extends JPanel {
     private JLabel addWheel = new JLabel("Add Wheel:");
 
     private JLabel frameErrorMsg = new JLabel();
+    private JLabel handleBarErrorMsg = new JLabel();
+    private JLabel wheelErrorMsg = new JLabel();
 
     private HintTextField frameSetQuantity = new HintTextField(" Quantity");
     private HintTextField frameSetSerial = new HintTextField(" Serial No");
@@ -53,8 +57,23 @@ public class StaffBikeComponentPanel extends JPanel {
     private HintTextField frameSetGear = new HintTextField(" Gear");
     private HintTextField frameSetCost = new HintTextField(" Cost");
 
+    private HintTextField handleBarQuantity = new HintTextField(" Quantity");
+    private HintTextField handleBarSerial = new HintTextField(" Serial No");
+    private HintTextField handleBarBrand = new HintTextField(" Brand");
+    private HintTextField handleBarType = new HintTextField(" Type");
+    private HintTextField handleBarCost = new HintTextField(" Cost");
+
+    private HintTextField wheelQuantity = new HintTextField(" Quantity");
+    private HintTextField wheelSerial = new HintTextField(" Serial No");
+    private HintTextField wheelBrand = new HintTextField(" Brand");
+    private HintTextField wheelTyreType = new HintTextField(" Tyre Type");
+    private HintTextField wheelBrakesType = new HintTextField(" Brakes Type");
+    private HintTextField wheelCost = new HintTextField(" Cost");
+
     private JButton backButton = new JButton("Back");
     private JButton saveFrameSetButton = new JButton("Save");
+    private JButton saveHandleBarButton = new JButton("Save");
+    private JButton saveWheelButton = new JButton("Save");
 
     protected StaffBikeComponentPanel(Staff staff) throws SQLException {
         CardLayout card = new CardLayout();
@@ -190,6 +209,58 @@ public class StaffBikeComponentPanel extends JPanel {
 
         handleBarPanel.add(handleBarScrollPane, BorderLayout.CENTER);
 
+        // Panel for staff to add handle bar product
+        addHandleBarPanel.add(addHandleBar);
+
+        // Enter handle bar quantity
+        handleBarQuantity.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(handleBarQuantity);
+
+        // Enter handle bar serial number
+        handleBarSerial.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(handleBarSerial);
+
+        // Enter handle bar brand
+        handleBarBrand.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(handleBarBrand);
+
+        // Enter handle bar type
+        handleBarType.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(handleBarType);
+
+        // Enter handle bar cost
+        handleBarCost.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(handleBarCost);
+
+        // Save the details entered by staff
+        handleBarErrorMsg.setForeground(Color.red);
+        addHandleBarPanel.add(handleBarErrorMsg);
+        saveHandleBarButton.addActionListener(e->{
+            try{
+                Handlebar hb = new Handlebar(Integer.parseInt(handleBarSerial.getText()),
+                        handleBarBrand.getText(),
+                        handleBarType.getText(),
+                        Integer.parseInt(handleBarQuantity.getText()),
+                        Double.parseDouble(handleBarCost.getText()));
+
+                if (hb.createHandleBar()){
+                    StaffBikeComponentPanel bikePanel = new StaffBikeComponentPanel(staff);
+                    this.add(bikePanel,"bikePanel");
+                    card.show(this,"bikePanel");
+                }
+                else{
+                    handleBarErrorMsg.setText("Handlebar exist, Please check your input");
+                }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        addHandleBarPanel.add(saveHandleBarButton);
+
+        handleBarPanel.add(addHandleBarPanel, BorderLayout.SOUTH);
+
         // Wheel Table
         List<Wheel> wheelList = Wheel.getAllWheels();
         String[] wheelColumnNames = {"Quantity", "Serial No", "Brand", "Tyre Type", "Brakes Type", "Cost"};
@@ -220,6 +291,63 @@ public class StaffBikeComponentPanel extends JPanel {
         }
 
         wheelPanel.add(wheelScrollPane, BorderLayout.CENTER);
+
+        // Panel for staff to add wheel product
+        addWheelPanel.add(addWheel);
+
+        // Enter wheel quantity
+        wheelQuantity.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelQuantity);
+
+        // Enter wheel serial number
+        wheelSerial.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelSerial);
+
+        // Enter wheel brand
+        wheelBrand.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelBrand);
+
+        // Enter wheel tyre type
+        wheelTyreType.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelTyreType);
+
+        // Enter wheel brakes type
+        wheelBrakesType.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelBrakesType);
+
+        // Enter wheel cost
+        wheelCost.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelCost);
+
+        // Save the details entered by staff
+        wheelErrorMsg.setForeground(Color.red);
+        addWheelPanel.add(wheelErrorMsg);
+        saveWheelButton.addActionListener(e->{
+            try{
+                Wheel wh = new Wheel(Integer.parseInt(wheelSerial.getText()),
+                        wheelBrand.getText(),
+                        Double.parseDouble(wheelCost.getText()),
+                        wheelTyreType.getText(),
+                        wheelBrakesType.getText(),
+                        Integer.parseInt(wheelQuantity.getText()));
+
+                if (wh.createWheel()){
+                    StaffBikeComponentPanel bikePanel = new StaffBikeComponentPanel(staff);
+                    this.add(bikePanel,"bikePanel");
+                    card.show(this,"bikePanel");
+                }
+                else{
+                    wheelErrorMsg.setText("Wheel exist, Please check your input");
+                }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        addWheelPanel.add(saveWheelButton);
+
+        wheelPanel.add(addWheelPanel, BorderLayout.SOUTH);
 
         backButton.addActionListener(e -> {
             try{

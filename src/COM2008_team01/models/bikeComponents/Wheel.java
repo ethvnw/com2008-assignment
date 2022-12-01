@@ -47,11 +47,18 @@ public class Wheel extends BikeComponent {
     /**
      * Pushes wheel to database
      */
-    private void createWheel() {
-        String query = "INSERT INTO handleBar"
+    public boolean createWheel() {
+        String query = "INSERT INTO wheel(serialNo, brand, cost, tyre, brakes, quantity)"
                 + "VALUES(" + serialNo +", \"" + brand + "\", " + cost + ", " + tyre + ", " + brakes +
-                ", " + quantity + ", " + cost + ");";
-        DBDriver.processQuery(query);
+                ", " + quantity + ");";
+        try {
+            Statement stmt = DBDriver.getConnection().createStatement();
+            stmt.execute(query);
+            return true;
+        }
+        catch (SQLException ex) {
+            return false;
+        }
     }
 
     /**
