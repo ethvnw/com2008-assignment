@@ -32,23 +32,26 @@ public class BikeCreationPanel extends JPanel {
     private JTable wheelParts;
 
     private JPanel summaryPanel = new JPanel();
-    private JPanel chosenPartsPanel = new JPanel();
-    private JLabel chosenFrame = new JLabel("Frame: ",SwingConstants.RIGHT);
-    private JLabel chosenFrameCost = new JLabel();
-    private JLabel chosenHandlebar = new JLabel("Handlebar: ",SwingConstants.RIGHT);
-    private JLabel chosenHandlebarCost = new JLabel();
-    private JLabel chosenWheel = new JLabel("Wheel: ",SwingConstants.RIGHT);
-    private JLabel chosenWheelCost = new JLabel();
 
-    private JLabel totalCost = new JLabel();
+    private JPanel box = new JPanel();
+    private JLabel chosenFrame = new JLabel("", 0);
+    private JLabel chosenFrameCost = new JLabel("", 0);
+    private JLabel chosenHandlebar = new JLabel("", 0);
+    private JLabel chosenHandlebarCost = new JLabel("", 0);
+    private JLabel chosenWheel = new JLabel("", 0);
+    private JLabel chosenWheelCost = new JLabel("", 0);
+
+    private JTextField bikeName;
+    private JLabel totalCost = new JLabel("", 0);
     private JButton confirmOrder = new JButton("Confirm");
+    private JLabel message = new JLabel("");
 
     public BikeCreationPanel() {
         CardLayout card = new CardLayout();
         this.setLayout(card);
         container.setLayout(new BorderLayout());
 
-        String[] frameColumnNames = {"Brand", "Size (cm)", "Has Shock-absorbers?", "No. Gears", "Cost"};
+        String[] frameColumnNames = {"Brand", "Serial No.", "Size (cm)", "Has Shock-absorbers?", "No. Gears", "Cost"};
         try {
             List<FrameSet> framePartList = FrameSet.getAllFrameSets();
             Object[] frameObjects = buildPartsTable("frame", frameColumnNames, framePartList);
@@ -58,7 +61,7 @@ public class BikeCreationPanel extends JPanel {
             e.printStackTrace();
         }
 
-        String[] handlebarColumnNames = {"Brand", "Type", "Cost"};
+        String[] handlebarColumnNames = {"Brand", "Serial No.", "Type", "Cost"};
         try {
             List<Handlebar> handlebarPartList = Handlebar.getAllHandlebars();
             Object[] handlebarObjects = buildPartsTable("handlebar", handlebarColumnNames, handlebarPartList);
@@ -68,7 +71,7 @@ public class BikeCreationPanel extends JPanel {
             e.printStackTrace();
         }
 
-        String[] wheelColumnNames = {"Brand", "Tyre Type", "Brake Type", "Cost"};
+        String[] wheelColumnNames = {"Brand", "Serial No.", "Tyre Type", "Brake Type", "Cost"};
         try {
             List<Wheel> wheelPartList = Wheel.getAllWheels();
             Object[] wheelObjects = buildPartsTable("wheel", wheelColumnNames, wheelPartList);
@@ -85,52 +88,86 @@ public class BikeCreationPanel extends JPanel {
         container.add(partSelectionPanes, BorderLayout.NORTH);
 
         frameParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenFrame.setText("Frame: " + frameParts.getValueAt(frameParts.getSelectedRow(),0).toString());
-            chosenFrameCost.setText(frameParts.getValueAt(frameParts.getSelectedRow(), 4).toString());
+            chosenFrame.setText(getCellValue(frameParts, 0));
+            chosenFrameCost.setText(getCellValue(frameParts, 5));
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
         handlebarParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenHandlebar.setText("Handlebar: " + handlebarParts.getValueAt(handlebarParts.getSelectedRow(),0).toString());
-            chosenHandlebarCost.setText(handlebarParts.getValueAt(handlebarParts.getSelectedRow(),2).toString());
+            chosenHandlebar.setText(getCellValue(handlebarParts, 0));
+            chosenHandlebarCost.setText(getCellValue(handlebarParts, 3));
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
         wheelParts.getSelectionModel().addListSelectionListener(e -> {
-            chosenWheel.setText("Wheel: " + wheelParts.getValueAt(wheelParts.getSelectedRow(),0).toString());
-            chosenWheelCost.setText(wheelParts.getValueAt(wheelParts.getSelectedRow(),3).toString());
+            chosenWheel.setText(getCellValue(wheelParts, 0));
+            chosenWheelCost.setText(getCellValue(wheelParts, 4));
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
         // TODO pass in the chosen parts to a new order, and display it in OrderFormPanel
         confirmOrder.addActionListener(e -> {
-            Order order = null;
-            OrderFormPanel orderFormPanel = new OrderFormPanel(order);
-            this.add(orderFormPanel,"orderFormPanel");
-            card.show(this,"orderFormPanel");
+            if (chosenFrame.getText() == "" || chosenHandlebar.getText() == "" || chosenWheel.getText() == "") {
+                message.setText("This is not a valid order");
+            } else {
+                if (bikeName.getText() == "" || bikeName.getText() == "Bike Name") {
+                    message.setText("Please enter a bike name");
+                } else {
+                    Bike bike = new Bike(
+                            bikeName.getText(),
+                            Integer.parseInt(getCellValue(frameParts, 1)),
+                            getCellValue(frameParts, 0),
+                            Integer.parseInt(getCellValue(handlebarParts, 1)),
+                            getCellValue(handlebarParts, 0),
+                            Integer.parseInt(getCellValue(wheelParts, 1)),
+                            getCellValue(wheelParts, 0)
+                    );
+                    //bike.createBike();
+                    Order order = null;
+                    //order.createOrder();
+                    OrderFormPanel orderFormPanel = new OrderFormPanel(order);
+                    this.add(orderFormPanel,"orderFormPanel");
+                    card.show(this,"orderFormPanel");
+                }
+            }
         });
 
-        summaryPanel.setLayout(new GridLayout(0, 1,0,15));
-        summaryPanel.add(chosenPartsPanel);
-        summaryPanel.add(confirmOrder);
 
-        chosenPartsPanel.setLayout(new GridLayout(0,2,15,0));
-        chosenPartsPanel.add(chosenFrame);
-        chosenPartsPanel.add(chosenFrameCost);
-        chosenPartsPanel.add(chosenHandlebar);
-        chosenPartsPanel.add(chosenHandlebarCost);
-        chosenPartsPanel.add(chosenWheel);
-        chosenPartsPanel.add(chosenWheelCost);
-        chosenPartsPanel.add(new JLabel("Assembly Fee",SwingConstants.RIGHT));
-        chosenPartsPanel.add(new JLabel("10.0"));
-        chosenPartsPanel.add(new JLabel("Total Cost",SwingConstants.RIGHT));
-        chosenPartsPanel.add(totalCost);
+        summaryPanel.setLayout(new GridLayout(0, 2));
+        summaryPanel.add(chosenFrame);
+        summaryPanel.add(chosenFrameCost);
+        summaryPanel.add(chosenHandlebar);
+        summaryPanel.add(chosenHandlebarCost);
+        summaryPanel.add(chosenWheel);
+        summaryPanel.add(chosenWheelCost);
+        summaryPanel.add(new JLabel("Assembly Fee", 0));
+        summaryPanel.add(new JLabel("10.0", 0));
+        summaryPanel.add(new JLabel("Total Cost", 0));
+        summaryPanel.add(totalCost);
+        box.setLayout(new BoxLayout(box, BoxLayout.Y_AXIS));
+        summaryPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
+        box.add(summaryPanel);
+        bikeName = new JTextField("Bike Name", 20);
+        bikeName.setAlignmentX(Component.CENTER_ALIGNMENT);
+        box.add(bikeName);
+        confirmOrder.setAlignmentX(Component.CENTER_ALIGNMENT);
+        box.add(confirmOrder);
+        message.setAlignmentX(Component.CENTER_ALIGNMENT);
+        box.add(message);
 
-        container.add(summaryPanel, BorderLayout.SOUTH);
+        container.add(box, BorderLayout.SOUTH);
+        box.setBorder(BorderFactory.createLineBorder(Color.black));
         this.add(container,"container");
         card.show(this,"container");
     }
 
+    private String getCellValue(JTable table, int column) {
+        return table.getValueAt(table.getSelectedRow(), column).toString();
+    }
+
+    /**
+     * Calculates the total of all the parts
+     */
     private double calculateTotal() {
         double frameCost = 0, handlebarCost = 0, wheelCost = 0;
         double total = 0.0;
@@ -145,6 +182,14 @@ public class BikeCreationPanel extends JPanel {
         } catch (Exception e) { } finally {total += wheelCost;}
         return total + 10;
     }
+
+    /**
+     * creates the JTable with all the parts and their configurations listed
+     * @param partType type of part
+     * @param columnNames names of the columns in the table
+     * @param partList list of all the parts of that type
+     * @return returns an array of objects with the part JTable and selection JPanel
+     */
     private Object[] buildPartsTable(String partType, String[] columnNames, List<? extends BikeComponent> partList) {
         JPanel selectionPanel = new JPanel();
         JScrollPane scrollpane;
@@ -160,24 +205,24 @@ public class BikeCreationPanel extends JPanel {
             for (BikeComponent part : partList) {
                 String[] details = new String[columnNames.length];
                 details[0] = part.getBrand();
+                details[1] = String.valueOf(part.getSerialNo());
 
                 if (partType == "frame") {
                     FrameSet framePart = (FrameSet) part;
-                    details[1] = String.valueOf(framePart.getSize());
-                    details[2] = String.valueOf(framePart.getShockAbsorbers());
-                    if (framePart.getShockAbsorbers() == 0) { details[2] = "No"; }
-                    else { details[2] = "Yes"; }
-                    details[3] = String.valueOf(framePart.getGears());
-                    details[4] = String.valueOf(framePart.getCost());
+                    details[2] = String.valueOf(framePart.getSize());
+                    if (framePart.getShockAbsorbers() == 0) { details[3] = "No"; }
+                    else { details[3] = "Yes"; }
+                    details[4] = String.valueOf(framePart.getGears());
+                    details[5] = String.valueOf(framePart.getCost());
                 } else if (partType == "handlebar") {
                     Handlebar handlebarPart = (Handlebar) part;
-                    details[1] = handlebarPart.getType();
-                    details[2] = String.valueOf(handlebarPart.getCost());
+                    details[2] = handlebarPart.getType();
+                    details[3] = String.valueOf(handlebarPart.getCost());
                 } else if (partType == "wheel") {
                     Wheel wheelPart = (Wheel) part;
-                    details[1] = wheelPart.getTyre();
-                    details[2] = wheelPart.getBrakes();
-                    details[3] = String.valueOf(wheelPart.getCost());
+                    details[2] = wheelPart.getTyre();
+                    details[3] = wheelPart.getBrakes();
+                    details[4] = String.valueOf(wheelPart.getCost());
                 }
 
                 DefaultTableModel model = (DefaultTableModel) parts.getModel();

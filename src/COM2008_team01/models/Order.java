@@ -54,10 +54,9 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-//        Date date = new Date();
-//        this.date = formatter.format(date);
-        this.date = "13/12/13";
+        SimpleDateFormat formatter = new SimpleDateFormat("DD/MM/YYYY");
+        Date date = new Date();
+        this.date = (formatter.format(date));
         String query = "INSERT INTO order (date, customerID, bikeID, status)" +
                 " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
 
@@ -181,7 +180,6 @@ public class Order {
      * To update the order in the database.
      */
     public void updateOrder() {
-        System.out.println(this.date);
         String query = "UPDATE team001.order " +
                         "SET date = \"" + this.date + "\"," +
                         "status = \"" + this.status + "\", " +

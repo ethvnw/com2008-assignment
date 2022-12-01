@@ -54,7 +54,7 @@ public class Customer {
      * To insert a customer in the database.
      * @return if adding the customer was successful then true otherwise  false
      */
-    public boolean createCustomer(){
+    public boolean createCustomer() throws SQLException {
 
         String query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
                         "VALUES (\""+ this.forename +"\", \""+
@@ -62,6 +62,13 @@ public class Customer {
                                 this.address.postcode + "\");";
 
         DBDriver.processQuery(query);
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery("SELECT SCOPE_IDENTITY();");
+
+        while(res.next()) {
+            System.out.println(res.getInt(1));
+        }
+
         return false;
     }
 
