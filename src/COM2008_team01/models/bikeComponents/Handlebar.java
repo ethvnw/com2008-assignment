@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /** Represents a Handlebar component (inherited from BikeComponent).
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 1.0
- * @lastUpdated 14-11-2022 10:44
+ * @lastUpdated 30-11-2022 18:03
  */
 
 public class Handlebar extends BikeComponent {
@@ -93,6 +93,8 @@ public class Handlebar extends BikeComponent {
         return handlebars;
     }
 
+    public String getType() { return type; }
+
     /**
      * Updates quantity of handlebar in database
      */
@@ -104,6 +106,5 @@ public class Handlebar extends BikeComponent {
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}
     public String getBrand() {return brand;}
-    public String getType() {return type;}
     public double getCost() {return cost;}
 }

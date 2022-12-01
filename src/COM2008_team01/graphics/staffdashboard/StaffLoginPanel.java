@@ -18,7 +18,7 @@ public class StaffLoginPanel extends JPanel {
     private final JPanel buttonPanel = new JPanel();
 
     private final JPanel accountForm = new JPanel();
-    private HintTextField username = new HintTextField("Enter username...");
+    private HintTextField username = new HintTextField(" Enter username...");
     private JPasswordField password = new JPasswordField();
     private final JButton viewAccount = new JButton("Submit");
     private JLabel staffErrorMsg = new JLabel();

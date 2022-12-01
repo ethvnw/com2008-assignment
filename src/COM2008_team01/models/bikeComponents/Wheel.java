@@ -12,6 +12,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/** Represents a Wheel component (inherited from BikeComponent).
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.0
+ * @lastUpdated 30-11-2022 18:03
+ */
 
 public class Wheel extends BikeComponent {
     private String tyre;
@@ -112,10 +117,8 @@ public class Wheel extends BikeComponent {
         this.updateQuantity(component);
     }
 
+    public String getTyre() { return tyre; }
+    public String getBrakes() { return brakes; }
     public int getQuantity() {return quantity;}
     public int getSerialNo() {return serialNo;}
-    public String getBrand() {return brand;}
-    public String getTyre() {return tyre;}
-    public String getBrakes() {return brakes;}
-    public double getCost() {return cost;}
 }

@@ -7,6 +7,7 @@
 
 package COM2008_team01.graphics.staffdashboard;
 
+import COM2008_team01.graphics.HintTextField;
 import COM2008_team01.models.*;
 import COM2008_team01.models.bikeComponents.FrameSet;
 import COM2008_team01.models.bikeComponents.Handlebar;
@@ -28,6 +29,8 @@ public class StaffBikeComponentPanel extends JPanel {
     private JPanel wheelPanel = new JPanel();
     private JPanel buttonPanel = new JPanel();
 
+    private JPanel addFrameSetPanel = new JPanel();
+
     private JTable frameSetDetails;
     private JTable handleBarDetails;
     private JTable wheelDetails;
@@ -36,9 +39,24 @@ public class StaffBikeComponentPanel extends JPanel {
     private JScrollPane handleBarScrollPane;
     private JScrollPane wheelScrollPane;
 
-    private JButton backButton = new JButton("Back");
+    private JLabel addFrameSet = new JLabel("Add Frame Set:");
+    private JLabel addHandleBar = new JLabel("Add Handle Bar:");
+    private JLabel addWheel = new JLabel("Add Wheel:");
 
-    protected StaffBikeComponentPanel(Staff staff) throws SQLException {
+    private JLabel frameErrorMsg = new JLabel();
+
+    private HintTextField frameSetQuantity = new HintTextField(" Quantity");
+    private HintTextField frameSetSerial = new HintTextField(" Serial No");
+    private HintTextField frameSetBrand = new HintTextField(" Brand");
+    private HintTextField frameSetSize = new HintTextField(" Size");
+    private HintTextField frameSetShockAb = new HintTextField(" Shock Ab");
+    private HintTextField frameSetGear = new HintTextField(" Gear");
+    private HintTextField frameSetCost = new HintTextField(" Cost");
+
+    private JButton backButton = new JButton("Back");
+    private JButton saveFrameSetButton = new JButton("Save");
+
+    protected StaffBikeComponentPanel(Staff staff) {
         CardLayout card = new CardLayout();
         this.setLayout(card);
         container.setLayout(new BorderLayout());
@@ -79,6 +97,68 @@ public class StaffBikeComponentPanel extends JPanel {
         }
 
         frameSetPanel.add(frameSetScrollPane, BorderLayout.CENTER);
+
+        // Panel for staff to add frame set product
+        addFrameSetPanel.add(addFrameSet);
+
+        // Enter frame set quantity
+        frameSetQuantity.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetQuantity);
+
+        // Enter frame set serial number
+        frameSetSerial.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetSerial);
+
+        // Enter frame set brand
+        frameSetBrand.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetBrand);
+
+        // Enter frame set size
+        frameSetSize.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetSize);
+
+        // Enter frame set shock absorber
+        frameSetShockAb.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetShockAb);
+
+        // Enter frame set gear
+        frameSetGear.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetGear);
+
+        // Enter frame set cost
+        frameSetCost.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(frameSetCost);
+
+        // Save the details entered by staff
+        frameErrorMsg.setForeground(Color.red);
+        addFrameSetPanel.add(frameErrorMsg);
+        saveFrameSetButton.addActionListener(e->{
+            try{
+                FrameSet fm = new FrameSet(Integer.parseInt(frameSetSerial.getText()),
+                        frameSetBrand.getText(),
+                        Double.parseDouble(frameSetSize.getText()),
+                        Integer.parseInt(frameSetShockAb.getText()),
+                        Integer.parseInt(frameSetGear.getText()),
+                        Integer.parseInt(frameSetQuantity.getText()),
+                        Double.parseDouble(frameSetCost.getText()));
+
+                if (fm.createFrameSet()){
+                    StaffBikeComponentPanel bikePanel = new StaffBikeComponentPanel(staff);
+                    this.add(bikePanel,"bikePanel");
+                    card.show(this,"bikePanel");
+                }
+                else{
+                    frameErrorMsg.setText("Frame Set exist, Please check your input");
+                }
+            }
+            catch (Exception ex) {
+                throw new RuntimeException(ex);
+            }
+        });
+
+        addFrameSetPanel.add(saveFrameSetButton);
+
+        frameSetPanel.add(addFrameSetPanel, BorderLayout.SOUTH);
 
         // Handle Bar Table
         List<Handlebar> handleBarList = Handlebar.getAllHandlebars();
