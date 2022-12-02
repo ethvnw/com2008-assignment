@@ -4,6 +4,7 @@ import COM2008_team01.graphics.GuiFrame;
 import COM2008_team01.utilities.DBDriver;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 /** COM2008_team01.Main driver class
  * @author Vivek Choradia, Ethan Watts
@@ -12,11 +13,10 @@ import javax.swing.*;
  */
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         //Running the static function to establish connection with database
         DBDriver.getConnection();
-
 
         // Run the application
         JFrame guiFrame = new GuiFrame();

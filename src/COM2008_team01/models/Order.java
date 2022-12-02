@@ -125,7 +125,7 @@ public class Order {
             Statement stmt = con.createStatement();
             ResultSet res = stmt.executeQuery(query);
 
-            while(res.next()) {
+            if(res.next()) {
 
                 return new Order(
                         res.getInt("orderID"),
@@ -235,7 +235,7 @@ public class Order {
             Statement stmt = con.createStatement();
             ResultSet res = stmt.executeQuery(query);
 
-            while(res.next()) {
+            if(res.next()) {
                 return res.getString("status");
             }
 

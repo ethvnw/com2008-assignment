@@ -52,25 +52,42 @@ public class Customer {
 
     /**
      * To insert a customer in the database.
-     * @return if adding the customer was successful then true otherwise  false
+     * @return customer ID
      */
     public int createCustomer() throws SQLException {
 
-        String query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
-                        "VALUES (\""+ this.forename +"\", \""+
-                                this.surname +"\", \"" + this.address.houseNum + "\", \"" +
-                                this.address.postcode + "\");";
+        //To check whether such a customer already exists
+        String query = "SELECT customerID FROM customer " +
+                "WHERE forename = \"" + forename + "\" AND " +
+                "surname = \"" + surname + "\" AND " +
+                "houseNum = \"" + address.houseNum + "\" AND " +
+                "postcode = \"" + address.postcode + "\" ;";
 
         Statement stmt = DBDriver.getConnection().createStatement();
-        stmt.execute(query);
-        query = "SELECT @@identity as current;";
         ResultSet res = stmt.executeQuery(query);
 
         if(res.next()) {
-            return (res.getInt(1));
+            return res.getInt(1);
         }
+        else {
 
-        return 0;
+            //Inserting a new customer in the customer table and returning the ID of that customer
+
+            query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
+                    "VALUES (\"" + this.forename + "\", \"" +
+                    this.surname + "\", \"" + this.address.houseNum + "\", \"" +
+                    this.address.postcode + "\");";
+
+            stmt.execute(query);
+            query = "SELECT @@identity as current;";
+            res = stmt.executeQuery(query);
+
+            if (res.next()) {
+                return (res.getInt(1));
+            }
+
+            return 0;
+        }
     }
 
     /**
@@ -88,7 +105,7 @@ public class Customer {
 
             ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
+            if (res.next()) {
                 Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
                 return new Customer(res.getInt("customerID"),
                         res.getString("forename"),
@@ -133,7 +150,7 @@ public class Customer {
 
             ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
+            if (res.next()) {
                 return new Customer(res.getInt("customerID"),
                                     res.getString("forename"),
                                     res.getString("surname"),
@@ -219,13 +236,13 @@ public class Customer {
      * @return Customer of that orderID
      */
     public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
-        String query = "SELECT customerId from order where orderID = \"" + orderID + "\";";
+        String query = "SELECT customerId from team001.order where orderID = \"" + orderID + "\";";
 
         Statement stmt = DBDriver.getConnection().createStatement();
 
         ResultSet res = stmt.executeQuery(query);
 
-        while (res.next()) {
+        if (res.next()) {
 
             int customerID = res.getInt("customerId");
 
