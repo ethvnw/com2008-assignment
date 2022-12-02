@@ -1,5 +1,5 @@
 /** Represents an order.
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 2.0
  * @lastUpdated 14-11-2022 15:33
  */
@@ -54,12 +54,12 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
-        SimpleDateFormat formatter = new SimpleDateFormat("DD/MM/YYYY");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         this.date = (formatter.format(date));
-        String query = "INSERT INTO order (date, customerID, bikeID, status)" +
-                " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
-
+        System.out.println(this.date);
+        String query = "INSERT INTO order (date, bikeID, customerID, status)" +
+                " VALUES (\""+this.date+"\", " + this.bikeID + ", " + this.customerID + ", \"" + this.status + "\");";
         DBDriver.processQuery(query);
     }
 

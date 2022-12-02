@@ -1,14 +1,18 @@
 /** Customer Form page where asking for customer details before processing payment.
- * @author Han Weixiang, Ethan Watts
- * @version 1.1
- * @lastUpdated 14-11-2022 16:39
+ * @author Han Weixiang, Ethan Watts, Natalie Roberts
+ * @version 1.2
+ * @lastUpdated 01-12-2022 23:59
  */
 
 package COM2008_team01.graphics.bikecreation;
+import COM2008_team01.models.Address;
+import COM2008_team01.models.Bike;
+import COM2008_team01.models.Customer;
 import COM2008_team01.models.Order;
 
 import javax.swing.*;
 import java.awt.*;
+import java.sql.SQLException;
 import javax.swing.border.TitledBorder;
 
 public class OrderFormPanel extends JPanel {
@@ -18,14 +22,33 @@ public class OrderFormPanel extends JPanel {
     private final JTextField tfRoadName;
     private final JTextField tfCityName;
     private final JTextField tfPostcode;
-    private final JTextField tfOrderDetails;
 
-    public OrderFormPanel (Order order){
+    private JPanel summaryPanel = new JPanel();
+    private JPanel orderDetails = new JPanel();
+
+    private JLabel frameSet;
+
+    private JLabel frameSetCost;
+
+    private JLabel handlebar;
+
+    private JLabel handlebarCost;
+
+    private JLabel wheels;
+
+    private JLabel wheelsCost;
+
+    private JLabel totalCost;
+
+    private JButton confirm = new JButton("Confirm");
+
+    private JButton cancel = new JButton("Cancel");
+
+    public OrderFormPanel (Order order, Bike bike, double framesetCost, double handlebarCost, double wheelCost){
         BorderLayout bl = new BorderLayout();
-        this.setLayout(bl);
+        //this.setLayout(bl);
 
         JPanel formContainer = new JPanel();
-        formContainer.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         TitledBorder borderLeft = BorderFactory.createTitledBorder("Customer Details");
         formContainer.setBorder(borderLeft);
 
@@ -55,12 +78,52 @@ public class OrderFormPanel extends JPanel {
         form.add(tfPostcode);
 
 
-        tfOrderDetails = new JTextField(50);
+        orderDetails.setLayout(new BoxLayout(orderDetails, BoxLayout.Y_AXIS));
+        TitledBorder border = BorderFactory.createTitledBorder("Order Summary");
+        orderDetails.setBorder(border);
+        orderDetails.add(new JLabel("Bike Name"));
+        orderDetails.add(new JLabel("   " + bike.getName()));
+        orderDetails.add(new JLabel("Bike Brand"));
+        orderDetails.add(new JLabel("   " + bike.getBrand()));
+        orderDetails.add(new JLabel("Frame Set"));
+        orderDetails.add(new JLabel("   " + bike.getFrameSet().getBrand() + " " + bike.getFrameSet().getSerialNo()));
+        orderDetails.add(new JLabel("   " + framesetCost));
+        orderDetails.add(new JLabel("Handlebar"));
+        orderDetails.add(new JLabel("   " + bike.getHandlebar().getBrand() + " " + bike.getHandlebar().getSerialNo()));
+        orderDetails.add(new JLabel("   " + handlebarCost));
+        orderDetails.add(new JLabel("Wheels"));
+        orderDetails.add(new JLabel("   " + bike.getWheels().getBrand() + " " + bike.getWheels().getSerialNo()));
+        orderDetails.add(new JLabel("   " + wheelCost));
 
-        JPanel orderDetails = new JPanel();
-        orderDetails.add(tfOrderDetails);
+        orderDetails.add(confirm);
+        orderDetails.add(cancel);
 
-        this.add(formContainer,BorderLayout.WEST);
-        this.add(orderDetails,BorderLayout.EAST);
+        this.add(formContainer);
+        this.add(orderDetails);
+
+        confirm.addActionListener(e -> {
+            int customerID = 0;
+            if (tfForename.getText().equals("") || tfSurname.getText().equals("") ||
+                    tfHouseNo.getText().equals("") || tfRoadName.getText().equals("") ||
+                    tfCityName.getText().equals("")|| tfPostcode.getText().equals("")) {
+
+            } else {
+                //make customer
+                Address address = new Address(tfHouseNo.getText(), tfRoadName.getText(), tfCityName.getText(), tfPostcode.getText());
+                Customer customer = new Customer(tfForename.getText(),  tfSurname.getText(), address);
+                try {
+                    customerID = customer.createCustomer();
+                } catch (SQLException exception) {
+                    exception.printStackTrace();
+                } finally {
+                    order.setCustomerID(customerID);
+                    order.createOrder();
+                    this.setVisible(false);
+                }
+            }
+        });
+        cancel.addActionListener(e -> {
+            this.setVisible(false);
+        });
     }
 }

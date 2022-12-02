@@ -3,9 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Staff Panels Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffBikeComponentPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/FrameSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,7 +225,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="HEAD" />
                       </list>
                     </value>
                   </entry>
