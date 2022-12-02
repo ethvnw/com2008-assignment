@@ -44,6 +44,7 @@ public class DBDriver {
 
             } catch (SQLException ex) {
                 System.out.println("Connection failed");
+                ex.printStackTrace();
             }
         }
 
