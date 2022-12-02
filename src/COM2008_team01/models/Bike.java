@@ -40,7 +40,8 @@ public class Bike {
     public Bike(String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
-                int wheelsSerial, String wheelsBrand) {
+                int wheelsSerial, String wheelsBrand,
+                double cost) {
 
         this.name = name;
 
@@ -48,9 +49,9 @@ public class Bike {
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
 
-        this.brand = frameSetBrand + " " + wheels.getTyre();
+        this.brand = frameSetBrand + " " + wheelsBrand;
 
-        this.cost = calculateCost();
+        this.cost = cost;
     }
 
     /**
@@ -62,10 +63,10 @@ public class Bike {
      * @param hb handlebar of bike
      * @param ws wheel of bike
      */
-    public Bike(int serialNo, String brand, String name, double cost,
+    public Bike(int serialNo, String brand, String name,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
-        this.serialNo = serialNo;
+        //this.serialNo = serialNo;
         this.brand = brand;
         this.name = name;
 
@@ -73,35 +74,32 @@ public class Bike {
         this.handlebar = hb;
         this.wheels = ws;
 
-        this.cost = cost;
+        this.cost = calculateCost();
     }
 
     public int createBike() throws SQLException {
+        String query = "INSERT INTO bike(bikeName, brand, serialNo, " +
+                    "frameSetSerial, frameSetBrand," +
+                    " handlebarSerial,  handlebarBrand, " +
+                    "wheelsSerial,  wheelsBrand, cost)" +
+                    " VALUES(\"" + this.name + "\", \"" + this.brand + "\", \"" + "0\", " +
+                    this.frameSet.getSerialNo() + ", \"" + this.frameSet.getBrand() + "\", " +
+                    this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand() + "\", " +
+                    this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() + "\", " + this.cost + ");";
+            Statement stmt = DBDriver.getConnection().createStatement();
+            stmt.execute(query);
+            query = "SELECT @@identity as current;";
+            ResultSet res = stmt.executeQuery(query);
 
-        String query = "INSERT INTO bike(brand, bikeName, cost, " +
-                "frameSetSerial, frameSetBrand," +
-                " handlebarSerial,  handlebarBrand, " +
-                "wheelsSerial,  wheelsBrand)" +
-                " VALUES(\""+this.brand+"\"," +
-                "\"" + this.name + "\"," + this.cost + ", " +
-                this.frameSet.getSerialNo() + ", \"" + this.frameSet.getBrand() +"\"," +
-                this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand()+"\"," +
-                this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() +"\"" +");";
+            if(res.next()) {
+                return (res.getInt(1));
+            }
 
-        Statement stmt = DBDriver.getConnection().createStatement();
-        stmt.execute(query);
-        query = "SELECT @@identity as current;";
-        ResultSet res = stmt.executeQuery(query);
+            this.frameSet.reduceQuantity(1);
+            this.handlebar.reduceQuantity(1);
+            this.wheels.reduceQuantity(1);
 
-        if(res.next()) {
-            return (res.getInt(1));
-        }
-
-        this.frameSet.reduceQuantity(1);
-        this.handlebar.reduceQuantity(1);
-        this.wheels.reduceQuantity(1);
-
-        return 0;
+            return 0;
     }
 
 
@@ -133,15 +131,36 @@ public class Bike {
             Handlebar handlebar = new Handlebar(res.getInt("handlebarSerial"), res.getString("handlebarBrand"));
             Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
 
-            return new Bike(res.getInt("serialNo"),
-                    res.getString("brand"),
+            return new Bike(
                     res.getString("bikeName"),
+                    res.getString("brand"),
                     res.getDouble("cost"),
                     frameSet, handlebar, wheels);
         }
         return null;
     }
 
+    /**
+     * To get a list of all bikes
+     * @return List of Bikes
+     * @throws SQLException to handle database queries
+     */
+    public static List<Bike> getAllBikes() throws SQLException {
+        List<Bike> bikes = new ArrayList<>();
+
+        String query = "SELECT bikeID FROM bike;";
+
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+
+        while (res.next()) {
+            bikes.add(Bike.getBike(res.getInt("bikeID")));
+        }
+
+        res.close();
+
+        return bikes;
+    }
 
     public int getQuantity() {
         return quantity;

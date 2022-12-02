@@ -1,5 +1,5 @@
 /** Represents an order.
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 2.0
  * @lastUpdated 14-11-2022 15:33
  */
@@ -54,12 +54,12 @@ public class Order {
      * Creates an order and pushed that order to the database
      */
     public void createOrder() {
-        SimpleDateFormat formatter = new SimpleDateFormat("DD/MM/YYYY");
+        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         this.date = (formatter.format(date));
-        String query = "INSERT INTO order (date, customerID, bikeID, status)" +
-                " VALUES (\""+this.date+"\", " + this.customerID + ", " + this.bikeID + ", \"" + this.status +"\");";
-
+        System.out.println(this.date);
+        String query = "INSERT INTO order (date, bikeID, customerID, status)" +
+                " VALUES (\""+this.date+"\", " + this.bikeID + ", " + this.customerID + ", \"" + this.status + "\");";
         DBDriver.processQuery(query);
     }
 
@@ -180,8 +180,8 @@ public class Order {
      * To update the order in the database.
      */
     public void updateOrder() {
-        String query = "UPDATE order " +
-                        "SET date = \"" + this.date + "\", " +
+        String query = "UPDATE team001.order " +
+                        "SET date = \"" + this.date + "\"," +
                         "status = \"" + this.status + "\", " +
                         "customerID = \"" + this.customerID +"\", " +
                         "assigned_Staff = \"" + this.assigned_Staff +"\", " +
@@ -249,18 +249,18 @@ public class Order {
         return null;
     }
 
-    public String getAssigned_Staff() {
-        return this.assigned_Staff;
-    }
-
-    public static List<Order> getPendingOrders() throws SQLException {
+    public static List<Order> getOrdersOfStatus(String status) throws SQLException {
         List<Order> orders = new ArrayList<>();
-        String query = "SELECT orderID FROM order WHERE status = Pending; ";
+        String query = "SELECT orderID FROM team001.order WHERE status = \"" + status + "\";";
         Statement stmt = DBDriver.getConnection().createStatement();
         ResultSet res = stmt.executeQuery(query);
         while(res.next()) {
             orders.add(getOrder(res.getInt("orderID")));
         }
         return orders;
+    }
+
+    public String getAssigned_Staff() {
+        return this.assigned_Staff;
     }
 }

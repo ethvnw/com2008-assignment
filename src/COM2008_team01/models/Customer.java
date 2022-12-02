@@ -1,5 +1,5 @@
 /** Represents a Customer/Shopper.
- * @author Vivek V Choradia
+ * @author Vivek V Choradia, Natalie Roberts
  * @version 1.1
  * @lastUpdated 16-11-2022 19:39
  */
@@ -55,6 +55,7 @@ public class Customer {
      * @return customer ID
      */
     public int createCustomer() throws SQLException {
+    public int createCustomer() throws SQLException {
 
         //To check whether such a customer already exists
         String query = "SELECT customerID FROM customer " +
@@ -77,6 +78,7 @@ public class Customer {
                     "VALUES (\"" + this.forename + "\", \"" +
                     this.surname + "\", \"" + this.address.houseNum + "\", \"" +
                     this.address.postcode + "\");";
+
 
             stmt.execute(query);
             query = "SELECT @@identity as current;";
@@ -150,7 +152,7 @@ public class Customer {
 
             ResultSet res = stmt.executeQuery(query);
 
-            if (res.next()) {
+            while (res.next()) {
                 return new Customer(res.getInt("customerID"),
                                     res.getString("forename"),
                                     res.getString("surname"),
@@ -236,13 +238,13 @@ public class Customer {
      * @return Customer of that orderID
      */
     public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
-        String query = "SELECT customerId from team001.order where orderID = \"" + orderID + "\";";
+        String query = "SELECT customerId from order where orderID = \"" + orderID + "\";";
 
         Statement stmt = DBDriver.getConnection().createStatement();
 
         ResultSet res = stmt.executeQuery(query);
 
-        if (res.next()) {
+        while (res.next()) {
 
             int customerID = res.getInt("customerId");
 
