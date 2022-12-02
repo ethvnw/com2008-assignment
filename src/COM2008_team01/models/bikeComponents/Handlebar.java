@@ -41,20 +41,30 @@ public class Handlebar extends BikeComponent {
     /**
      * Pushes handlebar to database
      */
-    public boolean createHandleBar() {
-        String query = "INSERT INTO handleBar " +
-                " VALUES(" + serialNo +
-                ", \"" + brand + "\", " +
-                 cost +
-                ",\"" + type + "\", " +
-                quantity + ") ;";
-        try {
-            Statement stmt = DBDriver.getConnection().createStatement();
-            stmt.execute(query);
+    public boolean createHandleBar() throws SQLException {
+
+        String query = "SELECT quantity FROM handleBar WHERE serialNo = " + serialNo + " AND brand = \"" + brand + "\" " +
+                "AND type = \""+ type + "\" AND cost = " + cost + ";";
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+        if(res.next()) {
+              int quantity = res.getInt("quantity");
+            this.quantity += quantity;
+            this.updateQuantity();
             return true;
-        }
-        catch (SQLException ex) {
-            return false;
+        } else {
+             query = "INSERT INTO handleBar " +
+                    " VALUES(" + serialNo +
+                    ", \"" + brand + "\", " +
+                    cost +
+                    ",\"" + type + "\", " +
+                    this.quantity + ") ;";
+            try {
+                stmt.execute(query);
+                return true;
+            } catch (SQLException ex) {
+                return false;
+            }
         }
     }
 

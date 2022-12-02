@@ -46,17 +46,31 @@ public class FrameSet extends BikeComponent {
     /**
      * Pushes frameset to database
      */
-    public boolean createFrameSet() {
-        String query = "INSERT INTO frameSet(serialNo, brand, cost, size, shockAbsorbers, gears, quantity) " +
-                "VALUES("+ serialNo +", \"" + brand + "\", " + cost + ", " + size + ", " +
-                shockAbsorbers + ", " + gears + ", " + quantity + ");";
-        try {
-            Statement stmt = DBDriver.getConnection().createStatement();
-            stmt.execute(query);
+    public boolean createFrameSet() throws SQLException {
+        String query = "SELECT quantity FROM frameSet WHERE " +
+                "serialNo = " + serialNo +
+                " AND  brand = \"" + brand + "\"" +
+                " AND cost = " + cost +
+                " AND size = " + size +
+                " AND shockAbsorbers = " + shockAbsorbers +
+                " AND gears = " + gears +  ";";
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+        if(res.next()) {
+            int quantity = res.getInt("quantity");
+            this.quantity += quantity;
+            this.updateQuantity();
             return true;
-        }
-        catch (SQLException ex) {
-            return false;
+        } else {
+            query = "INSERT INTO frameSet(serialNo, brand, cost, size, shockAbsorbers, gears, quantity) " +
+                    "VALUES(" + serialNo + ", \"" + brand + "\", " + cost + ", " + size + ", " +
+                    shockAbsorbers + ", " + gears + ", " + quantity + ");";
+            try {
+                stmt.execute(query);
+                return true;
+            } catch (SQLException ex) {
+                return false;
+            }
         }
     }
 

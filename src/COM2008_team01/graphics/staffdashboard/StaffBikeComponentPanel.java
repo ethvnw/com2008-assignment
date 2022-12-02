@@ -53,21 +53,21 @@ public class StaffBikeComponentPanel extends JPanel {
     private HintTextField frameSetSerial = new HintTextField(" Serial No");
     private HintTextField frameSetBrand = new HintTextField(" Brand");
     private HintTextField frameSetSize = new HintTextField(" Size");
-    private HintTextField frameSetShockAb = new HintTextField(" Shock Ab");
+    private JComboBox shockAbList = new JComboBox(new String[]{"Yes", "No"});
     private HintTextField frameSetGear = new HintTextField(" Gear");
     private HintTextField frameSetCost = new HintTextField(" Cost");
 
     private HintTextField handleBarQuantity = new HintTextField(" Quantity");
     private HintTextField handleBarSerial = new HintTextField(" Serial No");
     private HintTextField handleBarBrand = new HintTextField(" Brand");
-    private HintTextField handleBarType = new HintTextField(" Type");
+    private JComboBox hbTypeList = new JComboBox(new String[] {"Straight","High","Dropped"});
     private HintTextField handleBarCost = new HintTextField(" Cost");
 
     private HintTextField wheelQuantity = new HintTextField(" Quantity");
     private HintTextField wheelSerial = new HintTextField(" Serial No");
     private HintTextField wheelBrand = new HintTextField(" Brand");
-    private HintTextField wheelTyreType = new HintTextField(" Tyre Type");
-    private HintTextField wheelBrakesType = new HintTextField(" Brakes Type");
+    private JComboBox wheelTyreTypeList = new JComboBox(new String[] {"Mountain","Road","Hybrid"});
+    private JComboBox wheelBrakesTypeList = new JComboBox(new String[] {"Rim","Disk"});
     private HintTextField wheelCost = new HintTextField(" Cost");
 
     private JButton backButton = new JButton("Back");
@@ -91,6 +91,7 @@ public class StaffBikeComponentPanel extends JPanel {
         frameSetDetails = new JTable(new DefaultTableModel(frameColumnNames,0));
         frameSetScrollPane = new JScrollPane(frameSetDetails);
         frameSetPanel.setLayout(new BorderLayout());
+        frameSetDetails.setDefaultEditor(Object.class, null);
 
         if (!frameSetList.isEmpty()) {
             frameSetPanel.add(frameSetScrollPane);
@@ -102,7 +103,12 @@ public class StaffBikeComponentPanel extends JPanel {
                 frameColumns[1] = String.valueOf(frameSet.getSerialNo());
                 frameColumns[2] = frameSet.getBrand();
                 frameColumns[3] = String.valueOf(frameSet.getSize());
-                frameColumns[4] = String.valueOf(frameSet.getShockAbsorbers());
+                if (frameSet.getShockAbsorbers() == 0) {
+                    frameColumns[4] = "No";
+                }
+                if (frameSet.getShockAbsorbers() == 1) {
+                    frameColumns[4] = "Yes";
+                }
                 frameColumns[5] = String.valueOf(frameSet.getGears());
                 frameColumns[6] = String.valueOf(frameSet.getCost());
 
@@ -137,8 +143,8 @@ public class StaffBikeComponentPanel extends JPanel {
         addFrameSetPanel.add(frameSetSize);
 
         // Enter frame set shock absorber
-        frameSetShockAb.setPreferredSize(new Dimension(100, 25));
-        addFrameSetPanel.add(frameSetShockAb);
+        shockAbList.setPreferredSize(new Dimension(100, 25));
+        addFrameSetPanel.add(shockAbList);
 
         // Enter frame set gear
         frameSetGear.setPreferredSize(new Dimension(100, 25));
@@ -153,10 +159,13 @@ public class StaffBikeComponentPanel extends JPanel {
         addFrameSetPanel.add(frameErrorMsg);
         saveFrameSetButton.addActionListener(e->{
             try{
+                int shockAbChoice = 0;
+                String option = shockAbList.getSelectedItem().toString();
+                if (option == "Yes") shockAbChoice = 1;
                 FrameSet fm = new FrameSet(Integer.parseInt(frameSetSerial.getText()),
                         frameSetBrand.getText(),
                         Double.parseDouble(frameSetSize.getText()),
-                        Integer.parseInt(frameSetShockAb.getText()),
+                        shockAbChoice,
                         Integer.parseInt(frameSetGear.getText()),
                         Integer.parseInt(frameSetQuantity.getText()),
                         Double.parseDouble(frameSetCost.getText()));
@@ -185,6 +194,7 @@ public class StaffBikeComponentPanel extends JPanel {
         handleBarDetails = new JTable(new DefaultTableModel(handlebarColumnNames,0));
         handleBarScrollPane = new JScrollPane(handleBarDetails);
         handleBarPanel.setLayout(new BorderLayout());
+        handleBarDetails.setDefaultEditor(Object.class, null);
 
         if (!handleBarList.isEmpty()) {
             handleBarPanel.add(handleBarScrollPane);
@@ -225,8 +235,8 @@ public class StaffBikeComponentPanel extends JPanel {
         addHandleBarPanel.add(handleBarBrand);
 
         // Enter handle bar type
-        handleBarType.setPreferredSize(new Dimension(100, 25));
-        addHandleBarPanel.add(handleBarType);
+        hbTypeList.setPreferredSize(new Dimension(100, 25));
+        addHandleBarPanel.add(hbTypeList);
 
         // Enter handle bar cost
         handleBarCost.setPreferredSize(new Dimension(100, 25));
@@ -239,7 +249,7 @@ public class StaffBikeComponentPanel extends JPanel {
             try{
                 Handlebar hb = new Handlebar(Integer.parseInt(handleBarSerial.getText()),
                         handleBarBrand.getText(),
-                        handleBarType.getText(),
+                        hbTypeList.getSelectedItem().toString(),
                         Integer.parseInt(handleBarQuantity.getText()),
                         Double.parseDouble(handleBarCost.getText()));
 
@@ -267,6 +277,7 @@ public class StaffBikeComponentPanel extends JPanel {
         wheelDetails = new JTable(new DefaultTableModel(wheelColumnNames,0));
         wheelScrollPane = new JScrollPane(wheelDetails);
         wheelPanel.setLayout(new BorderLayout());
+        wheelDetails.setDefaultEditor(Object.class, null);
 
         if (!wheelList.isEmpty()) {
             wheelPanel.add(wheelScrollPane);
@@ -308,12 +319,12 @@ public class StaffBikeComponentPanel extends JPanel {
         addWheelPanel.add(wheelBrand);
 
         // Enter wheel tyre type
-        wheelTyreType.setPreferredSize(new Dimension(100, 25));
-        addWheelPanel.add(wheelTyreType);
+        wheelTyreTypeList.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelTyreTypeList);
 
         // Enter wheel brakes type
-        wheelBrakesType.setPreferredSize(new Dimension(100, 25));
-        addWheelPanel.add(wheelBrakesType);
+        wheelBrakesTypeList.setPreferredSize(new Dimension(100, 25));
+        addWheelPanel.add(wheelBrakesTypeList);
 
         // Enter wheel cost
         wheelCost.setPreferredSize(new Dimension(100, 25));
@@ -327,8 +338,8 @@ public class StaffBikeComponentPanel extends JPanel {
                 Wheel wh = new Wheel(Integer.parseInt(wheelSerial.getText()),
                         wheelBrand.getText(),
                         Double.parseDouble(wheelCost.getText()),
-                        wheelTyreType.getText(),
-                        wheelBrakesType.getText(),
+                        wheelTyreTypeList.getSelectedItem().toString(),
+                        wheelBrakesTypeList.getSelectedItem().toString(),
                         Integer.parseInt(wheelQuantity.getText()));
 
                 if (wh.createWheel()){

@@ -16,20 +16,17 @@ import javax.crypto.spec.DESedeKeySpec;
 public class Encryption {
     private static final String UNICODE_FORMAT = "UTF8";
     public static final String ENCRYPTION_SCHEME = "DESede";
-    private KeySpec ks;
-    private SecretKeyFactory skf;
-    private Cipher cipher;
+    private final Cipher cipher;
     byte[] arrayBytes;
-    private String EncryptionKey;
-    private String EncryptionScheme;
     SecretKey key;
+
     public Encryption() throws Exception {
-        EncryptionKey = "ThisisSpartaThisisSparta";
-        EncryptionScheme = ENCRYPTION_SCHEME;
-        arrayBytes = EncryptionKey.getBytes(UNICODE_FORMAT);
-        ks = new DESedeKeySpec(arrayBytes);
-        skf = SecretKeyFactory.getInstance(EncryptionScheme);
-        cipher = Cipher.getInstance(EncryptionScheme);
+        String encryptionKey = "ThisisSpartaThisisSparta";
+        String encryptionScheme = ENCRYPTION_SCHEME;
+        arrayBytes = encryptionKey.getBytes(UNICODE_FORMAT);
+        KeySpec ks = new DESedeKeySpec(arrayBytes);
+        SecretKeyFactory skf = SecretKeyFactory.getInstance(encryptionScheme);
+        cipher = Cipher.getInstance(encryptionScheme);
         key = skf.generateSecret(ks);
     }
 

@@ -10,10 +10,11 @@ import COM2008_team01.graphics.GuiFrame;
 import COM2008_team01.utilities.DBDriver;
 
 import javax.swing.*;
+import java.sql.SQLException;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
 
         //Running the static function to establish connection with database
         System.out.println("Attempting connection to database before opening app...");

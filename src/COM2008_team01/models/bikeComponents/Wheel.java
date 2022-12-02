@@ -52,17 +52,30 @@ public class Wheel extends BikeComponent {
     /**
      * Pushes wheel to database
      */
-    public boolean createWheel() {
-        String query = "INSERT INTO wheels(serialNo, brand, cost, tyre, brakes, quantity)"
-                + "VALUES(" + serialNo +", \"" + brand + "\", " + cost + ", \"" + tyre + "\", \"" + brakes +
-                "\", " + quantity + ");";
-        try {
-            Statement stmt = DBDriver.getConnection().createStatement();
-            stmt.execute(query);
+    public boolean createWheel() throws SQLException {
+        String query = "SELECT quantity FROM wheels WHERE " +
+                "serialNo = " + serialNo + " AND " +
+                "brand = \"" + brand + "\" AND " +
+                "cost = " + cost + " AND " +
+                "tyre = \"" + tyre + "\" AND " +
+                "brakes = \"" + brakes + "\";";
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+        if(res.next()) {
+            int quantity = res.getInt("quantity");
+            this.quantity += quantity;
+            this.updateQuantity();
             return true;
-        }
-        catch (SQLException ex) {
-            return false;
+        } else {
+            query = "INSERT INTO wheels(serialNo, brand, cost, tyre, brakes, quantity)"
+                    + "VALUES(" + serialNo + ", \"" + brand + "\", " + cost + ", \"" + tyre + "\", \"" + brakes +
+                    "\", " + quantity + ");";
+            try {
+                stmt.execute(query);
+                return true;
+            } catch (SQLException ex) {
+                return false;
+            }
         }
     }
 

@@ -10,12 +10,8 @@ import COM2008_team01.models.*;
 import COM2008_team01.utilities.Cookies;
 
 import javax.swing.*;
-import javax.swing.border.Border;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -215,7 +211,7 @@ public class StaffDashboardPanel extends JPanel {
                 orderColumns[0] = String.valueOf(order.getOrderID());
                 orderColumns[1] = String.valueOf(Customer.getCustomerFromOrderID(order.getOrderID()).getCustomerID());
                 orderColumns[2] = order.getDate();
-                orderColumns[3] = order.getAssigned_Staff();
+                orderColumns[3] = order.getAssignedStaff();
                 orderColumns[4] = bike.getBrand();
                 orderColumns[5] = bike.getName();
                 orderColumns[6] = bike.getHandlebar().getBrand();
@@ -253,7 +249,7 @@ public class StaffDashboardPanel extends JPanel {
                 orderColumns[0] = String.valueOf(order.getOrderID());
                 orderColumns[1] = String.valueOf(Customer.getCustomerFromOrderID(order.getOrderID()).getCustomerID());
                 orderColumns[2] = order.getDate();
-                orderColumns[3] = order.getAssigned_Staff();
+                orderColumns[3] = order.getAssignedStaff();
                 orderColumns[4] = bike.getBrand();
                 orderColumns[5] = bike.getName();
                 orderColumns[6] = bike.getHandlebar().getBrand();

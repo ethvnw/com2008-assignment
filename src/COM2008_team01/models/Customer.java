@@ -52,25 +52,43 @@ public class Customer {
 
     /**
      * To insert a customer in the database.
-     * @return customer id
+     * @return customer ID
      */
     public int createCustomer() throws SQLException {
 
-            String query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
-                    "VALUES (\""+ this.forename +"\", \""+
-                    this.surname +"\", \"" + this.address.houseNum + "\", \"" +
+        //To check whether such a customer already exists
+        String query = "SELECT customerID FROM customer " +
+                "WHERE forename = \"" + forename + "\" AND " +
+                "surname = \"" + surname + "\" AND " +
+                "houseNum = \"" + address.houseNum + "\" AND " +
+                "postcode = \"" + address.postcode + "\" ;";
+
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
+
+        if(res.next()) {
+            return res.getInt(1);
+        }
+        else {
+
+            //Inserting a new customer in the customer table and returning the ID of that customer
+
+            query = "INSERT INTO customer(forename, surname, houseNum, postcode)" +
+                    "VALUES (\"" + this.forename + "\", \"" +
+                    this.surname + "\", \"" + this.address.houseNum + "\", \"" +
                     this.address.postcode + "\");";
 
-            Statement stmt = DBDriver.getConnection().createStatement();
+
             stmt.execute(query);
             query = "SELECT @@identity as current;";
-            ResultSet res = stmt.executeQuery(query);
+            res = stmt.executeQuery(query);
 
-            if(res.next()) {
+            if (res.next()) {
                 return (res.getInt(1));
             }
 
             return 0;
+        }
     }
 
     /**
@@ -82,13 +100,11 @@ public class Customer {
     public static Customer getCustomer(int customerID) throws SQLException {
         String query = "SELECT * FROM team001.customer where customerID = " + customerID + ";";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
-
-            Statement stmt = con.createStatement();
+            Statement stmt = DBDriver.getConnection().createStatement();
 
             ResultSet res = stmt.executeQuery(query);
 
-            while (res.next()) {
+            if (res.next()) {
                 Address add = Address.findAddress(res.getString("houseNum"), res.getString("postcode"));
                 return new Customer(res.getInt("customerID"),
                         res.getString("forename"),
@@ -97,11 +113,7 @@ public class Customer {
             }
 
             res.close();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        }
-
-        return null;
+            return null;
     }
 
     /**
@@ -153,64 +165,51 @@ public class Customer {
      * @param query Query to execute
      * @return List of Customers based on the query
      */
-    public static List<Customer> getCustomers(String query) {
+    public static List<Customer> getCustomers(String query) throws SQLException {
         List<Customer> customers = new ArrayList<Customer>();
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            Statement stmt = con.createStatement();
-            ResultSet res = stmt.executeQuery(query);
-
-            while(res.next()) {
-                Customer cus = Customer.getCustomer(res.getInt("customerId"));
-                customers.add(cus);
-            }
-
-            return customers;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while(res.next()) {
+            Customer cus = Customer.getCustomer(res.getInt("customerID"));
+            customers.add(cus);
         }
 
-        return null;
+        return customers;
+
     }
 
     /**
      * To get a list of all customers
      * @return List of all Customers
      */
-    public static List<Customer> getAllCustomers() {
+    public static List<Customer> getAllCustomers() throws SQLException{
         List<Customer> customers = new ArrayList<Customer>();
 
-        String query = "SELECT * FROM customer;";
+        String query = "SELECT * FROM team001.customer;";
 
-        try (Connection con = DriverManager.getConnection(DBDriver.URL + DBDriver.DBNAME, DBDriver.USER, DBDriver.PASSWORD)) {
+        Statement stmt = DBDriver.getConnection().createStatement();
 
-            Statement stmt = con.createStatement();
+        ResultSet res = stmt.executeQuery(query);
 
-            ResultSet res = stmt.executeQuery(query);
-
-            while (res.next()) {
-                Address add = Address.findAddress(
-                        res.getString("houseNum"),
-                        res.getString("postcode")
-                );
-                Customer c = new Customer(
-                        res.getInt(1),
-                        res.getString(2),
-                        res.getString(3),
-                        add
-                );
-                customers.add(c);
-            }
-            res.close();
-            return customers;
-
-        } catch (SQLException ex) {
-            ex.printStackTrace();
+        while (res.next()) {
+            System.out.println(1);
+            Address add = Address.findAddress(
+                    res.getString("houseNum"),
+                    res.getString("postcode")
+            );
+            Customer c = new Customer(
+                    res.getInt("customerID"),
+                    res.getString("forename"),
+                    res.getString("surname"),
+                    add
+            );
+            customers.add(c);
         }
+        res.close();
+        return customers;
 
-        return null;
     }
 
     /**
@@ -219,7 +218,7 @@ public class Customer {
      * @return Customer of that orderID
      */
     public static Customer getCustomerFromOrderID (int orderID) throws SQLException {
-        String query = "SELECT customerId from team001.order where orderID = " + orderID + ";";
+        String query = "SELECT customerID FROM team001.order WHERE orderID = " + orderID + ";";
 
         Statement stmt = DBDriver.getConnection().createStatement();
 
@@ -227,7 +226,7 @@ public class Customer {
 
         while (res.next()) {
 
-            int customerID = res.getInt("customerId");
+            int customerID = res.getInt("customerID");
 
             return getCustomer(customerID);
         }
@@ -244,9 +243,9 @@ public class Customer {
         fName = fName.substring(0,1).toUpperCase() + fName.substring(1);
         sName = sName.substring(0,1).toUpperCase() + sName.substring(1);
         String query = "UPDATE customer " +
-                        "SET forename = \"" + fName + "\" ," +
+                        "SET forename = \"" + fName + "\" , " +
                         "surname = \"" + sName + "\" " +
-                        " WHERE customerId = " + this.customerID +";";
+                        " WHERE customerID = " + this.customerID +";";
 
         DBDriver.processQuery(query);
     }
@@ -267,7 +266,7 @@ public class Customer {
         String query = "UPDATE customer " +
                 "SET houseNum = \"" + houseNum + "\" ," +
                 "postcode = \"" + postcode + "\" " +
-                " WHERE customerId = " + this.customerID +";";
+                " WHERE customerID = " + this.customerID +";";
 
         DBDriver.processQuery(query);
 
