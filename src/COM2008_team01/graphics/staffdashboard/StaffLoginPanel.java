@@ -3,7 +3,6 @@
  *
  * @author Weixiang Han
  * @version 1.0
- * @lastUpdated 19/11/22 16:00
  */
 
 package COM2008_team01.graphics.staffdashboard;

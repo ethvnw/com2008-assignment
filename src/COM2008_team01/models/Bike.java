@@ -1,7 +1,6 @@
 /** Represents a Bike (Assembled Product).
  * @author Vivek V Choradia, Ethan Watts, Natalie Roberts
  * @version 1.0
- * @lastUpdated 18-11-2022 20:18
  */
 
 package COM2008_team01.models;

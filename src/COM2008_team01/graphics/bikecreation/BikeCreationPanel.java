@@ -1,7 +1,6 @@
 /** Bike creation panel
  * @author Ethan Watts, Natalie Roberts
  * @version 1.5
- * @lastUpdated 01-12-2022 23:59
  */
 
 package COM2008_team01.graphics.bikecreation;

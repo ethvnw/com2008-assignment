@@ -1,12 +1,13 @@
+/** Represents a superclass - BikeComponent.
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.2
+ */
+
 package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
 
-/** Represents a superclass - BikeComponent.
- * @author Vivek V Choradia, Natalie Roberts
- * @version 1.2
- * @lastUpdated 30/11/2022 20:15
- */
+
 public class BikeComponent {
     protected int serialNo;
     protected String brand;

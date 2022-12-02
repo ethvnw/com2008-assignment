@@ -1,7 +1,6 @@
 /** GUI Frame creation handler.
  * @author Ethan Watts
  * @version 1.1
- * @lastUpdated 14-11-2022 16:39
  */
 
 package COM2008_team01.graphics;

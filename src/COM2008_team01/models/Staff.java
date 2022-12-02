@@ -1,3 +1,8 @@
+/** Represents a Staff.
+ * @author Vivek V Choradia, Han Weixiang
+ * @version 1.0
+ */
+
 package COM2008_team01.models;
 
 import COM2008_team01.utilities.DBDriver;
@@ -9,11 +14,6 @@ import java.sql.*;
 import java.util.List;
 import java.util.Objects;
 
-/** Represents a Staff.
- * @author Vivek V Choradia, Han Weixiang
- * @version 1.0
- * @lastUpdated 14-11-2022 10:37
- */
 public class Staff {
     private String username;
     private String password;

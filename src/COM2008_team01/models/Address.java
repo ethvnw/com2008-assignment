@@ -2,7 +2,6 @@
  * Represents an address.
  * @author Vivek V Choradia
  * @version 1.1
- * @lastUpdated 16-11-2022 18:45
  */
 
 package COM2008_team01.models;

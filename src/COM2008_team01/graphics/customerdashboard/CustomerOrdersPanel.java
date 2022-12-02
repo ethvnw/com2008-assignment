@@ -1,7 +1,6 @@
 /** Panel that shows recent orders of a customer
  * @author Ethan Watts
  * @version 1.4
- * @lastUpdated 30/11/22 15:58
  */
 
 package COM2008_team01.graphics.customerdashboard;

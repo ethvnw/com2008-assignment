@@ -1,7 +1,6 @@
 /** Staff dashboard panel
  * @author Weixiang Han
  * @version 1.0
- * @lastUpdated 23/11/22 07:00
  */
 
 

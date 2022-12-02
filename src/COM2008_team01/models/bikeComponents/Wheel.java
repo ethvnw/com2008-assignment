@@ -1,7 +1,6 @@
 /** Represents a Wheel component (inherited from BikeComponent).
  * @author Vivek V Choradia
  * @version 1.0
- * @lastUpdated 14-11-2022 10:44
  */
 
 package COM2008_team01.models.bikeComponents;

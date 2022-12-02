@@ -1,7 +1,6 @@
 /** Customer Form page where asking for customer details before processing payment.
  * @author Han Weixiang, Ethan Watts, Natalie Roberts
  * @version 1.2
- * @lastUpdated 01-12-2022 23:59
  */
 
 package COM2008_team01.graphics.bikecreation;

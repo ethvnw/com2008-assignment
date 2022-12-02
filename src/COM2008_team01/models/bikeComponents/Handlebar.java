@@ -1,3 +1,8 @@
+/** Represents a Handlebar component (inherited from BikeComponent).
+ * @author Vivek V Choradia, Natalie Roberts
+ * @version 1.0
+ */
+
 package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
@@ -6,11 +11,6 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/** Represents a Handlebar component (inherited from BikeComponent).
- * @author Vivek V Choradia, Natalie Roberts
- * @version 1.0
- * @lastUpdated 30-11-2022 18:03
- */
 
 public class Handlebar extends BikeComponent {
     private String type;

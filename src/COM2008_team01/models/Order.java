@@ -1,7 +1,6 @@
 /** Represents an order.
  * @author Vivek V Choradia, Natalie Roberts
  * @version 2.0
- * @lastUpdated 14-11-2022 15:33
  */
 
 package COM2008_team01.models;

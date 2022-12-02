@@ -1,7 +1,6 @@
 /** Customer login panel - shows forms for getting specific order and viewing all details
  * @author Ethan Watts
  * @version 1.5
- * @lastUpdated 30/11/22 14:56
  */
 
 package COM2008_team01.graphics.customerdashboard;

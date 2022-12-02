@@ -1,7 +1,6 @@
 /** Customer account panel - shows all details of customer, along with all orders they've made
  * @author Ethan Watts
  * @version 1.3
- * @lastUpdated 30/11/22 14:05
  */
 
 package COM2008_team01.graphics.customerdashboard;

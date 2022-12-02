@@ -1,7 +1,6 @@
 /** Represents a Customer/Shopper.
  * @author Vivek V Choradia, Natalie Roberts
  * @version 1.1
- * @lastUpdated 16-11-2022 19:39
  */
 
 package COM2008_team01.models;
