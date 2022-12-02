@@ -6,6 +6,7 @@
 
 package COM2008_team01.graphics.bikecreation;
 
+import COM2008_team01.graphics.HintTextField;
 import COM2008_team01.models.Bike;
 import COM2008_team01.models.Order;
 import COM2008_team01.models.bikeComponents.BikeComponent;
@@ -41,7 +42,7 @@ public class BikeCreationPanel extends JPanel {
     private JLabel chosenWheel = new JLabel("", 0);
     private JLabel chosenWheelCost = new JLabel("", 0);
 
-    private JTextField bikeName;
+    private HintTextField bikeName = new HintTextField(" Bike Name");
     private JLabel totalCost = new JLabel("", 0);
     private JButton confirmOrder = new JButton("Confirm");
     private JLabel message = new JLabel("");
@@ -156,7 +157,6 @@ public class BikeCreationPanel extends JPanel {
         box.setLayout(new BoxLayout(box, BoxLayout.Y_AXIS));
         summaryPanel.setAlignmentX(Component.CENTER_ALIGNMENT);
         box.add(summaryPanel);
-        bikeName = new JTextField("Bike Name", 20);
         bikeName.setAlignmentX(Component.CENTER_ALIGNMENT);
         box.add(bikeName);
         confirmOrder.setAlignmentX(Component.CENTER_ALIGNMENT);
