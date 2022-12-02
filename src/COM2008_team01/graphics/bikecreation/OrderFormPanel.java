@@ -121,7 +121,7 @@ public class OrderFormPanel extends JPanel {
                 } finally {
                     order.setCustomerID(customerID);
                     try {
-                        order.createOrder();
+                        int orderID = order.createOrder();
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }

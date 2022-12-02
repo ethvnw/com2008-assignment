@@ -53,7 +53,7 @@ public class Order {
     /**
      * Creates an order and pushed that order to the database
      */
-    public void createOrder()throws SQLException {
+    public int createOrder()throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         this.date = (formatter.format(date));
@@ -63,9 +63,17 @@ public class Order {
         Statement stmt = DBDriver.getConnection().createStatement();
         try {
             stmt.execute(query);
+            query = "SELECT @@identity as current;";
+            ResultSet res = stmt.executeQuery(query);
+
+            if (res.next()) {
+                return (res.getInt(1));
+            }
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }
+
+            return 0;
     }
 
     /**

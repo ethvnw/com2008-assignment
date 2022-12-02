@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Order model">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/OrderFormPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/customerdashboard/CustomerAccountPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffDashboardPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Bike.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Staff.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/bikeComponents/BikeComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/Encryption.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669855101476</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="updates">
+      <created>1669982902786</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1669982902786</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -253,7 +252,8 @@
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
     <MESSAGE value="Updated Order model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Order model" />
+    <MESSAGE value="updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
