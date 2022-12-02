@@ -1,7 +1,7 @@
 /** Bike creation panel
  * @author Ethan Watts, Natalie Roberts
- * @version 1.0
- * @lastUpdated 30-11-2022 17:45
+ * @version 1.5
+ * @lastUpdated 01-12-2022 23:59
  */
 
 package COM2008_team01.graphics.bikecreation;
@@ -105,12 +105,11 @@ public class BikeCreationPanel extends JPanel {
             totalCost.setText(String.valueOf(calculateTotal()));
         });
 
-        // TODO pass in the chosen parts to a new order, and display it in OrderFormPanel
         confirmOrder.addActionListener(e -> {
-            if (chosenFrame.getText() == "" || chosenHandlebar.getText() == "" || chosenWheel.getText() == "") {
+            if (chosenFrame.getText().equals("") || chosenHandlebar.getText().equals("") || chosenWheel.getText().equals("")) {
                 message.setText("This is not a valid order");
             } else {
-                if (bikeName.getText() == "" || bikeName.getText() == "Bike Name") {
+                if (bikeName.getText().equals("")  || bikeName.getText().equals("Bike Name")) {
                     message.setText("Please enter a bike name");
                 } else {
                     Bike bike = new Bike(
@@ -120,14 +119,24 @@ public class BikeCreationPanel extends JPanel {
                             Integer.parseInt(getCellValue(handlebarParts, 1)),
                             getCellValue(handlebarParts, 0),
                             Integer.parseInt(getCellValue(wheelParts, 1)),
-                            getCellValue(wheelParts, 0)
+                            getCellValue(wheelParts, 0),
+                            calculateTotal()
                     );
-                    //bike.createBike();
-                    Order order = null;
-                    //order.createOrder();
-                    OrderFormPanel orderFormPanel = new OrderFormPanel(order);
-                    this.add(orderFormPanel,"orderFormPanel");
-                    card.show(this,"orderFormPanel");
+                    try {
+                        int bikeID = bike.createBike();
+                        Order order = new Order(bikeID);
+                        OrderFormPanel orderFormPanel = new OrderFormPanel(
+                                order,
+                                bike,
+                                Double.parseDouble(getCellValue(frameParts, 5)),
+                                Double.parseDouble(getCellValue(handlebarParts, 3)),
+                                Double.parseDouble(getCellValue(wheelParts, 4))
+                                );
+                        this.add(orderFormPanel,"orderFormPanel");
+                        card.show(this,"orderFormPanel");
+                    } catch (SQLException exception) {
+                        exception.printStackTrace();
+                    }
                 }
             }
         });
@@ -172,13 +181,13 @@ public class BikeCreationPanel extends JPanel {
         double frameCost = 0, handlebarCost = 0, wheelCost = 0;
         double total = 0.0;
         try {
-            frameCost = Double.parseDouble(frameParts.getValueAt(frameParts.getSelectedRow(), 4).toString());
+            frameCost = Double.parseDouble(getCellValue(frameParts, 5));
         } catch (Exception e) { } finally {total += frameCost;}
         try {
-            handlebarCost = Double.parseDouble(handlebarParts.getValueAt(handlebarParts.getSelectedRow(),2).toString());
+            handlebarCost = Double.parseDouble(getCellValue(handlebarParts, 3));
         } catch (Exception e) { } finally {total += handlebarCost;}
         try {
-            wheelCost = Double.parseDouble(wheelParts.getValueAt(wheelParts.getSelectedRow(),3).toString());
+            wheelCost = Double.parseDouble(getCellValue(wheelParts, 4));
         } catch (Exception e) { } finally {total += wheelCost;}
         return total + 10;
     }

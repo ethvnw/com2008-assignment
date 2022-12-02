@@ -40,7 +40,8 @@ public class Bike {
     public Bike(String name,
                 int frameSetSerial, String frameSetBrand,
                 int handlebarSerial, String handlebarBrand,
-                int wheelsSerial, String wheelsBrand) {
+                int wheelsSerial, String wheelsBrand,
+                double cost) {
 
         this.name = name;
 
@@ -48,9 +49,9 @@ public class Bike {
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
 
-        this.brand = frameSetBrand + " " + wheels.getTyre();
+        this.brand = frameSetBrand + " " + wheelsBrand;
 
-        this.cost = calculateCost();
+        this.cost = cost;
     }
 
     /**
@@ -65,7 +66,7 @@ public class Bike {
     public Bike(int serialNo, String brand, String name,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
-        this.serialNo = serialNo;
+        //this.serialNo = serialNo;
         this.brand = brand;
         this.name = name;
 
@@ -76,22 +77,29 @@ public class Bike {
         this.cost = calculateCost();
     }
 
-    public void createBike() {
+    public int createBike() throws SQLException {
+        String query = "INSERT INTO bike(bikeName, brand, serialNo, " +
+                    "frameSetSerial, frameSetBrand," +
+                    " handlebarSerial,  handlebarBrand, " +
+                    "wheelsSerial,  wheelsBrand, cost)" +
+                    " VALUES(\"" + this.name + "\", \"" + this.brand + "\", \"" + "0\", " +
+                    this.frameSet.getSerialNo() + ", \"" + this.frameSet.getBrand() + "\", " +
+                    this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand() + "\", " +
+                    this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() + "\", " + this.cost + ");";
+            Statement stmt = DBDriver.getConnection().createStatement();
+            stmt.execute(query);
+            query = "SELECT @@identity as current;";
+            ResultSet res = stmt.executeQuery(query);
 
-        String query = "INSERT INTO bike(serialNo, brand, name, cost" +
-                "frameSetSerial, frameSetBrand," +
-                " handlebarSerial,  handlebarBrand, " +
-                "wheelsSerial,  wheelsBrand)" +
-                " VALUES("+this.serialNo+", \""+this.brand+"\"," +
-                "\"" + this.name + "\"," + this.cost + ", " +
-                this.frameSet.getSerialNo() + ", \"" + this.frameSet.getBrand() +"\"," +
-                this.handlebar.getSerialNo() + ", \"" + this.handlebar.getBrand()+"\"," +
-                this.wheels.getSerialNo() + ", \"" + this.wheels.getBrand() +"\"" +");";
+            if(res.next()) {
+                return (res.getInt(1));
+            }
 
-        DBDriver.processQuery(query);
-        this.frameSet.reduceQuantity(1);
-        this.handlebar.reduceQuantity(1);
-        this.wheels.reduceQuantity(1);
+            this.frameSet.reduceQuantity(1);
+            this.handlebar.reduceQuantity(1);
+            this.wheels.reduceQuantity(1);
+
+            return 0;
     }
 
 
