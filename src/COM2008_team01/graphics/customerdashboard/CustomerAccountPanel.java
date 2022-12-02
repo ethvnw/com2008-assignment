@@ -160,7 +160,7 @@ public class CustomerAccountPanel extends JPanel {
 
                 details[0] = String.valueOf(order.getOrderID());
                 details[1] = order.getDate();
-                details[2] = order.getAssigned_Staff();
+                details[2] = order.getAssignedStaff();
                 details[3] = bike.getBrand();
                 details[4] = bike.getName();
                 details[5] = bike.getHandlebar().getBrand();

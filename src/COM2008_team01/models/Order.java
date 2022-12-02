@@ -18,7 +18,7 @@ public class Order {
     private int orderID;
     private String date;
     private String status;
-    private String assigned_Staff;
+    private String assignedStaff;
     private int customerID;
     private int bikeID;
 
@@ -38,29 +38,34 @@ public class Order {
      * @param status current status
      * @param date date of order
      * @param bikeID Bike ID
-     * @param assigned_Staff Assigned staff's ID
+     * @param assignedStaff Assigned staff's ID
      * @param customerID Customer ID
      */
-    public Order(int orderID, String status, String date, int bikeID, String assigned_Staff, int customerID) {
+    public Order(int orderID, String status, String date, int bikeID, String assignedStaff, int customerID) {
         this.orderID = orderID;
         this.date = date;
         this.customerID = customerID;
         this.bikeID = bikeID;
         this.status = status;
-        this.assigned_Staff = assigned_Staff;
+        this.assignedStaff = assignedStaff;
     }
 
     /**
      * Creates an order and pushed that order to the database
      */
-    public void createOrder() {
+    public void createOrder()throws SQLException {
         SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         Date date = new Date();
         this.date = (formatter.format(date));
-        System.out.println(this.date);
-        String query = "INSERT INTO order (date, bikeID, customerID, status)" +
+        String query = "INSERT INTO team001.order (date, bikeID, customerID, status)" +
                 " VALUES (\""+this.date+"\", " + this.bikeID + ", " + this.customerID + ", \"" + this.status + "\");";
-        DBDriver.processQuery(query);
+
+        Statement stmt = DBDriver.getConnection().createStatement();
+        try {
+            stmt.execute(query);
+        } catch (Exception ex) {
+            throw new RuntimeException(ex);
+        }
     }
 
     /**
@@ -98,10 +103,10 @@ public class Order {
 
     /**
      * Assigns a staff to complete the order
-     * @param assigned_Staff Staff's ID who is to be assigned.
+     * @param assignedStaff Staff's ID who is to be assigned.
      */
-    public void assignStaff(String assigned_Staff) {
-        this.assigned_Staff = assigned_Staff;
+    public void assignStaff(String assignedStaff) {
+        this.assignedStaff = assignedStaff;
     }
 
     /**
@@ -132,7 +137,7 @@ public class Order {
                         res.getString("status"),
                         res.getString("date"),
                         res.getInt("bikeID"),
-                        res.getString("assigned_Staff"),
+                        res.getString("assignedStaff"),
                         res.getInt("customerID")
                 );
             }
@@ -184,7 +189,7 @@ public class Order {
                         "SET date = \"" + this.date + "\"," +
                         "status = \"" + this.status + "\", " +
                         "customerID = \"" + this.customerID +"\", " +
-                        "assigned_Staff = \"" + this.assigned_Staff +"\", " +
+                        "assignedStaff = \"" + this.assignedStaff +"\", " +
                         "bikeID = \"" + this.bikeID +"\"  " +
                         "WHERE orderID = " + this.orderID + ";";
         DBDriver.processQuery(query);
@@ -260,7 +265,7 @@ public class Order {
         return orders;
     }
 
-    public String getAssigned_Staff() {
-        return this.assigned_Staff;
+    public String getAssignedStaff() {
+        return this.assignedStaff;
     }
 }

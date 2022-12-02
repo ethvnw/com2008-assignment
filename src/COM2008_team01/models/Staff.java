@@ -114,7 +114,7 @@ public class Staff {
      * To get all the customers in the database.
      * @return A list of all Customers
      */
-    public static List<Customer> getAllCustomers() {
+    public static List<Customer> getAllCustomers() throws SQLException {
         return Customer.getCustomers("SELECT customerId FROM customer");
     }
 

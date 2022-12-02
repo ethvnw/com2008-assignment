@@ -108,16 +108,23 @@ public class OrderFormPanel extends JPanel {
                     tfCityName.getText().equals("")|| tfPostcode.getText().equals("")) {
 
             } else {
-                //make customer
-                Address address = new Address(tfHouseNo.getText(), tfRoadName.getText(), tfCityName.getText(), tfPostcode.getText());
-                Customer customer = new Customer(tfForename.getText(),  tfSurname.getText(), address);
+
                 try {
+                    //make customer
+                    Address address = new Address(tfHouseNo.getText(), tfRoadName.getText(), tfCityName.getText(), tfPostcode.getText());
+                    address.createAddress();
+                    Customer customer = new Customer(tfForename.getText(),  tfSurname.getText(), address);
                     customerID = customer.createCustomer();
+
                 } catch (SQLException exception) {
                     exception.printStackTrace();
                 } finally {
                     order.setCustomerID(customerID);
-                    order.createOrder();
+                    try {
+                        order.createOrder();
+                    } catch (SQLException ex) {
+                        throw new RuntimeException(ex);
+                    }
                     this.setVisible(false);
                 }
             }

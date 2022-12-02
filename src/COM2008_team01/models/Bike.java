@@ -49,7 +49,7 @@ public class Bike {
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
         this.wheels = new Wheel(wheelsSerial, wheelsBrand);
 
-        this.brand = frameSetBrand + " " + wheelsBrand;
+        this.brand = frameSetBrand + " " + wheels.getTyre();
 
         this.cost = cost;
     }
@@ -63,10 +63,10 @@ public class Bike {
      * @param hb handlebar of bike
      * @param ws wheel of bike
      */
-    public Bike(int serialNo, String brand, String name,
+    public Bike(int serialNo, String brand, String name, double cost,
                 FrameSet fs, Handlebar hb, Wheel ws) {
 
-        //this.serialNo = serialNo;
+        this.serialNo = serialNo;
         this.brand = brand;
         this.name = name;
 
@@ -74,7 +74,7 @@ public class Bike {
         this.handlebar = hb;
         this.wheels = ws;
 
-        this.cost = calculateCost();
+        this.cost = cost;
     }
 
     public int createBike() throws SQLException {
@@ -132,8 +132,9 @@ public class Bike {
             Wheel wheels = new Wheel(res.getInt("wheelsSerial"), res.getString("wheelsBrand"));
 
             return new Bike(
-                    res.getString("bikeName"),
+                    res.getInt("serialNo"),
                     res.getString("brand"),
+                    res.getString("bikeName"),
                     res.getDouble("cost"),
                     frameSet, handlebar, wheels);
         }

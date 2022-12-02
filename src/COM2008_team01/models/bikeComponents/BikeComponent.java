@@ -2,10 +2,6 @@ package COM2008_team01.models.bikeComponents;
 
 import COM2008_team01.utilities.DBDriver;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
-
 /** Represents a superclass - BikeComponent.
  * @author Vivek V Choradia, Natalie Roberts
  * @version 1.2
