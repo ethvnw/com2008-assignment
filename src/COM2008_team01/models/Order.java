@@ -145,7 +145,7 @@ public class Order {
                         res.getString("status"),
                         res.getString("date"),
                         res.getInt("bikeID"),
-                        res.getString("assigned_staff"),
+                        res.getString("assignedStaff"),
                         res.getInt("customerID")
                 );
             }

@@ -194,7 +194,6 @@ public class Customer {
         ResultSet res = stmt.executeQuery(query);
 
         while (res.next()) {
-            System.out.println(1);
             Address add = Address.findAddress(
                     res.getString("houseNum"),
                     res.getString("postcode")

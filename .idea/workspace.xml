@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="Updated Order model">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="e75ad1e1-01d3-4925-93b9-293fc8d9d7dc" name="Changes" comment="updates">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/bikecreation/BikeCreationPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/utilities/DBDriver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffLoginPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/graphics/staffdashboard/StaffLoginPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/COM2008_team01/models/Order.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -62,6 +63,7 @@
   <component name="RunManager">
     <configuration name="COM2008" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="COM2008_team01.Main" />
+      <module name="assignment" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -205,14 +207,7 @@
       <option name="project" value="LOCAL" />
       <updated>1668964065528</updated>
     </task>
-    <task id="LOCAL-00017" summary="Updated Order model">
-      <created>1669855101476</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1669855101476</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,7 +218,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -246,8 +253,7 @@
     <MESSAGE value="Customer Panel Update Layout" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update" />
     <MESSAGE value="Staff Login &amp; Dashboard Panel Update 2.0" />
-    <MESSAGE value="Updated Order model" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Order model" />
+    <option name="LAST_COMMIT_MESSAGE" value="Staff Login &amp; Dashboard Panel Update 2.0" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

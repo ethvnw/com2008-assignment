@@ -44,7 +44,6 @@ public class StaffLoginPanel extends JPanel {
                 Staff staff = new Staff(username.getText(), password.getText());
 
                 if (staff.login() != null) {
-//                    Staff.loggedInStaff
                     StaffDashboardPanel dashboardPanel = new StaffDashboardPanel(staff);
                     this.add(dashboardPanel,"dashboardPanel");
                     card.show(this,"dashboardPanel");
