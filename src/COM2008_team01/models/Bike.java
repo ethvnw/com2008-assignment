@@ -47,7 +47,7 @@ public class Bike {
 
         this.frameSet = new FrameSet(frameSetSerial, frameSetBrand);
         this.handlebar = new Handlebar(handlebarSerial, handlebarBrand);
-        this.wheels = new Wheel(wheelsSerial, wheelsBrand);
+        this.wheels = Wheel.getWheel(wheelsSerial, wheelsBrand);
 
         this.brand = frameSetBrand + " " + wheels.getTyre();
 

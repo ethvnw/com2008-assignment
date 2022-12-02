@@ -122,6 +122,13 @@ public class OrderFormPanel extends JPanel {
                     order.setCustomerID(customerID);
                     try {
                         int orderID = order.createOrder();
+                        JDialog confirmation = new JDialog((Frame) SwingUtilities.getRoot(this),"Order Confirmed",true);
+                        confirmation.setLayout(new GridLayout(0,1));
+                        confirmation.add(new JLabel("Thanks for your order " + tfForename.getText()));
+                        confirmation.add(new JLabel("Your order number is: "  + orderID));
+                        confirmation.add(new JLabel("Please go to the front desk so we can process your payment"));
+                        confirmation.setSize(500,200);
+                        confirmation.setVisible(true);
                     } catch (SQLException ex) {
                         throw new RuntimeException(ex);
                     }
